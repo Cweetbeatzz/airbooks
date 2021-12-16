@@ -1,6 +1,7 @@
 
 import React from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components';
+import style from '.home.styles.css';
 // #####################################################################
 
 function Home() {

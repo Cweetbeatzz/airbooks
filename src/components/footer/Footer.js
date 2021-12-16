@@ -1,10 +1,9 @@
-
+import React from 'react'
+import styled from 'styled-components';
 
 function Footer(params) {
  return (<div>
-  <footer>
-    <h3>AirBooks.Com</h3>
-  </footer>
+
   </div>)
 };
 
