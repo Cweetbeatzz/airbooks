@@ -1,6 +1,16 @@
 import React from "react";
 
-function Products() {
+function Products(props) {
+  // const products = db.Products.find((x) => x.id === props.match.params.id);
+
+  // if (!products) {
+  //   return (    <div className="text-center">
+  //       <h1 className="text-info">
+  //         <strong>EMPTY CART</strong>
+  //       </h1>
+  //     </div>
+  //   </div>)
+  // }
   return (
     <div>
       <br />

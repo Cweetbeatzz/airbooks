@@ -1,6 +1,7 @@
 import React from "react";
 
-function cart() {
+function cart(props) {
+  // const cart = db.Products.find((x) => x.id === props.match.params.id);
   return (
     <div>
       <br />

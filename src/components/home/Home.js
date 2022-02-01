@@ -83,7 +83,7 @@ function Home() {
                 className="d-flex flex-row text-primary"
                 href="{{item.categories_absolute_url}}"
               >
-                <strong>name</strong>
+                <strong>CATEGORIES</strong>
               </a>
             </div>
           </div>
