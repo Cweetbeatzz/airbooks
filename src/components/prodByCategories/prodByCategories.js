@@ -4,42 +4,42 @@ function prodByCategories() {
   return (
     <div>
       <br />
-      <div class="text-center container">
-        <h1 class="text-info">
+      <div className="text-center container">
+        <h1 className="text-info">
           <strong>PRODUCT CATEGORY</strong>
         </h1>
       </div>
 
       <hr />
-      <div class="row card text-center m-3">
-        <div class="container-fluid p-5 bg-light">
-          <div class="productcontent justify-content-center justify-content-evenly">
+      <div className="row card text-center m-3">
+        <div className="container-fluid p-5 bg-light">
+          <div className="productcontent justify-content-center justify-content-evenly">
             <div>
               <h4>NO CONTENT</h4>
             </div>
-            <div class="card" style={{ width: "200px" }}>
+            <div className="card" style={{ width: "200px" }}>
               <img
-                class="card-img-top"
+                className="card-img-top"
                 src="{{ item.image.url }} "
                 style={{ width: "150px" }}
                 alt=" "
               />
-              <span class="card-body d-flex d-inline-flex mx-auto my-auto justify-content-evenly">
-                <a class="text-black" href="link">
+              <span className="card-body d-flex d-inline-flex mx-auto my-auto justify-content-evenly">
+                <a className="text-black" href="link">
                   Name
                 </a>
-                <h6 class="text-info">
+                <h6 className="text-info">
                   <strong>Price</strong>
                 </h6>
               </span>
-              <a class="btn btn-dark btn-sm m-0" href="link">
+              <a className="btn btn-dark btn-sm m-0" href="link">
                 BUY
                 <svg
                   xmlns="http://www.w3.org/2000/svg "
                   width="18"
                   height="18"
                   fill="currentColor "
-                  class="bi bi-cart3"
+                  className="bi bi-cart3"
                   viewBox="0 0 16 16 "
                 >
                   <path

@@ -6,13 +6,13 @@ import { Link } from "react-router-dom";
 function Header(params) {
   return (
     <header>
-      <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light border-bottom box-shadow">
-        <div class="container">
-          <Link class="navbar-brand" to="home">
+      <nav className="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light border-bottom box-shadow">
+        <div className="container">
+          <Link className="navbar-brand" to="home">
             <img src="images/fashion5.png" alt="" />
           </Link>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-toggle="collapse"
             data-target=".navbar-collapse"
@@ -20,51 +20,51 @@ function Header(params) {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-            <ul class="navbar-nav flex-grow-1">
-              <li class="nav-item">
-                <Link class="nav-link text-dark" to="products">
+          <div className="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+            <ul className="navbar-nav flex-grow-1">
+              <li className="nav-item">
+                <Link className="nav-link text-dark" to="products">
                   <strong>STORE</strong>
                 </Link>
               </li>
 
-              <li class="nav-item">
-                <Link class="nav-link text-dark" to="login">
+              <li className="nav-item">
+                <Link className="nav-link text-dark" to="login">
                   <strong>LOGIN</strong>
                 </Link>
               </li>
-              <li class="nav-item">
-                <Link class="nav-link text-dark" to="register">
+              <li className="nav-item">
+                <Link className="nav-link text-dark" to="register">
                   <strong>REGISTER</strong>
                 </Link>
               </li>
-              <li class="nav-item">
-                <Link class="nav-link text-dark" to="contact">
+              <li className="nav-item">
+                <Link className="nav-link text-dark" to="contact">
                   <strong>CONTACT</strong>
                 </Link>
               </li>
-              <li class="nav-item">
-                <Link class="nav-link text-dark" to="about">
+              <li className="nav-item">
+                <Link className="nav-link text-dark" to="about">
                   <strong>ABOUT US</strong>
                 </Link>
               </li>
-              {/* <li class="nav-item">
-                <Link class="nav-link text-dark" to="privacy">
+              {/* <li className="nav-item">
+                <Link className="nav-link text-dark" to="privacy">
                   <strong>PRIVACY</strong>
                 </Link>
               </li> */}
-              {/* <li class="nav-item">
-                <Link class="nav-link text-dark" to="admin">
+              {/* <li className="nav-item">
+                <Link className="nav-link text-dark" to="admin">
                   <strong>ADMIN</strong>
                 </Link>
               </li> */}
             </ul>
-            <Link class="nav-link text-dark  m-0" to="cart">
+            <Link className="nav-link text-dark  m-0" to="cart">
               CART{" "}
               <span
-                class="text-white bg-danger badge rounded-pill "
+                className="text-white bg-danger badge rounded-pill "
                 id="cartquantity"
               >
                 0
@@ -74,7 +74,7 @@ function Header(params) {
                 width="18"
                 height="18"
                 fill="currentColor "
-                class="bi bi-cart3 "
+                className="bi bi-cart3 "
                 viewBox="0 0 16 16 "
               >
                 <path
@@ -84,7 +84,7 @@ function Header(params) {
               </svg>
             </Link>
 
-            {/* <Link class="nav-link text-dark m-0" to="account">
+            {/* <Link className="nav-link text-dark m-0" to="account">
               {" "}
               ACCOUNT{" "}
               <svg
@@ -92,7 +92,7 @@ function Header(params) {
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-person-circle"
+                className="bi bi-person-circle"
                 viewBox="0 0 16 16"
               >
                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
@@ -103,7 +103,7 @@ function Header(params) {
               </svg>
             </Link> */}
 
-            {/* <Link class="nav-link text-dark" to="logout">
+            {/* <Link className="nav-link text-dark" to="logout">
               <strong>LOGOUT</strong>
             </Link> */}
           </div>

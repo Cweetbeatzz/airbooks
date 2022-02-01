@@ -9,27 +9,27 @@ function Home() {
     <div>
       <div
         id="carouselExampleSlidesOnly"
-        class="carousel slide"
+        className="carousel slide"
         data-ride="carousel"
       >
-        <div class="carousel-inner">
-          <div class="carousel-item active">
+        <div className="carousel-inner">
+          <div className="carousel-item active">
             <img
-              class="d-block border-0 w-100 m-0 p-0"
+              className="d-block border-0 w-100 m-0 p-0"
               src="images/category-strip.jpg"
               alt="First slide"
             />
           </div>
-          <div class="carousel-item">
+          <div className="carousel-item">
             <img
-              class="d-block border-0 w-100 m-0 p-0"
+              className="d-block border-0 w-100 m-0 p-0"
               src="images/HN5-45.webp"
               alt="Second slide"
             />
           </div>
-          <div class="carousel-item">
+          <div className="carousel-item">
             <img
-              class="d-block border-0 w-100 m-0 p-0"
+              className="d-block border-0 w-100 m-0 p-0"
               src="images/jewelry-store-profit.jpg"
               alt="Third slide"
             />
@@ -37,19 +37,22 @@ function Home() {
         </div>
       </div>
       {/* <!-- @*#############################################################################*@ --> */}
-      <hr class="my-4" />
-      <div class="container">
-        <form class="mx-auto">
-          <div class="d-flex justify-content-center" style={{ height: "45px" }}>
+      <hr className="my-4" />
+      <div className="container">
+        <form className="mx-auto">
+          <div
+            className="d-flex justify-content-center"
+            style={{ height: "45px" }}
+          >
             <input
-              class="pl-4 h-100 bg-light border-0 searchinput box-shadow"
+              className="pl-4 h-100 bg-light border-0 searchinput box-shadow"
               style={{ width: "700px" }}
               id=""
               name="search"
               placeholder="  What are you looking for... "
             />
             <a
-              class="searchbtn p-3 box-shadow"
+              className="searchbtn p-3 box-shadow"
               href="{% url 'products:product_search'%}"
             >
               <strong>SEARCH</strong>
@@ -58,26 +61,26 @@ function Home() {
         </form>
       </div>
       <br />
-      <div class="container beets padding" style={{ width: "400px" }}>
-        <div class="row text-center m-3">
-          <div class="col-12">
-            <div class="text-dark">
-              <h5 class="text-primary">
+      <div className="container beets padding" style={{ width: "400px" }}>
+        <div className="row text-center m-3">
+          <div className="col-12">
+            <div className="text-dark">
+              <h5 className="text-primary">
                 <strong>EXPLORE POPULAR CATEGORIES</strong>
               </h5>
-              <div class="col-6 mx-auto bg-info">
-                <hr class="w-100" />
+              <div className="col-6 mx-auto bg-info">
+                <hr className="w-100" />
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="container m-1 mx-auto">
-        <div class="row d-flex flex-row catlist" style={{ width: "50px" }}>
-          <div class="text-center bg-light mx-auto w-100">
-            <div class="d-inline-block navbar-expand-sm mt-sm-3 pl-1 pr-1 m-1">
+      <div className="container m-1 mx-auto">
+        <div className="row d-flex flex-row catlist" style={{ width: "50px" }}>
+          <div className="text-center bg-light mx-auto w-100">
+            <div className="d-inline-block navbar-expand-sm mt-sm-3 pl-1 pr-1 m-1">
               <a
-                class="d-flex flex-row text-primary"
+                className="d-flex flex-row text-primary"
                 href="{{item.categories_absolute_url}}"
               >
                 <strong>name</strong>
@@ -88,36 +91,38 @@ function Home() {
       </div>
       {/* <!-- @*#############################################################################*@ --> */}
       <div>
-        <hr class="my-4" />
+        <hr className="my-4" />
       </div>
-      <div class="container-fluid">
-        <div class="advertarea text-center justify-content-center">
+      <div className="container-fluid">
+        <div className="advertarea text-center justify-content-center">
           <div
-            class="card box-shadow text-center justify-content-center m-2"
+            className="card box-shadow text-center justify-content-center m-2"
             id="trendingwears"
           >
-            <div class="card-head">
-              <div class="section-title">
-                <h3 class="text-info">
+            <div className="card-head">
+              <div className="section-title">
+                <h3 className="text-info">
                   <strong>TRENDING WEARS</strong>
                 </h3>
-                <hr class="bg-primary m-0" />
+                <hr className="bg-primary m-0" />
               </div>
             </div>
-            <div class="card-body">
-              <div class="card mx-auto" style={{ width: "180px" }}>
+            <div className="card-body">
+              <div className="card mx-auto" style={{ width: "180px" }}>
                 <img
-                  class="card-img-top"
+                  className="card-img-top"
                   src="images/Khakis-Chinos.jpg"
                   alt=""
                   height="120"
                 />
-                <div class="card-body">
-                  <h5 class="card-title text-center">Fashion5</h5>
-                  <p class="card-text text-center">Check Unique Collections.</p>
+                <div className="card-body">
+                  <h5 className="card-title text-center">Fashion5</h5>
+                  <p className="card-text text-center">
+                    Check Unique Collections.
+                  </p>
                   <a
                     href="/products"
-                    class="btn btn-primary text-center justify-content-center"
+                    className="btn btn-primary text-center justify-content-center"
                   >
                     FIND MORE
                   </a>
@@ -125,113 +130,113 @@ function Home() {
               </div>
             </div>
           </div>
-          <div class="card box-shadow m-2" id="trendingwears">
-            <div class="card-head">
-              <div class="section-title">
-                <h2 class="text-info">
+          <div className="card box-shadow m-2" id="trendingwears">
+            <div className="card-head">
+              <div className="section-title">
+                <h2 className="text-info">
                   <strong>FEMALE FASHION</strong>
                 </h2>
               </div>
             </div>
-            <hr class="btn-primary" />
+            <hr className="btn-primary" />
 
             {/* <!-- ############################################################# --> */}
-            <div class="">
-              <div class="trendingwears justify-content-evenly">
-                <div class="" style={{ width: "120px" }}>
-                  <div class="text-center">
+            <div className="">
+              <div className="trendingwears justify-content-evenly">
+                <div className="" style={{ width: "120px" }}>
+                  <div className="text-center">
                     <img
                       src="images/HTB1VUtHcloHL1JjSZFwq6z6vpXab.jpg"
-                      class="artwork"
+                      className="artwork"
                       height="120"
                       width="150"
                       alt=""
                     />
-                    <hr class="btn-dark" />
+                    <hr className="btn-dark" />
                     <button
-                      class="btn button btn-primary btn-sm shadow"
+                      className="btn button btn-primary btn-sm shadow"
                       id="textshadow2 "
                     >
                       <strong>HAND BAGS</strong>
                     </button>
-                    <hr class="btn-dark" />
+                    <hr className="btn-dark" />
                   </div>
                 </div>
-                <div class="" style={{ width: "120px" }}>
-                  <div class="text-center">
+                <div className="" style={{ width: "120px" }}>
+                  <div className="text-center">
                     <img
                       src="images/IMG_6853.jpg"
-                      class="artwork"
+                      className="artwork"
                       height="120"
                       width="150"
                       alt=""
                     />
-                    <hr class="btn-dark" />
+                    <hr className="btn-dark" />
                     <button
-                      class="btn button btn-primary btn-sm shadow"
+                      className="btn button btn-primary btn-sm shadow"
                       id="textshadow2 "
                     >
                       <strong>LIFESTYLE</strong>
                     </button>
-                    <hr class="btn-dark" />
+                    <hr className="btn-dark" />
                   </div>
                 </div>
-                <div class="" style={{ width: "120px" }}>
-                  <div class="text-center">
+                <div className="" style={{ width: "120px" }}>
+                  <div className="text-center">
                     <img
                       src="images/ILANIS-israeli-diamond-jewelry.jpg"
-                      class="artwork"
+                      className="artwork"
                       height="120 "
                       width="150"
                       alt=""
                     />
-                    <hr class="btn-dark" />
+                    <hr className="btn-dark" />
                     <button
-                      class="btn button btn-primary btn-sm shadow"
+                      className="btn button btn-primary btn-sm shadow"
                       id="textshadow2 "
                     >
                       <strong>RINGS</strong>
                     </button>
-                    <hr class="btn-dark" />
+                    <hr className="btn-dark" />
                   </div>
                 </div>
-                <div class="" style={{ width: "120px" }}>
-                  <div class="text-center">
+                <div className="" style={{ width: "120px" }}>
+                  <div className="text-center">
                     <img
                       src="images/18-04-19.jpg"
-                      class="artwork"
+                      className="artwork"
                       height="120 "
                       width="150"
                       alt=""
                     />
-                    <hr class="btn-dark" />
+                    <hr className="btn-dark" />
                     <button
-                      class="btn button btn-primary btn-sm shadow"
+                      className="btn button btn-primary btn-sm shadow"
                       id="textshadow2 "
                     >
                       <strong>JEWERELES</strong>
                     </button>
-                    <hr class="btn-dark" />
+                    <hr className="btn-dark" />
                   </div>
                 </div>
-                <div class="" style={{ width: "120px" }}>
-                  <div class="text-center">
+                <div className="" style={{ width: "120px" }}>
+                  <div className="text-center">
                     <img
                       src="images/IMG_6841.jpg"
-                      class="artwork"
+                      className="artwork"
                       height="120 "
                       width="150"
                       alt=""
                     />
-                    <div class="mx-auto">
-                      <hr class="btn-dark" />
+                    <div className="mx-auto">
+                      <hr className="btn-dark" />
                       <button
-                        class="btn button btn-primary btn-sm shadow"
+                        className="btn button btn-primary btn-sm shadow"
                         id="textshadow2 "
                       >
                         <strong>CAUSAL WEARS</strong>
                       </button>
-                      <hr class="btn-dark" />
+                      <hr className="btn-dark" />
                     </div>
                   </div>
                 </div>
@@ -243,26 +248,26 @@ function Home() {
       <br />
 
       {/* <!-- @*#######################################################################*@ --> */}
-      <hr class="btn-primary" />
+      <hr className="btn-primary" />
 
       <br />
       <br />
-      <div class="container">
-        <div class="row mx-auto">
-          <div class="col-12 my-auto mx-auto">
-            <div class=" ">
+      <div className="container">
+        <div className="row mx-auto">
+          <div className="col-12 my-auto mx-auto">
+            <div className=" ">
               <h1
-                class="font-weight-bold py-0 pl-4 textshadow2 pb-1 text-center bg-primary"
+                className="font-weight-bold py-0 pl-4 textshadow2 pb-1 text-center bg-primary"
                 id="TXT "
               >
                 <strong>FIND WHATS HOT!!!</strong>
               </h1>
               <br />
-              <div class="text-center">
-                <h6 class="text-black" id="textshadow2 ">
+              <div className="text-center">
+                <h6 className="text-black" id="textshadow2 ">
                   <i>Get Glued with the latest trending Wears... </i>
                   <span>
-                    <Link to="products" class="btn btn-primary">
+                    <Link to="products" className="btn btn-primary">
                       <strong>EXPLORE WEARS</strong>
                     </Link>
                   </span>
@@ -274,168 +279,172 @@ function Home() {
       </div>
       <br />
       <br />
-      <hr class="btn-primary" />
+      <hr className="btn-primary" />
 
       {/* <!-- @*#############################################################################*@ --> */}
-      <div class="container">
-        <div class="col-6 mx-auto">
-          <div class="text-center mx-auto">
-            <h3 class="text-primary">
+      <div className="container">
+        <div className="col-6 mx-auto">
+          <div className="text-center mx-auto">
+            <h3 className="text-primary">
               <strong>FEATURED</strong>
             </h3>
-            <div class="col-6 mx-auto bg-info">
-              <hr class="w-50" />
+            <div className="col-6 mx-auto bg-info">
+              <hr className="w-50" />
             </div>
           </div>
         </div>
       </div>
       {/* <!-- @*#############################################################################*@ --> */}
-      <div class="text-center">
-        <h6 class="pinktext m-2">
+      <div className="text-center">
+        <h6 className="pinktext m-2">
           <i>Instant access to the most popular products...</i>
         </h6>
       </div>
-      <hr class="btn-info" />
-      <div class="container-fluid p-5 bg-light">
-        <div class="productcontent justify-content-center justify-content-evenly">
-          <div class="card" style={{ width: "200px" }}>
+      <hr className="btn-info" />
+      <div className="container-fluid p-5 bg-light">
+        <div className="productcontent justify-content-center justify-content-evenly">
+          <div className="card" style={{ width: "200px" }}>
             <img
-              class="card-img-top"
+              className="card-img-top"
               src="images/IMG_6840.jpg"
               style={{ height: "150px" }}
               alt=" "
             />
-            <div class="card-body">
-              <p class="card-text bg-info text-white text-center">
-                CLASSIC JEWERELES
+            <div className="card-body">
+              <p className="card-text bg-info text-white text-center">
+                classNameIC JEWERELES
               </p>
             </div>
           </div>
-          <div class="card" style={{ width: "200px" }}>
+          <div className="card" style={{ width: "200px" }}>
             <img
-              class="card-img-top"
+              className="card-img-top"
               src="images/1c3sveh71ipt.jpg"
               style={{ height: "150px" }}
               alt=" "
             />
-            <div class="card-body">
-              <p class="card-text bg-dark text-white text-center">BAGS</p>
+            <div className="card-body">
+              <p className="card-text bg-dark text-white text-center">BAGS</p>
             </div>
           </div>
-          <div class="card" style={{ width: "200px" }}>
+          <div className="card" style={{ width: "200px" }}>
             <img
-              class="card-img-top"
+              className="card-img-top"
               src="images/11 (5).jpg"
               style={{ height: "150px" }}
               alt=" "
             />
-            <div class="card-body">
-              <p class="card-text bg-info text-white text-center">
+            <div className="card-body">
+              <p className="card-text bg-info text-white text-center">
                 PRADA JACKET
               </p>
             </div>
           </div>
-          <div class="card" style={{ width: "200px" }}>
+          <div className="card" style={{ width: "200px" }}>
             <img
-              class="card-img-top"
+              className="card-img-top"
               src="images/11 (4).jpg"
               style={{ height: "150px" }}
               alt=" "
             />
-            <div class="card-body">
-              <p class="card-text bg-dark text-white text-center">KIDS</p>
+            <div className="card-body">
+              <p className="card-text bg-dark text-white text-center">KIDS</p>
             </div>
           </div>
-          <div class="card" style={{ width: "200px" }}>
+          <div className="card" style={{ width: "200px" }}>
             <img
-              class="card-img-top"
+              className="card-img-top"
               src="images/istockphoto-650233226-170667a.jpg"
               style={{ height: "150px" }}
               alt=" "
             />
-            <div class="card-body">
-              <p class="card-text bg-info text-white text-center">
+            <div className="card-body">
+              <p className="card-text bg-info text-white text-center">
                 ROLEX WATCHES
               </p>
             </div>
           </div>
-          <div class="card" style={{ width: "200px" }}>
+          <div className="card" style={{ width: "200px" }}>
             <img
-              class="card-img-top"
+              className="card-img-top"
               src="images/jeans-denim-pants-clothing.jpg"
               style={{ height: "150px" }}
               alt=" "
             />
-            <div class="card-body">
-              <p class="card-text bg-dark text-white text-center">JEANS</p>
+            <div className="card-body">
+              <p className="card-text bg-dark text-white text-center">JEANS</p>
             </div>
           </div>
-          <div class="card" style={{ width: "200px" }}>
+          <div className="card" style={{ width: "200px" }}>
             <img
-              class="card-img-top"
+              className="card-img-top"
               src="images/Business-Casual-Dress-Code-Guide-for-Men-Business-Casual-Shoes.jpg"
               style={{ height: "150px" }}
               alt=" "
             />
-            <div class="card-body">
-              <p class="card-text bg-info text-white text-center">SHOES</p>
+            <div className="card-body">
+              <p className="card-text bg-info text-white text-center">SHOES</p>
             </div>
           </div>
-          <div class="card" style={{ width: "200px" }}>
+          <div className="card" style={{ width: "200px" }}>
             <img
-              class="card-img-top"
+              className="card-img-top"
               src="images/11 (8).jpg"
               style={{ height: "150px" }}
               alt=" "
             />
-            <div class="card-body">
-              <p class="card-text bg-dark text-white text-center">UNDERWEARS</p>
+            <div className="card-body">
+              <p className="card-text bg-dark text-white text-center">
+                UNDERWEARS
+              </p>
             </div>
           </div>
-          <div class="card" style={{ width: "200px" }}>
+          <div className="card" style={{ width: "200px" }}>
             <img
-              class="card-img-top"
+              className="card-img-top"
               src="images/11 (9).jpg "
               style={{ height: "150px" }}
               alt=" "
             />
-            <div class="card-body">
-              <p class="card-text bg-info text-white text-center">FACE CAPS</p>
+            <div className="card-body">
+              <p className="card-text bg-info text-white text-center">
+                FACE CAPS
+              </p>
             </div>
           </div>
-          <div class="card" style={{ width: "200px" }}>
+          <div className="card" style={{ width: "200px" }}>
             <img
-              class="card-img-top"
+              className="card-img-top"
               src="images/quince.jpg"
               style={{ height: "150px" }}
               alt=" "
             />
-            <div class="card-body">
-              <p class="card-text bg-dark text-white text-center">GOWNS</p>
+            <div className="card-body">
+              <p className="card-text bg-dark text-white text-center">GOWNS</p>
             </div>
           </div>
-          <div class="card" style={{ width: "200px" }}>
+          <div className="card" style={{ width: "200px" }}>
             <img
-              class="card-img-top"
+              className="card-img-top"
               src="images/weddings-2012-12-ball-gown-dress-main.webp "
               style={{ height: "150px" }}
               alt=" "
             />
-            <div class="card-body">
-              <p class="card-text bg-info text-white text-center">
+            <div className="card-body">
+              <p className="card-text bg-info text-white text-center">
                 WEDDING COLLECTIONS
               </p>
             </div>
           </div>
-          <div class="card" style={{ width: "200px" }}>
+          <div className="card" style={{ width: "200px" }}>
             <img
-              class="card-img-top"
+              className="card-img-top"
               src="images/tuxedo-jacket-1626717873.jpg "
               style={{ height: "150px" }}
               alt=" "
             />
-            <div class="card-body">
-              <p class="card-text bg-dark text-white text-center">
+            <div className="card-body">
+              <p className="card-text bg-dark text-white text-center">
                 OFFICE COLLECTION
               </p>
             </div>
@@ -444,49 +453,49 @@ function Home() {
       </div>
       <br />
       {/* <!-- @*#############################################################################*@ --> */}
-      <div class="container">
-        <div class="col-6 mx-auto">
-          <div class="text-center mx-auto">
-            <h3 class="text-primary">
+      <div className="container">
+        <div className="col-6 mx-auto">
+          <div className="text-center mx-auto">
+            <h3 className="text-primary">
               <strong>COLLECTIONS</strong>
             </h3>
-            <div class="col-6 mx-auto bg-info">
-              <hr class="w-50" />
+            <div className="col-6 mx-auto bg-info">
+              <hr className="w-50" />
             </div>
           </div>
         </div>
       </div>
       {/* <!-- @*#############################################################################*@ --> */}
-      <div class="text-center">
-        <h6 class="pinktext m-2">
+      <div className="text-center">
+        <h6 className="pinktext m-2">
           <i>
             Take a Glimpse at these fashion items ready for Purchase that will
             make you look Outstanding...
           </i>
         </h6>
       </div>
-      <hr class="btn-info" />
+      <hr className="btn-info" />
       {/* <!-- @*#######################################################################*@ --> */}
 
-      <div class="container-fluid p-5 bg-light">
-        <div class="productcontent justify-content-center justify-content-evenly">
-          <div class="card" style={{ width: "200px" }}>
+      <div className="container-fluid p-5 bg-light">
+        <div className="productcontent justify-content-center justify-content-evenly">
+          <div className="card" style={{ width: "200px" }}>
             <img
-              class="card-img-top"
+              className="card-img-top"
               src="images/1c3sveh71ipt.jpg "
               style={{ height: "150px" }}
               alt=" "
             />
-            <span class="card-body d-flex justify-content-center justify-content-evenly">
-              <a class="text-black" href="{{item.get_absolute_url}}">
+            <span className="card-body d-flex justify-content-center justify-content-evenly">
+              <a className="text-black" href="{{item.get_absolute_url}}">
                 Gucci Bags
               </a>
-              <h6 class="text-info mt-1">
+              <h6 className="text-info mt-1">
                 <strong>$156.99</strong>
               </h6>
             </span>
             <a
-              class="btn btn-dark btn-sm m-0 text-white"
+              className="btn btn-dark btn-sm m-0 text-white"
               id="addtocart"
               value="{{item.id}}"
               href="link"
@@ -497,7 +506,7 @@ function Home() {
                 width="18"
                 height="18"
                 fill="currentColor "
-                class="bi bi-cart3"
+                className="bi bi-cart3"
                 viewBox="0 0 16 16 "
               >
                 <path

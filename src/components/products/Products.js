@@ -4,32 +4,32 @@ function Products() {
   return (
     <div>
       <br />
-      <div class="text-center container">
-        <h1 class="text-info">
+      <div className="text-center container">
+        <h1 className="text-info">
           <strong>PRODUCTS</strong>
         </h1>
       </div>
       <hr />
 
-      <div class="container-fluid p-5 bg-light">
-        <div class="productcontent justify-content-center justify-content-evenly">
-          <div class="card" style={{ width: "200px" }}>
+      <div className="container-fluid p-5 bg-light">
+        <div className="productcontent justify-content-center justify-content-evenly">
+          <div className="card" style={{ width: "200px" }}>
             <img
-              class="card-img-top w-100"
+              className="card-img-top w-100"
               src="images/1c3sveh71ipt.jpg "
               style={{ width: "150px" }}
               alt=" "
             />
-            <span class="card-body d-flex justify-content-evenly">
-              <a class="text-black" href="link">
+            <span className="card-body d-flex justify-content-evenly">
+              <a className="text-black" href="link">
                 Name
               </a>
-              <h6 class="text-info">
+              <h6 className="text-info">
                 <strong>Price</strong>
               </h6>
             </span>
             <button
-              class="btn btn-dark btn-sm m-0 addtocart text-white"
+              className="btn btn-dark btn-sm m-0 addtocart text-white"
               id="addtocart"
               value=""
               data-action="add"
@@ -41,7 +41,7 @@ function Products() {
                 width="18"
                 height="18"
                 fill="currentColor "
-                class="bi bi-cart3"
+                className="bi bi-cart3"
                 viewBox="0 0 16 16 "
               >
                 <path

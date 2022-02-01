@@ -4,15 +4,15 @@ function cart() {
   return (
     <div>
       <br />
-      <div class="text-center">
-        <h1 class="text-info">
+      <div className="text-center">
+        <h1 className="text-info">
           <strong>CART</strong>
         </h1>
       </div>
       <hr />
-      <div class="text-center container card box-shadow">
-        <table class="table justify-content-center text-center">
-          <thead class="mt-3 pt-3 p-3">
+      <div className="text-center container card box-shadow">
+        <table className="table justify-content-center text-center">
+          <thead className="mt-3 pt-3 p-3">
             <tr>
               <th>PRODUCT</th>
               <th>QUANTITY</th>
@@ -28,21 +28,21 @@ function cart() {
               <td>
                 <a
                   id="AddToCart"
-                  class="btn btn-primary btn-sm mx-1"
+                  className="btn btn-primary btn-sm mx-1"
                   href="link"
                 >
                   +
                 </a>
                 <a
                   id="DecreaseFromCart"
-                  class="btn btn-warning btn-sm mx-1"
+                  className="btn btn-warning btn-sm mx-1"
                   href="link"
                 >
                   -
                 </a>
                 <a
                   id="DeleteFromCart"
-                  class="btn btn-danger btn-sm mx-1"
+                  className="btn btn-danger btn-sm mx-1"
                   href="link"
                 >
                   <svg
@@ -50,7 +50,7 @@ function cart() {
                     width="16"
                     height="16"
                     fill="currentColor"
-                    class="bi bi-trash"
+                    className="bi bi-trash"
                     viewBox="0 0 16 16"
                   >
                     <path
@@ -71,20 +71,20 @@ function cart() {
             </tr>
           </tbody>
 
-          <tr class="">
-            <td class="text-center mx-auto" colspan="5">
-              <h6 class="text-danger span">
+          <tr className="">
+            <td className="text-center mx-auto" colspan="5">
+              <h6 className="text-danger span">
                 <strong>GRAND TOTAL:</strong>
               </h6>
               $0
             </td>
           </tr>
           <tr className="mt-2">
-            <td class="text-right mt-2" colspan="5">
-              <a class="btn bg-warning mt-4 mx-2" href="link">
+            <td className="text-right mt-2" colspan="5">
+              <a className="btn bg-warning mt-4 mx-2" href="link">
                 CLEAR CART
               </a>
-              <a class="btn bg-primary mt-4 text-white" href="link">
+              <a className="btn bg-primary mt-4 text-white" href="link">
                 CHECKOUT
               </a>
             </td>
@@ -93,8 +93,8 @@ function cart() {
       </div>
       <br />
 
-      <div class="text-center">
-        <h1 class="text-info">
+      <div className="text-center">
+        <h1 className="text-info">
           <strong>EMPTY CART</strong>
         </h1>
       </div>
