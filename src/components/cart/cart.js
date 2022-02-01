@@ -26,19 +26,23 @@ function cart() {
               <td>name</td>
               <td>Quantity</td>
               <td>
-                <a id="AddToCart" class="btn btn-primary btn-sm" href="link">
+                <a
+                  id="AddToCart"
+                  class="btn btn-primary btn-sm mx-1"
+                  href="link"
+                >
                   +
                 </a>
                 <a
                   id="DecreaseFromCart"
-                  class="btn btn-warning btn-sm"
+                  class="btn btn-warning btn-sm mx-1"
                   href="link"
                 >
                   -
                 </a>
                 <a
                   id="DeleteFromCart"
-                  class="btn btn-danger btn-sm"
+                  class="btn btn-danger btn-sm mx-1"
                   href="link"
                 >
                   <svg
@@ -75,12 +79,12 @@ function cart() {
               $0
             </td>
           </tr>
-          <tr>
-            <td class="text-right" colspan="5">
-              <a class="btn btn-warning" href="link">
+          <tr className="mt-2">
+            <td class="text-right mt-2" colspan="5">
+              <a class="btn bg-warning mt-4 mx-2" href="link">
                 CLEAR CART
               </a>
-              <a class="btn btn-primary" href="link">
+              <a class="btn bg-primary mt-4 text-white" href="link">
                 CHECKOUT
               </a>
             </td>
@@ -88,6 +92,7 @@ function cart() {
         </table>
       </div>
       <br />
+
       <div class="text-center">
         <h1 class="text-info">
           <strong>EMPTY CART</strong>

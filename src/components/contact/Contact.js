@@ -4,6 +4,9 @@ import styled from "styled-components";
 function Contact() {
   return (
     <div className="container">
+      <br />
+      <br />
+      <br />
       <div className="card box-shadow">
         <div className="card-head">
           <div className="section-title">
@@ -23,7 +26,7 @@ function Contact() {
                     <input
                       type="hidden"
                       name="id"
-                      className=" form-control "
+                      className=" form-control mb-2"
                       id="name"
                       asp-for="Id"
                       style={{ width: "400px" }}
@@ -34,7 +37,7 @@ function Contact() {
                       asp-validation-summary="ModelOnly"
                     ></div>
 
-                    <div className="form-group ">
+                    <div className="form-group mb-2">
                       <input
                         type="text"
                         name="name"
@@ -50,7 +53,7 @@ function Contact() {
                         ></span>
                       </div>
                     </div>
-                    <div className=" form-group">
+                    <div className=" form-group mb-2">
                       <input
                         type="email"
                         className="form-control "
@@ -66,7 +69,7 @@ function Contact() {
                         ></span>
                       </div>
                     </div>
-                    <div className="form-group ">
+                    <div className="form-group mb-2">
                       <input
                         type="text"
                         className="form-control "
@@ -82,7 +85,7 @@ function Contact() {
                         ></span>
                       </div>
                     </div>
-                    <div className="form-group ">
+                    <div className="form-group mb-2">
                       <textarea
                         className="form-control "
                         placeholder="Message "
@@ -99,13 +102,14 @@ function Contact() {
                         ></span>
                       </div>
                     </div>
-                    <div className="mb-3 ">
+                    <br />
+                    {/* <div className="mb-3 ">
                       <div className="loading ">Loading</div>
                       <div className="error-message "></div>
                       <div className="sent-message ">
                         Your message has been sent. Thank you!
                       </div>
-                    </div>
+                    </div> */}
                     <div className="text-center ">
                       <button
                         type="submit"
@@ -122,6 +126,11 @@ function Contact() {
           </section>
         </div>
       </div>
+      <br />
+      <br />
+      <br /> <br />
+      <br />
+      <br />
     </div>
   );
 }

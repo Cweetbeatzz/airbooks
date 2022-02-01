@@ -50,18 +50,18 @@ function Header(params) {
                   <strong>ABOUT US</strong>
                 </Link>
               </li>
-              <li class="nav-item">
+              {/* <li class="nav-item">
                 <Link class="nav-link text-dark" to="privacy">
                   <strong>PRIVACY</strong>
                 </Link>
-              </li>
-              <li class="nav-item">
+              </li> */}
+              {/* <li class="nav-item">
                 <Link class="nav-link text-dark" to="admin">
                   <strong>ADMIN</strong>
                 </Link>
-              </li>
+              </li> */}
             </ul>
-            <Link class="btn btn-default btn-sm  m-0" to="cart">
+            <Link class="nav-link text-dark  m-0" to="cart">
               CART{" "}
               <span
                 class="text-white bg-danger badge rounded-pill "
@@ -83,7 +83,8 @@ function Header(params) {
                 />
               </svg>
             </Link>
-            <Link class="btn btn-default btn-sm m-0" to="account">
+
+            {/* <Link class="nav-link text-dark m-0" to="account">
               {" "}
               ACCOUNT{" "}
               <svg
@@ -100,10 +101,11 @@ function Header(params) {
                   d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
                 />
               </svg>
-            </Link>
-            <a class="nav-link text-dark" href="link" to="logout">
+            </Link> */}
+
+            {/* <Link class="nav-link text-dark" to="logout">
               <strong>LOGOUT</strong>
-            </a>
+            </Link> */}
           </div>
         </div>
       </nav>

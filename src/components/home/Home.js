@@ -6,7 +6,7 @@ import styles from "./home.styles.css";
 
 function Home() {
   return (
-    <Container>
+    <div>
       <div
         id="carouselExampleSlidesOnly"
         class="carousel slide"
@@ -473,16 +473,16 @@ function Home() {
           <div class="card" style={{ width: "200px" }}>
             <img
               class="card-img-top"
-              src="{{ item.image.url }} "
+              src="images/1c3sveh71ipt.jpg "
               style={{ height: "150px" }}
               alt=" "
             />
             <span class="card-body d-flex justify-content-center justify-content-evenly">
               <a class="text-black" href="{{item.get_absolute_url}}">
-                name
+                Gucci Bags
               </a>
               <h6 class="text-info mt-1">
-                <strong>price</strong>
+                <strong>$156.99</strong>
               </h6>
             </span>
             <a
@@ -509,7 +509,14 @@ function Home() {
           </div>
         </div>
       </div>
-    </Container>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+    </div>
   );
 }
 // #####################################################################

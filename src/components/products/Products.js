@@ -15,8 +15,8 @@ function Products() {
         <div class="productcontent justify-content-center justify-content-evenly">
           <div class="card" style={{ width: "200px" }}>
             <img
-              class="card-img-top"
-              src="{{ item.image.url }} "
+              class="card-img-top w-100"
+              src="images/1c3sveh71ipt.jpg "
               style={{ width: "150px" }}
               alt=" "
             />

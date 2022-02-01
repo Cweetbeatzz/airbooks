@@ -15,6 +15,11 @@ import ProdCategories from "./components/prodByCategories/ProdByCategories";
 import Register from "./components/register/Register";
 import Login from "./components/login/Login";
 import Dashboard from "./components/dashboard/Dashboard";
+import Contact from "./components/contact/Contact";
+import About from "./components/about/About";
+import Privacy from "./components/privacy/Privacy";
+import Admin from "./components/admin/Admin";
+import Account from "./components/account/Account";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -42,6 +47,11 @@ function App() {
           <Route path="Register" element={<Register />} />
           <Route path="Login" element={<Login />} />
           <Route path="Dashboard" element={<Dashboard />} />
+          <Route path="Contact" element={<Contact />} />
+          <Route path="About" element={<About />} />
+          <Route path="Privacy" element={<Privacy />} />
+          <Route path="Admin" element={<Admin />} />
+          <Route path="Account" element={<Account />} />
         </Routes>
 
         <Footer />
