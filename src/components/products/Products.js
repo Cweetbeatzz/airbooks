@@ -1,16 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 function Products(props) {
-  // const products = db.Products.find((x) => x.id === props.match.params.id);
+  const [products, setProducts] = useState([]);
+  const [loadingState, setLoadingState] = useState(false);
+  const [errorState, setErrorState] = useState(false);
 
-  // if (!products) {
-  //   return (    <div className="text-center">
-  //       <h1 className="text-info">
-  //         <strong>EMPTY CART</strong>
-  //       </h1>
-  //     </div>
-  //   </div>)
-  // }
+  //##########################################################
+
+  const getAllProducts = async () => {
+    try {
+      //get all products
+      setLoadingState(true);
+      const data = await axios.get("/api/products");
+      setLoadingState(false);
+      setProducts(data);
+    } catch (error) {
+      //alert if theres an error
+      setErrorState(error.message);
+      setLoadingState(false);
+    }
+  };
+
+  //##########################################################
+
+  useEffect(() => {
+    getAllProducts();
+  }, []);
+
+  //##########################################################
+
   return (
     <div>
       <br />
