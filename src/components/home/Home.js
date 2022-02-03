@@ -330,7 +330,7 @@ function Home() {
           <div className="card" style={{ width: "200px" }}>
             <img
               className="card-img-top"
-              src="images/11 (5).jpg"
+              src="images/11(5).jpg"
               style={{ height: "150px" }}
               alt=" "
             />
@@ -343,7 +343,7 @@ function Home() {
           <div className="card" style={{ width: "200px" }}>
             <img
               className="card-img-top"
-              src="images/11 (4).jpg"
+              src="images/11(4).jpg"
               style={{ height: "150px" }}
               alt=" "
             />
@@ -389,7 +389,7 @@ function Home() {
           <div className="card" style={{ width: "200px" }}>
             <img
               className="card-img-top"
-              src="images/11 (8).jpg"
+              src="images/11(8).jpg"
               style={{ height: "150px" }}
               alt=" "
             />
@@ -402,7 +402,7 @@ function Home() {
           <div className="card" style={{ width: "200px" }}>
             <img
               className="card-img-top"
-              src="images/11 (9).jpg "
+              src="images/11(9).jpg "
               style={{ height: "150px" }}
               alt=" "
             />
