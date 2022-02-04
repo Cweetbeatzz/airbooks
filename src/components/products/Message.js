@@ -1,11 +1,9 @@
 import React from "react";
 
-function Error(props) {
+export default function Message(props) {
   return (
     <div className={`alert alert-${props.variant || "info"} `}>
       {props.children}
     </div>
   );
 }
-
-export default Error;

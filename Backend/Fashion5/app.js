@@ -1,10 +1,11 @@
 const express = require("express");
-const usersRouter = require("./Routes/users");
-const categoryRouter = require("./Routes/category.js");
-const productsRouter = require("./Routes/products");
+require("dotenv").config();
+// const usersRouter = require("./Routes/users");
+// const categoryRouter = require("./Routes/category");
+// const productsRouter = require("./Routes/products");
 const app = express();
 const db = require("./Database/connection");
-// require("express-async-errors");
+require("express-async-errors");
 
 //<----------- middlewares ---------------->
 //use static files
@@ -13,15 +14,15 @@ app.use(express.json());
 
 //
 app.get("/", (req, res) => {
-  res.send(`<h2>Welcome to Fashion5</h3>`);
+  res.send(`<h2>Welcome to Fashion5 API</h3>`);
 });
 
 //#############################################################
 
 //<----------- routes ---------------->
-app.use("/api/v1/products", productsRouter);
-app.use("/api/v1/users", usersRouter);
-app.use("/api/v1/category", categoryRouter);
+// app.use("/api/v1/products", productsRouter);
+// app.use("/api/v1/users", usersRouter);
+// app.use("/api/v1/category", categoryRouter);
 
 const port = process.env.PORT || 6800;
 
@@ -30,7 +31,7 @@ const port = process.env.PORT || 6800;
 //database check
 const startDB = async () => {
   try {
-    await db();
+    await db(process.env.MONGO_DB_CONNECTION_STRING);
     //server connection
     app.listen(
       port,

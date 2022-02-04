@@ -1,9 +1,10 @@
-const connectionString = process.env.MONGO_DB_CONNECTION_STRING;
 //########################################################################
 const mongoose = require("mongoose");
 
-const connection = () => {
-  return mongoose.connect(connectionString, {
+//########################################################################
+
+const connection = (url) => {
+  return mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });

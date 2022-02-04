@@ -2,8 +2,9 @@
   "name": "fashion5",
   "version": "1.0.0",
   "description": "Backend Express Server",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
+    "start":"node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
