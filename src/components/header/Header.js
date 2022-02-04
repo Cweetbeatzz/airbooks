@@ -2,8 +2,13 @@ import React, { useState } from "react";
 import { ReactDOM } from "react";
 import { Container } from "./Header.styles";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Header(params) {
+  //
+  // const cart = useSelector((state) => state.cart);
+  // const { cartItems } = cart;
+  //#######################################################################
   return (
     <header>
       <nav className="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-light border-bottom box-shadow">

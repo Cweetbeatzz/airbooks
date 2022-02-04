@@ -3,14 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { productDetailsAction } from "../../actions/productsActions";
 
 function ProductDetails(props) {
-  // const dispatch = useDispatch();
-  // const productId = props.match.params.id;
-  // const productDetails = useSelector((state) => state.productDetails);
-  // const { loading, error, product } = productDetails;
+  const dispatch = useDispatch();
+  const productId = props.match.params.id;
+  const productDetails = useSelector((state) => state.productDetails);
+  const { loading, error, product } = productDetails;
 
-  // useEffect(() => {
-  //   dispatch(productDetailsAction(productId));
-  // }, [dispatch, productId]);
+  useEffect(() => {
+    dispatch(productDetailsAction(productId));
+  }, [dispatch, productId]);
 
   return (
     <div>

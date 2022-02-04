@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { addToCartAction } from "../../actions/cartActions";
 
-function cart(props) {
-  // const cart = db.Products.find((x) => x.id === props.match.params.id);
+function Cart(props) {
+  //
+  // const dispatch = useDispatch();
+  // const productId = props.match.params.id;
+  // const qty = props.location.search
+  //   ? Number(props.location.search.split("=")[1])
+  //   : 1;
+
+  // useEffect(() => {
+  //   if (productId) {
+  //     dispatch(addToCartAction(productId, qty));
+  //   }
+  // }, [dispatch, productId, qty]);
+
+  //#####################################################
   return (
     <div>
       <br />
@@ -103,4 +118,4 @@ function cart(props) {
   );
 }
 
-export default cart;
+export default Cart;

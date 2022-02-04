@@ -5,10 +5,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { productListAction } from "../../actions/productsActions";
 
 function Products(props) {
+  // const [quantity, setQuantity] = useState(1);
+  // const productId = props.match.params.id;
   // const dispatch = useDispatch();
   // const productList = useSelector((state) => state.productList);
   // const { loading, error, products } = productList;
 
+  //##########################################################
+  // const addToCart = async () => {
+  //   props.history.push(`/cart/${productId}?quantity=${quantity}`);
+  // };
   //##########################################################
 
   useEffect(() => {
