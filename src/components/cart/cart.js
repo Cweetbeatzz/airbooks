@@ -1,9 +1,16 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { addToCartAction } from "../../actions/cartActions";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addToCartAction,
+  RemoveFromCartAction,
+} from "../../actions/cartActions";
 
 function Cart(props) {
   //
+  // //get cart from store
+  // const cart = useSelector((state) => state.cart);
+  // //
+  // const { cartItems } = cart;
   // const dispatch = useDispatch();
   // const productId = props.match.params.id;
   // const qty = props.location.search
@@ -15,6 +22,16 @@ function Cart(props) {
   //     dispatch(addToCartAction(productId, qty));
   //   }
   // }, [dispatch, productId, qty]);
+
+  //#####################################################
+
+  // const deleteFromCart = (id) => {
+  //   dispatch(RemoveFromCartAction(id));
+  // };
+
+  //#####################################################
+
+  const checkOut = (id) => {};
 
   //#####################################################
   return (

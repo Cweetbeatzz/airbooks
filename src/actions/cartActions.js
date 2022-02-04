@@ -1,5 +1,5 @@
 import Axios from "axios";
-import { ADD_CART_ITEM } from "../constants/cartConstants";
+import { ADD_CART_ITEM, REMOVE_CART_ITEM } from "../constants/cartConstants";
 
 //######################################################
 export const addToCartAction =
@@ -19,4 +19,14 @@ export const addToCartAction =
     });
     //add cart to local storage and by refreshing data stays persistent
     localStorage.setItem("cartitem", JSON.stringify(getState().cart.cartItems));
+  };
+
+export const RemoveFromCartAction =
+  (productId) => async (dispatch, getState) => {
+    dispatch({
+      type: REMOVE_CART_ITEM,
+      payload: productId,
+    });
+    //get item from redux store
+    localStorage.setItem('cartItem',JSON.stringify(getState().cart.cartItems))
   };
