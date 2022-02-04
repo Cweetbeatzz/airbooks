@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { productDetailsAction } from "../../actions/productsActions";
 
-function ProductDetails() {
+function ProductDetails(props) {
+  // const dispatch = useDispatch();
+  // const productId = props.match.params.id;
+  // const productDetails = useSelector((state) => state.productDetails);
+  // const { loading, error, product } = productDetails;
+
+  // useEffect(() => {
+  //   dispatch(productDetailsAction(productId));
+  // }, [dispatch, productId]);
+
   return (
     <div>
       <br />
@@ -10,6 +21,11 @@ function ProductDetails() {
         </h2>
       </div>
       <hr />
+      {/* {loading ? (
+          <Loading></Loading>
+        ) : error ? (
+          <Message variant="danger">{error}</Message>
+        ) : ( */}
       <div className="row card text-center m-3">
         <div className="bd-example bd-example-images m-4">
           <div className="text-center">
@@ -52,6 +68,7 @@ function ProductDetails() {
           </div>
         </div>
       </div>
+      ){/* } */}
       <hr />
     </div>
   );

@@ -1,7 +1,10 @@
 import data from "";
 import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import thunk from "redux-thunk";
-import { ProductListReducer } from "./reducers/productsReducers";
+import {
+  ProductDetailsReducer,
+  ProductListReducer,
+} from "./reducers/productsReducers";
 
 //
 const intialState = {};
@@ -9,6 +12,7 @@ const intialState = {};
 // a reducer returns a new state
 const reducer = combineReducers({
   productList: ProductListReducer,
+  productDetails: ProductDetailsReducer,
 });
 
 //

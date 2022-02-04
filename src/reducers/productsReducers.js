@@ -1,8 +1,13 @@
 import {
+  PRODUCT_DETAILS_FAIL,
+  PRODUCT_DETAILS_REQUEST,
+  PRODUCT_DETAILS_SUCCESS,
   PRODUCT_LIST_FAIL,
   PRODUCT_LIST_REQUEST,
   PRODUCT_LIST_SUCCESS,
 } from "../constants/productsConstants";
+
+//##################################################################
 
 export const ProductListReducer = (
   state = { loading: true, products: [] },
@@ -18,4 +23,21 @@ export const ProductListReducer = (
     default:
       return state;
   }
+};
+
+//##################################################################
+
+export const ProductDetailsReducer = (
+  state = { product: {}, loading: true },
+  action
+) => {
+  if (action.type === PRODUCT_DETAILS_REQUEST) {
+    return { loading: true };
+  } else if (action.type === PRODUCT_DETAILS_SUCCESS) {
+    return { loading: false, products: action.payload };
+  } else if (action.type === PRODUCT_DETAILS_FAIL) {
+    return { loading: false, error: action.payload };
+  }
+
+  return state;
 };

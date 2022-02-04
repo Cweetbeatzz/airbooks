@@ -20,9 +20,9 @@ app.get("/", (req, res) => {
 //#############################################################
 
 //<----------- routes ---------------->
-// app.use("/api/v1/products", productsRouter);
-// app.use("/api/v1/users", usersRouter);
-// app.use("/api/v1/category", categoryRouter);
+// app.use("/fashion5/api/v1/products", productsRouter);
+// app.use("/fashion5/api/v1/users", usersRouter);
+// app.use("/fashion5/api/v1/category", categoryRouter);
 
 const port = process.env.PORT || 6800;
 
