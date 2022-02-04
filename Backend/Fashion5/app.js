@@ -9,7 +9,7 @@ require("express-async-errors");
 
 //<----------- middlewares ---------------->
 //use static files
-app.use(express.static("./public"));
+app.use(express.static("./public/images"));
 app.use(express.json());
 
 //
