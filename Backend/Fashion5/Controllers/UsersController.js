@@ -1,10 +1,21 @@
+const Users = require("../Models/Users.js");
+const data = require("../data.js");
+
 //
-const getAllUsers = async () => {};
+const getAllUsers = async (req, res) => {
+  const allusers = await Users.find();
+  res.send({ allusers });
+};
 //
-const getUsersById = async () => {};
+const getUsersById = async (req, res) => {};
 //
-const createUsers = async () => {};
+const createUsers = async (req, res) => {
+  const result = await Users.insertMany(data.users);
+  res.send({ result });
+};
 //
-const updateUsersById = async () => {};
+const updateUsersById = async (req, res) => {};
 //
-const deleteUsersById = async () => {};
+const deleteUsersById = async (req, res) => {};
+
+module.exports = { getAllUsers, createUsers };

@@ -34,7 +34,12 @@ const UserSchema = new mongoose.Schema(
       trim: true,
       maxlength: [450, "Address must not exceed 450 characters"],
     },
-    phone: Int32Array,
+    phone: {
+      type: Number,
+      required: [true, "Phone is Required"],
+      trim: true,
+      maxlength: [13, "Phone must not exceed 13 numbers"],
+    },
     country: {
       type: String,
       required: [true, "Country is Required"],
@@ -47,7 +52,7 @@ const UserSchema = new mongoose.Schema(
       trim: true,
       maxlength: [150, "State must not exceed 150 characters"],
     },
-    postalcode: String,
+    postalcode: Number,
     password: {
       type: String,
       required: [true, "Password is Required"],
