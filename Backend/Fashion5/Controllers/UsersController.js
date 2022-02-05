@@ -12,7 +12,7 @@ userRouter.get("/getAllUsers", async (req, res) => {
 
 //#######################################################
 
-userRouter.get("/getUsersById", async (req, res) => {
+userRouter.get("/getUsersById/:id", async (req, res) => {
   //
   const users = await Users.findById(req.params.id);
 

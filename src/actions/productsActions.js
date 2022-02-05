@@ -31,7 +31,7 @@ export const productDetailsAction = (productId) => async (dispatch) => {
     payload: productId,
   });
   try {
-    const data = await Axios.get(`/fashion5/api/v1/products${productId}`);
+    const data = await Axios.get(`/fashion5/api/v1/products/${productId}`);
     dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
