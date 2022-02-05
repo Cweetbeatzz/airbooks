@@ -6,6 +6,14 @@ import {
   ProductDetailsReducer,
   ProductListReducer,
 } from "./reducers/productsReducers";
+import {
+  createUserReducer,
+  deleteUserReducer,
+  loginUserReducer,
+  updateUserReducer,
+  userByIdReducer,
+  userListReducer,
+} from "./reducers/userReducers";
 
 //
 const intialState = {
@@ -18,9 +26,19 @@ const intialState = {
 
 // a reducer returns a new state
 const reducer = combineReducers({
+  //product
   productList: ProductListReducer,
   productDetails: ProductDetailsReducer,
+  //cart
   cart: cartReducers,
+  //users
+  usersList: userListReducer,
+  userById: userByIdReducer,
+  userUpdate: updateUserReducer,
+  userDelete: deleteUserReducer,
+  regUser: createUserReducer,
+  userLogin: loginUserReducer,
+  //categories
 });
 
 //

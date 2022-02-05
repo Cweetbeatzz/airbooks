@@ -11,7 +11,7 @@ import {
 
 //###################################################
 
-export const getAllUserAccountsAction = () => async (dispatch) => {
+export const getAllCategoriesAction = () => async (dispatch) => {
   //###
   dispatch({
     type: USER_REQUEST,
@@ -32,7 +32,7 @@ export const getAllUserAccountsAction = () => async (dispatch) => {
 };
 //###################################################
 
-export const getUserByIdAction = (userId) => async (dispatch) => {
+export const getCategoryByIdAction = (userId) => async (dispatch) => {
   //###
   dispatch({
     type: USER_REQUEST,
@@ -54,7 +54,7 @@ export const getUserByIdAction = (userId) => async (dispatch) => {
 
 //###################################################
 
-export const createUserAccountAction = () => async (dispatch) => {
+export const createCategoryAction = () => async (dispatch) => {
   //###
   dispatch({
     type: USER_REQUEST,
@@ -76,7 +76,7 @@ export const createUserAccountAction = () => async (dispatch) => {
 
 //#######################################################
 
-export const updateUserAccountAction = (userId) => async (dispatch) => {
+export const updateCategoryAction = (userId) => async (dispatch) => {
   //###
   dispatch({
     type: USER_REQUEST,
@@ -100,7 +100,7 @@ export const updateUserAccountAction = (userId) => async (dispatch) => {
 
 //#######################################################
 
-export const deleteUserAccountAction = (userId) => async (dispatch) => {
+export const deleteCategoryAction = (userId) => async (dispatch) => {
   //###
   dispatch({
     type: USER_REQUEST,
@@ -123,6 +123,3 @@ export const deleteUserAccountAction = (userId) => async (dispatch) => {
 };
 
 //#######################################################
-
-export const loginUserAction = () => async (dispatch) => {};
-export const loginOutUserAction = () => async (dispatch) => {};

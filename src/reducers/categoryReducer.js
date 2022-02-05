@@ -2,7 +2,6 @@ import {
   DELETE_USER_ACCOUNT,
   GET_ALL_USER_ACCOUNT,
   GET_USER_BY_ID_ACCOUNT,
-  LOGIN_USER,
   REGISTER_USER_ACCOUNT,
   UPDATE_USER_ACCOUNT,
   USER_REQUEST,
@@ -11,7 +10,7 @@ import {
 
 //##################################################################
 
-export const userListReducer = (
+export const CategoryListReducer = (
   state = { loading: true, users: [] },
   action
 ) => {
@@ -29,7 +28,7 @@ export const userListReducer = (
 
 //##################################################################
 
-export const userByIdReducer = (
+export const CategoryByIdReducer = (
   state = { loading: true, users: {} },
   action
 ) => {
@@ -47,7 +46,7 @@ export const userByIdReducer = (
 
 //##################################################################
 
-export const createUserReducer = (state, action) => {
+export const createCategoryReducer = (state, action) => {
   switch (action.type) {
     case USER_REQUEST:
       return { loading: true };
@@ -62,7 +61,7 @@ export const createUserReducer = (state, action) => {
 
 //##################################################################
 
-export const updateUserReducer = (state, action) => {
+export const updateCategoryReducer = (state, action) => {
   switch (action.type) {
     case USER_REQUEST:
       return { loading: true };
@@ -77,7 +76,7 @@ export const updateUserReducer = (state, action) => {
 
 //##################################################################
 
-export const deleteUserReducer = (state, action) => {
+export const deleteCategoryReducer = (state, action) => {
   switch (action.type) {
     case USER_REQUEST:
       return { loading: true };
@@ -91,16 +90,3 @@ export const deleteUserReducer = (state, action) => {
 };
 
 //##################################################################
-
-export const loginUserReducer = (state, action) => {
-  switch (action.type) {
-    case USER_REQUEST:
-      return { loading: true };
-    case LOGIN_USER:
-      return { loading: false, payload: action.payload };
-    case USER_REQUEST_FAIL:
-      return { loading: false, error: action.payload };
-    default:
-      return state;
-  }
-};
