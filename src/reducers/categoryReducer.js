@@ -1,25 +1,33 @@
-import {
-  DELETE_USER_ACCOUNT,
-  GET_ALL_USER_ACCOUNT,
-  GET_USER_BY_ID_ACCOUNT,
-  REGISTER_USER_ACCOUNT,
-  UPDATE_USER_ACCOUNT,
-  USER_REQUEST,
-  USER_REQUEST_FAIL,
-} from "../constants/usersConstants";
-
 //##################################################################
+
+import {
+  CATEGORY_CREATE_FAIL,
+  CATEGORY_CREATE_REQUEST,
+  CATEGORY_CREATE_SUCCESS,
+  CATEGORY_DELETE_FAIL,
+  CATEGORY_DELETE_REQUEST,
+  CATEGORY_DELETE_SUCCESS,
+  CATEGORY_DETAILS_FAIL,
+  CATEGORY_DETAILS_REQUEST,
+  CATEGORY_DETAILS_SUCCESS,
+  CATEGORY_LIST_FAIL,
+  CATEGORY_LIST_REQUEST,
+  CATEGORY_LIST_SUCCESS,
+  CATEGORY_UPDATE_FAIL,
+  CATEGORY_UPDATE_REQUEST,
+  CATEGORY_UPDATE_SUCCESS,
+} from "../constants/categoryConstants";
 
 export const CategoryListReducer = (
   state = { loading: true, users: [] },
   action
 ) => {
   switch (action.type) {
-    case USER_REQUEST:
+    case CATEGORY_LIST_REQUEST:
       return { loading: true };
-    case GET_ALL_USER_ACCOUNT:
+    case CATEGORY_LIST_SUCCESS:
       return { loading: false, payload: action.payload };
-    case USER_REQUEST_FAIL:
+    case CATEGORY_LIST_FAIL:
       return { loading: false, error: action.payload };
     default:
       return state;
@@ -33,11 +41,11 @@ export const CategoryByIdReducer = (
   action
 ) => {
   switch (action.type) {
-    case USER_REQUEST:
+    case CATEGORY_DETAILS_REQUEST:
       return { loading: true };
-    case GET_USER_BY_ID_ACCOUNT:
+    case CATEGORY_DETAILS_SUCCESS:
       return { loading: false, payload: action.payload };
-    case USER_REQUEST_FAIL:
+    case CATEGORY_DETAILS_FAIL:
       return { loading: false, error: action.payload };
     default:
       return state;
@@ -48,11 +56,11 @@ export const CategoryByIdReducer = (
 
 export const createCategoryReducer = (state, action) => {
   switch (action.type) {
-    case USER_REQUEST:
+    case CATEGORY_CREATE_REQUEST:
       return { loading: true };
-    case REGISTER_USER_ACCOUNT:
+    case CATEGORY_CREATE_SUCCESS:
       return { loading: false, payload: action.payload };
-    case USER_REQUEST_FAIL:
+    case CATEGORY_CREATE_FAIL:
       return { loading: false, error: action.payload };
     default:
       return state;
@@ -63,11 +71,11 @@ export const createCategoryReducer = (state, action) => {
 
 export const updateCategoryReducer = (state, action) => {
   switch (action.type) {
-    case USER_REQUEST:
+    case CATEGORY_UPDATE_REQUEST:
       return { loading: true };
-    case UPDATE_USER_ACCOUNT:
+    case CATEGORY_UPDATE_SUCCESS:
       return { loading: false, payload: action.payload };
-    case USER_REQUEST_FAIL:
+    case CATEGORY_UPDATE_FAIL:
       return { loading: false, error: action.payload };
     default:
       return state;
@@ -78,11 +86,11 @@ export const updateCategoryReducer = (state, action) => {
 
 export const deleteCategoryReducer = (state, action) => {
   switch (action.type) {
-    case USER_REQUEST:
+    case CATEGORY_DELETE_REQUEST:
       return { loading: true };
-    case DELETE_USER_ACCOUNT:
+    case CATEGORY_DELETE_SUCCESS:
       return { loading: false, payload: action.payload };
-    case USER_REQUEST_FAIL:
+    case CATEGORY_DELETE_FAIL:
       return { loading: false, error: action.payload };
     default:
       return state;

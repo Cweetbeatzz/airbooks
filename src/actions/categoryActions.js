@@ -1,52 +1,62 @@
 import Axios from "axios";
 import {
-  DELETE_USER_ACCOUNT,
-  GET_ALL_USER_ACCOUNT,
-  GET_USER_BY_ID_ACCOUNT,
-  REGISTER_USER_ACCOUNT,
-  UPDATE_USER_ACCOUNT,
-  USER_REQUEST,
-  USER_REQUEST_FAIL,
-} from "../constants/usersConstants";
+  CATEGORY_CREATE_FAIL,
+  CATEGORY_CREATE_REQUEST,
+  CATEGORY_CREATE_SUCCESS,
+  CATEGORY_DELETE_FAIL,
+  CATEGORY_DELETE_REQUEST,
+  CATEGORY_DELETE_SUCCESS,
+  CATEGORY_DETAILS_FAIL,
+  CATEGORY_DETAILS_REQUEST,
+  CATEGORY_DETAILS_SUCCESS,
+  CATEGORY_LIST_FAIL,
+  CATEGORY_LIST_REQUEST,
+  CATEGORY_LIST_SUCCESS,
+  CATEGORY_UPDATE_FAIL,
+  CATEGORY_UPDATE_REQUEST,
+  CATEGORY_UPDATE_SUCCESS,
+} from "../constants/categoryConstants";
 
 //###################################################
 
 export const getAllCategoriesAction = () => async (dispatch) => {
   //###
   dispatch({
-    type: USER_REQUEST,
+    type: CATEGORY_LIST_REQUEST,
   });
   //###
   try {
-    const { data } = Axios.get("/fashion5/api/v1/users/getAllUsers");
+    const { data } = Axios.get("/fashion5/api/v1/category/getAllCategories");
     dispatch({
-      type: GET_ALL_USER_ACCOUNT,
+      type: CATEGORY_LIST_SUCCESS,
       payload: data,
     });
   } catch (error) {
     dispatch({
-      type: USER_REQUEST_FAIL,
+      type: CATEGORY_LIST_FAIL,
       payload: error.message,
     });
   }
 };
 //###################################################
 
-export const getCategoryByIdAction = (userId) => async (dispatch) => {
+export const getCategoryByIdAction = (categoryId) => async (dispatch) => {
   //###
   dispatch({
-    type: USER_REQUEST,
+    type: CATEGORY_DETAILS_REQUEST,
   });
   //###
   try {
-    const { data } = Axios.get(`/fashion5/api/v1/users/getUsersById/${userId}`);
+    const { data } = Axios.get(
+      `/fashion5/api/v1/category/getCategoriesById/${categoryId}`
+    );
     dispatch({
-      type: GET_USER_BY_ID_ACCOUNT,
+      type: CATEGORY_DETAILS_SUCCESS,
       payload: data,
     });
   } catch (error) {
     dispatch({
-      type: USER_REQUEST_FAIL,
+      type: CATEGORY_DETAILS_FAIL,
       payload: error.message,
     });
   }
@@ -57,18 +67,18 @@ export const getCategoryByIdAction = (userId) => async (dispatch) => {
 export const createCategoryAction = () => async (dispatch) => {
   //###
   dispatch({
-    type: USER_REQUEST,
+    type: CATEGORY_CREATE_REQUEST,
   });
   //###
   try {
-    const { data } = Axios.post(`/fashion5/api/v1/users/createUsers`);
+    const { data } = Axios.post(`/fashion5/api/v1/category/createCategories`);
     dispatch({
-      type: REGISTER_USER_ACCOUNT,
+      type: CATEGORY_CREATE_SUCCESS,
       payload: data,
     });
   } catch (error) {
     dispatch({
-      type: USER_REQUEST_FAIL,
+      type: CATEGORY_CREATE_FAIL,
       payload: error.message,
     });
   }
@@ -79,20 +89,20 @@ export const createCategoryAction = () => async (dispatch) => {
 export const updateCategoryAction = (userId) => async (dispatch) => {
   //###
   dispatch({
-    type: USER_REQUEST,
+    type: CATEGORY_UPDATE_REQUEST,
   });
   //###
   try {
     const { data } = Axios.post(
-      `/fashion5/api/v1/users/updateUsersById/${userId}`
+      `/fashion5/api/v1/category/updateCategoriesById/${userId}`
     );
     dispatch({
-      type: UPDATE_USER_ACCOUNT,
+      type: CATEGORY_UPDATE_SUCCESS,
       payload: data,
     });
   } catch (error) {
     dispatch({
-      type: USER_REQUEST_FAIL,
+      type: CATEGORY_UPDATE_FAIL,
       payload: error.message,
     });
   }
@@ -103,20 +113,20 @@ export const updateCategoryAction = (userId) => async (dispatch) => {
 export const deleteCategoryAction = (userId) => async (dispatch) => {
   //###
   dispatch({
-    type: USER_REQUEST,
+    type: CATEGORY_DELETE_REQUEST,
   });
   //###
   try {
     const { data } = Axios.post(
-      `/fashion5/api/v1/users/deleteUsersById/${userId}`
+      `/fashion5/api/v1/category/deleteCategoriesById/${userId}`
     );
     dispatch({
-      type: DELETE_USER_ACCOUNT,
+      type: CATEGORY_DELETE_SUCCESS,
       payload: data,
     });
   } catch (error) {
     dispatch({
-      type: USER_REQUEST_FAIL,
+      type: CATEGORY_DELETE_FAIL,
       payload: error.message,
     });
   }

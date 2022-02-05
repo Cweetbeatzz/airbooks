@@ -3,6 +3,13 @@ import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import thunk from "redux-thunk";
 import { cartReducers } from "./reducers/cartReducers";
 import {
+  CategoryByIdReducer,
+  CategoryListReducer,
+  createCategoryReducer,
+  deleteCategoryReducer,
+  updateCategoryReducer,
+} from "./reducers/categoryReducer";
+import {
   ProductDetailsReducer,
   ProductListReducer,
 } from "./reducers/productsReducers";
@@ -39,6 +46,11 @@ const reducer = combineReducers({
   regUser: createUserReducer,
   userLogin: loginUserReducer,
   //categories
+  categoryList: CategoryListReducer,
+  categoryById: CategoryByIdReducer,
+  createCategory: createCategoryReducer,
+  updateCategory: updateCategoryReducer,
+  deleteCategory: deleteCategoryReducer,
 });
 
 //
