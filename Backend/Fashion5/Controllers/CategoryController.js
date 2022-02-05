@@ -1,11 +1,16 @@
 const CategoryModel = require("../Models/Category");
 
 //
+//#######################################################
+
 const getAllCategories = async (req, res) => {
   const cat = await CategoryModel.find({});
   res.send(cat);
 };
+
 //
+//#######################################################
+
 const getCategoriesById = async (req, res) => {
   //
   const category = await CategoryModel.findById(req.params.id);
@@ -17,12 +22,18 @@ const getCategoriesById = async (req, res) => {
   }
   res.send(category);
 };
+
 //
+//#######################################################
+
 const createCategories = async (req, res) => {
   const result = await CategoryModel.create(req.body);
   res.status(201).json({ result });
 };
+
 //
+//#######################################################
+
 const updateCategoriesById = async (req, res) => {
   //
   const cat = await CategoryModel.findOneAndUpdate(req.params.id);
@@ -34,7 +45,10 @@ const updateCategoriesById = async (req, res) => {
   }
   res.send(cat);
 };
+
 //
+//#######################################################
+
 const deleteCategoriesById = async (req, res) => {
   //
   const cat = await CategoryModel.findOneAndDelete(req.params.id);
@@ -44,6 +58,8 @@ const deleteCategoriesById = async (req, res) => {
   }
   res.send(cat);
 };
+
+//#######################################################
 
 module.exports = {
   getAllCategories,
