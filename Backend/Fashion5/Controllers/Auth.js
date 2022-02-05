@@ -1,11 +1,22 @@
 const express = require("express");
 const Users = require("../Models/Users");
+const bcrypt = require("bcryptjs");
+// const passwordHasher = require("../Services/passwordHash");
 
 const authRouter = express.Router();
 
 //#############################################################
+
+const hashPassword = (_password) => {
+  const output = bcrypt.hashSync(_password, 8);
+  return output;
+};
+//#############################################################
 //
 authRouter.post("/register", async (req, res) => {
+  const hashedpass = hashPassword(req.body.password);
+  const hashedConfirmpass = hashPassword(req.body.confirmPassword);
+
   const newUser = new Users({
     firstname: req.body.firstname,
     lastname: req.body.lastname,
@@ -16,8 +27,8 @@ authRouter.post("/register", async (req, res) => {
     country: req.body.country,
     state: req.body.state,
     postalcode: req.body.postalcode,
-    password: req.body.password,
-    confirmPassword: req.body.confirmPassword,
+    password: hashedpass,
+    confirmPassword: hashedConfirmpass,
   });
 
   try {
