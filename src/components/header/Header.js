@@ -3,6 +3,7 @@ import { ReactDOM } from "react";
 import { Container } from "./Header.styles";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import styles from "./Header.styles.css";
 
 function Header(params) {
   //
@@ -60,17 +61,17 @@ function Header(params) {
                   <strong>PRIVACY</strong>
                 </Link>
               </li> */}
-              {/* <li className="nav-item">
+              <li className="nav-item">
                 <Link className="nav-link text-dark" to="admin">
                   <strong>ADMIN</strong>
                 </Link>
-              </li> */}
+              </li>
             </ul>
             <Link className="nav-link text-dark  m-0" to="cart">
               CART{" "}
               <span
                 className="text-white bg-danger badge rounded-pill "
-                id="cartquantity"
+                id={styles.cartquantity}
               >
                 0
               </span>

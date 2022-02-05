@@ -1,0 +1,19 @@
+#badgeicon {
+  position: absolute;
+  background-color: red;
+  top: -4px;
+  color: white;
+  border-radius: 80px;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  justify-content: right;
+}
+
+#sidebar {
+  flex: 1;
+  height: calc(100vh-50px);
+  background-color: wheat;
+  position: sticky;
+  padding: 10px;
+}
