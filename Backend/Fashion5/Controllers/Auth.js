@@ -1,6 +1,9 @@
 const express = require("express");
 const Users = require("../Models/Users");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
+
 // const passwordHasher = require("../Services/passwordHash");
 
 const authRouter = express.Router();
@@ -41,7 +44,25 @@ authRouter.post("/register", async (req, res) => {
 
 //#############################################################
 //
-authRouter.post("/login", (req, res) => {});
+authRouter.post("/login", (req, res) => {
+  try {
+    const searchEmail = Users.findOne({ email: req.body.email });
+    // const hashedpass = bcrypt;
+    const accessToken = jwt.sign(
+      {
+        id: Users._id,
+        isAdmin: Users.isAdmin,
+      },
+      process.env.JWT_SECRET_KEY,
+      { expiresIn: "1d" }
+    );
+    //destructure the search result and exclude password visibility
+    const { password, confirmPassword, ...others } = searchEmail;
+    res.status(200).json({ others, accessToken });
+  } catch (error) {
+    res.status(404).send(error);
+  }
+});
 
 //#############################################################
 

@@ -6,7 +6,8 @@ const userRouter = express.Router();
 
 userRouter.get("/getAllUsers", async (req, res) => {
   const allusers = await Users.find({});
-  res.send(allusers);
+  const { password, confirmPassword, ...others } = allusers;
+  res.status(200).json(others);
 });
 
 //#######################################################
@@ -30,7 +31,7 @@ userRouter.post("/createUsers", async (req, res) => {
 
 //#######################################################
 
-userRouter.patch("/updateUsersById", async (req, res) => {
+userRouter.patch("/updateUsersById/:id", async (req, res) => {
   //
   const userById = await Users.findOneAndUpdate(req.params.id);
 
@@ -42,7 +43,7 @@ userRouter.patch("/updateUsersById", async (req, res) => {
 
 //#######################################################
 
-userRouter.delete("/deleteUsersById", async (req, res) => {
+userRouter.delete("/deleteUsersById/:id", async (req, res) => {
   //
   const userById = await Users.findOneAndDelete(req.params.id);
 

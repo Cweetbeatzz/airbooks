@@ -13,6 +13,29 @@ productsRouter.get("/getAllProducts", async (req, res) => {
 //
 //#######################################################
 
+productsRouter.get("/getAllProductsByCategory", async (req, res) => {
+  const prod = req.query.new;
+  const qcategory = req.query.category;
+  let products;
+
+  try {
+    if (prod) {
+      products = await ProductsModel.find().sort({ createdAt: -1 }).limit(15);
+    } else if (qcategory) {
+      products = await ProductsModel.find({ categories: { $in: [qcategory] } })
+        .sort({ createdAt: -1 })
+        .limit(15);
+    } else {
+      products = ProductsModel.find({});
+    }
+  } catch (error) {
+    res.status(404).send(error);
+  }
+  res.status(200).json({ products });
+});
+//
+//#######################################################
+
 productsRouter.get("/getProductsById", async (req, res) => {
   //
   const products = await ProductsModel.findById(req.params.id);
