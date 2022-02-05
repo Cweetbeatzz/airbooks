@@ -1,10 +1,17 @@
+const express = require("express");
+const cartRouter = express.Router();
 //
-const getAllCart = async () => {};
+cartRouter.get("/getAllCart", async (req, res) => {});
 //
-const getCartById = async () => {};
+cartRouter.get("/getCartById/:id", async (req, res) => {});
+
 //
-const createCart = async () => {};
+cartRouter.post("/createCart", async (req, res) => {});
+
 //
-const updateCartById = async () => {};
+cartRouter.patch("/updateCartById/:id", async (req, res) => {});
+
 //
-const deleteCartById = async () => {};
+cartRouter.delete("/deleteCartById/:id", async (req, res) => {});
+
+module.exports = cartRouter;
