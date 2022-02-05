@@ -1,12 +1,22 @@
 import {
-  DELETE_USER_ACCOUNT,
-  GET_ALL_USER_ACCOUNT,
-  GET_USER_BY_ID_ACCOUNT,
-  LOGIN_USER,
-  REGISTER_USER_ACCOUNT,
-  UPDATE_USER_ACCOUNT,
-  USER_REQUEST,
-  USER_REQUEST_FAIL,
+  USER_CREATE_FAIL,
+  USER_CREATE_REQUEST,
+  USER_CREATE_SUCCESS,
+  USER_DELETE_FAIL,
+  USER_DELETE_REQUEST,
+  USER_DELETE_SUCCESS,
+  USER_DETAILS_FAIL,
+  USER_DETAILS_REQUEST,
+  USER_DETAILS_SUCCESS,
+  USER_LIST_FAIL,
+  USER_LIST_REQUEST,
+  USER_LIST_SUCCESS,
+  USER_LOGIN_FAIL,
+  USER_LOGIN_REQUEST,
+  USER_LOGIN_SUCCESS,
+  USER_UPDATE_FAIL,
+  USER_UPDATE_REQUEST,
+  USER_UPDATE_SUCCESS,
 } from "../constants/usersConstants";
 
 //##################################################################
@@ -16,11 +26,11 @@ export const userListReducer = (
   action
 ) => {
   switch (action.type) {
-    case USER_REQUEST:
+    case USER_LIST_REQUEST:
       return { loading: true };
-    case GET_ALL_USER_ACCOUNT:
+    case USER_LIST_SUCCESS:
       return { loading: false, payload: action.payload };
-    case USER_REQUEST_FAIL:
+    case USER_LIST_FAIL:
       return { loading: false, error: action.payload };
     default:
       return state;
@@ -34,11 +44,11 @@ export const userByIdReducer = (
   action
 ) => {
   switch (action.type) {
-    case USER_REQUEST:
+    case USER_DETAILS_REQUEST:
       return { loading: true };
-    case GET_USER_BY_ID_ACCOUNT:
+    case USER_DETAILS_SUCCESS:
       return { loading: false, payload: action.payload };
-    case USER_REQUEST_FAIL:
+    case USER_DETAILS_FAIL:
       return { loading: false, error: action.payload };
     default:
       return state;
@@ -49,11 +59,11 @@ export const userByIdReducer = (
 
 export const createUserReducer = (state, action) => {
   switch (action.type) {
-    case USER_REQUEST:
+    case USER_CREATE_REQUEST:
       return { loading: true };
-    case REGISTER_USER_ACCOUNT:
+    case USER_CREATE_SUCCESS:
       return { loading: false, payload: action.payload };
-    case USER_REQUEST_FAIL:
+    case USER_CREATE_FAIL:
       return { loading: false, error: action.payload };
     default:
       return state;
@@ -64,11 +74,11 @@ export const createUserReducer = (state, action) => {
 
 export const updateUserReducer = (state, action) => {
   switch (action.type) {
-    case USER_REQUEST:
+    case USER_UPDATE_REQUEST:
       return { loading: true };
-    case UPDATE_USER_ACCOUNT:
+    case USER_UPDATE_SUCCESS:
       return { loading: false, payload: action.payload };
-    case USER_REQUEST_FAIL:
+    case USER_UPDATE_FAIL:
       return { loading: false, error: action.payload };
     default:
       return state;
@@ -79,11 +89,11 @@ export const updateUserReducer = (state, action) => {
 
 export const deleteUserReducer = (state, action) => {
   switch (action.type) {
-    case USER_REQUEST:
+    case USER_DELETE_REQUEST:
       return { loading: true };
-    case DELETE_USER_ACCOUNT:
+    case USER_DELETE_SUCCESS:
       return { loading: false, payload: action.payload };
-    case USER_REQUEST_FAIL:
+    case USER_DELETE_FAIL:
       return { loading: false, error: action.payload };
     default:
       return state;
@@ -94,11 +104,11 @@ export const deleteUserReducer = (state, action) => {
 
 export const loginUserReducer = (state, action) => {
   switch (action.type) {
-    case USER_REQUEST:
+    case USER_LOGIN_REQUEST:
       return { loading: true };
-    case LOGIN_USER:
+    case USER_LOGIN_SUCCESS:
       return { loading: false, payload: action.payload };
-    case USER_REQUEST_FAIL:
+    case USER_LOGIN_FAIL:
       return { loading: false, error: action.payload };
     default:
       return state;
