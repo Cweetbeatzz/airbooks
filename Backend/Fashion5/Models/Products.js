@@ -20,6 +20,7 @@ const ProductSchema = new mongoose.Schema(
       maxlength: [150, "Description cannot exceed 150 characters"],
     },
     in_stock: { type: Boolean, default: true },
+    countInstock: { type: Number, required: true },
     is_active: { type: Boolean, default: true },
   },
   {
