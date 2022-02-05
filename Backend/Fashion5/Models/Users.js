@@ -52,7 +52,7 @@ const UserSchema = new mongoose.Schema(
       trim: true,
       maxlength: [150, "State must not exceed 150 characters"],
     },
-    postalcode: String,
+    postalcode: Number,
     password: {
       type: String,
       required: [true, "Password is Required"],

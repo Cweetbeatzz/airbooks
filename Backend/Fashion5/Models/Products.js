@@ -9,8 +9,7 @@ const ProductSchema = new mongoose.Schema(
       maxlength: [30, "Name cannot exceed 30 characters"],
     },
     price: Number,
-    category: String,
-    brand: String,
+    category: Array,
     company: String,
     image: String,
     description: {
@@ -28,4 +27,4 @@ const ProductSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Products", ProductSchema);
+module.exports = mongoose.model("products", ProductSchema);

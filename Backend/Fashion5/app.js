@@ -3,6 +3,7 @@ require("dotenv").config();
 const usersRouter = require("./Routes/users");
 const categoryRouter = require("./Routes/category");
 const productsRouter = require("./Routes/products");
+const authRoute = require("./Controllers/Auth");
 const app = express();
 const db = require("./Database/connection");
 require("express-async-errors");
@@ -25,6 +26,7 @@ app.use(express.json());
 app.use("/fashion5/api/v1/products", productsRouter);
 app.use("/fashion5/api/v1/users", usersRouter);
 app.use("/fashion5/api/v1/category", categoryRouter);
+app.use("/fashion5/api/v1/auth", authRoute);
 
 const port = process.env.PORT || 6800;
 
