@@ -35,7 +35,7 @@ const UserSchema = new mongoose.Schema(
       maxlength: [450, "Address must not exceed 450 characters"],
     },
     phone: {
-      type: Number,
+      type: String,
       required: [true, "Phone is Required"],
       trim: true,
       maxlength: [13, "Phone must not exceed 13 numbers"],
@@ -52,16 +52,14 @@ const UserSchema = new mongoose.Schema(
       trim: true,
       maxlength: [150, "State must not exceed 150 characters"],
     },
-    postalcode: Number,
+    postalcode: String,
     password: {
       type: String,
       required: [true, "Password is Required"],
-      trim: true,
     },
     confirmPassword: {
       type: String,
       required: [true, "Confirm Password is Required"],
-      trim: true,
     },
     isAdmin: { type: Boolean, default: false },
   },
