@@ -1,7 +1,49 @@
-import React from 'react';
+import React from "react";
 
 function Create() {
-  return <div></div>;
+  return (
+    <div>
+      <div class="text-center">
+        <h4>
+          <strong>CREATE CATEGORY</strong>
+        </h4>
+      </div>
+      <hr />
+      <div class="container p-5">
+        <div class="row justify-content-center">
+          <div class="col-md-7">
+            <form
+              asp-action="Create"
+              class="text-center justify-content-center"
+            >
+              <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+              <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+              </div>
+              <div class="form-group">
+                <button
+                  type="submit"
+                  value="Create"
+                  class="btn btn-primary"
+                  style={{ width: "300px" }}
+                >
+                  SUBMIT
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <a asp-action="Index" class="btn btn-primary" href="link">
+          <strong>BACK</strong>
+        </a>
+      </div>
+    </div>
+  );
 }
 
 export default Create;
