@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { updateCategoryAction } from "../../actions/categoryActions";
 
 function Update() {
+  const [getCategoryId, setCategoryId] = useState("");
+
+  // const dispatch = useDispatch();
+
+  // const onFormSubmit = (e) => {
+  //   e.preventDefault();
+  //   dispatch(updateCategoryAction(getCategoryId));
+  // };
   return (
     <div>
       <div class="text-center">

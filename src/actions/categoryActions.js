@@ -26,7 +26,9 @@ export const getAllCategoriesAction = () => async (dispatch) => {
   });
   //###
   try {
-    const { data } = Axios.get("/fashion5/api/v1/category/getAllCategories");
+    const { data } = await Axios.get(
+      "/fashion5/api/v1/category/getAllCategories"
+    );
     dispatch({
       type: CATEGORY_LIST_SUCCESS,
       payload: data,
@@ -47,7 +49,7 @@ export const getCategoryByIdAction = (categoryId) => async (dispatch) => {
   });
   //###
   try {
-    const { data } = Axios.get(
+    const { data } = await Axios.get(
       `/fashion5/api/v1/category/getCategoriesById/${categoryId}`
     );
     dispatch({
@@ -64,14 +66,17 @@ export const getCategoryByIdAction = (categoryId) => async (dispatch) => {
 
 //###################################################
 
-export const createCategoryAction = () => async (dispatch) => {
+export const createCategoryAction = (categoryName) => async (dispatch) => {
   //###
   dispatch({
     type: CATEGORY_CREATE_REQUEST,
   });
   //###
   try {
-    const { data } = Axios.post(`/fashion5/api/v1/category/createCategories`);
+    const { data } = await Axios.post(
+      `/fashion5/api/v1/category/createCategories`,
+      { categoryName }
+    );
     dispatch({
       type: CATEGORY_CREATE_SUCCESS,
       payload: data,
@@ -86,15 +91,15 @@ export const createCategoryAction = () => async (dispatch) => {
 
 //#######################################################
 
-export const updateCategoryAction = (userId) => async (dispatch) => {
+export const updateCategoryAction = (categoryId) => async (dispatch) => {
   //###
   dispatch({
     type: CATEGORY_UPDATE_REQUEST,
   });
   //###
   try {
-    const { data } = Axios.post(
-      `/fashion5/api/v1/category/updateCategoriesById/${userId}`
+    const { data } = await Axios.post(
+      `/fashion5/api/v1/category/updateCategoriesById/${categoryId}`
     );
     dispatch({
       type: CATEGORY_UPDATE_SUCCESS,
@@ -110,15 +115,15 @@ export const updateCategoryAction = (userId) => async (dispatch) => {
 
 //#######################################################
 
-export const deleteCategoryAction = (userId) => async (dispatch) => {
+export const deleteCategoryAction = (categoryId) => async (dispatch) => {
   //###
   dispatch({
     type: CATEGORY_DELETE_REQUEST,
   });
   //###
   try {
-    const { data } = Axios.post(
-      `/fashion5/api/v1/category/deleteCategoriesById/${userId}`
+    const { data } = await Axios.post(
+      `/fashion5/api/v1/category/deleteCategoriesById/${categoryId}`
     );
     dispatch({
       type: CATEGORY_DELETE_SUCCESS,

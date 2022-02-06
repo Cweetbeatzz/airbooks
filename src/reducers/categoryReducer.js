@@ -19,7 +19,7 @@ import {
 } from "../constants/categoryConstants";
 
 export const CategoryListReducer = (
-  state = { loading: true, users: [] },
+  state = { loading: true, categories: [] },
   action
 ) => {
   switch (action.type) {
@@ -37,7 +37,7 @@ export const CategoryListReducer = (
 //##################################################################
 
 export const CategoryByIdReducer = (
-  state = { loading: true, users: {} },
+  state = { loading: true, category: {} },
   action
 ) => {
   switch (action.type) {

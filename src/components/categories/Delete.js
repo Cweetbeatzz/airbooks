@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { deleteCategoryAction } from "../../actions/categoryActions";
 
-function Delete() {
+function Delete(props) {
+  // const categoryId = props.params.id;
+  // const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(deleteCategoryAction(categoryId));
+  // }, []);
+  //#####################################################################
   return (
     <div>
       <div class="text-center">
@@ -23,7 +32,7 @@ function Delete() {
         <form asp-action="Delete">
           <input type="hidden" asp-for="Id" />
           <input type="submit" value="Delete" class="btn btn-danger" /> |
-          <a asp-action="Index" href='link'>
+          <a asp-action="Index" href="link">
             <strong>BACK</strong>
           </a>
         </form>

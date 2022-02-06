@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { createCategoryAction } from "../../actions/categoryActions";
 
 function Create() {
+  const [getCategory, setCategory] = useState("");
+
+  // const dispatch = useDispatch();
+
+  // const onFormSubmit = (e) => {
+  //   e.preventDefault();
+  //   dispatch(createCategoryAction(getCategory));
+  // };
   return (
     <div>
       <div class="text-center">
@@ -19,7 +29,11 @@ function Create() {
               <div asp-validation-summary="ModelOnly" class="text-danger"></div>
               <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
+                <input
+                  asp-for="Name"
+                  class="form-control"
+                  onChange={(e) => setCategory(e.target.value)}
+                />
                 <span asp-validation-for="Name" class="text-danger"></span>
               </div>
               <div class="form-group">

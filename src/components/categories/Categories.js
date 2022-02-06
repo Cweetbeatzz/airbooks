@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { getAllCategoriesAction } from "../../actions/categoryActions";
 
 function Categories() {
+  // const [getCategoryList, setCategoryList] = useState("");
+
+  // const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(getAllCategoriesAction());
+  // });
   return (
     <div>
       <div class="container-fluid">

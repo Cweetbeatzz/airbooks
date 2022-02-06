@@ -1,8 +1,52 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { createUserAccountAction } from "../../actions/userActions";
 
 function Register() {
+  //#################################################################
+
+  const [getFirstName, setFirstName] = useState("");
+  const [getLastname, setLastname] = useState("");
+  const [getUsername, setUsername] = useState("");
+  const [getEmail, setEmail] = useState("");
+  const [getAddress, setAddress] = useState("");
+  const [getPhone, setPhone] = useState("");
+  const [getState, setState] = useState("");
+  const [getCountry, setCountry] = useState("");
+  const [getPostCode, setPostCode] = useState("");
+  const [getPassword, setPassword] = useState("");
+  const [getConfirmPassword, setConfirmPassword] = useState("");
+  //#################################################################
+  // const dispatch = useDispatch();
+  // //#################################################################
+
+  // const handleSubmitForm = (e) => {
+  //   //#######
+  //   e.preventDefault();
+  //   //#######
+  //   if (getPassword !== getConfirmPassword) {
+  //     alert("Passwords do not Match!!!");
+  //   } else {
+  //     //#######
+  //     dispatch(
+  //       createUserAccountAction(
+  //         getFirstName,
+  //         getLastname,
+  //         getUsername,
+  //         getEmail,
+  //         getAddress,
+  //         getPhone,
+  //         getState,
+  //         getCountry,
+  //         getPostCode,
+  //         getPassword
+  //       )
+  //     );
+  //   }
+  // };
+  //#################################################################
+
   return (
     <div>
       <br />
@@ -21,9 +65,9 @@ function Register() {
                   <input
                     type="text"
                     name="Firstname"
-                    value=""
+                    required
                     placeholder="Firstname"
-                    asp-for="Firstname"
+                    onChange={(e) => setFirstName(e.target.value)}
                     className="form-control"
                   />
                   <span
@@ -35,9 +79,9 @@ function Register() {
                   <input
                     type="text"
                     name="Lastname"
-                    value=""
+                    required
                     placeholder="Lastname"
-                    asp-for="Lastname"
+                    onChange={(e) => setLastname(e.target.value)}
                     className="form-control"
                   />
                   <span
@@ -49,9 +93,9 @@ function Register() {
                   <input
                     type="text"
                     name="Username"
-                    value=""
+                    required
                     placeholder="Username"
-                    asp-for="Username"
+                    onChange={(e) => setUsername(e.target.value)}
                     className="form-control"
                   />
                   <span
@@ -64,9 +108,9 @@ function Register() {
                     <input
                       type="email"
                       name="email"
-                      value=""
+                      required
                       placeholder="Email"
-                      asp-for="email"
+                      onChange={(e) => setEmail(e.target.value)}
                       className="form-control"
                     />
                     <span
@@ -80,9 +124,9 @@ function Register() {
                     <input
                       type="text"
                       name="Address"
-                      value=""
+                      required
                       placeholder="Address"
-                      asp-for="Address"
+                      onChange={(e) => setAddress(e.target.value)}
                       className="form-control"
                     />
                     <span
@@ -96,9 +140,9 @@ function Register() {
                     <input
                       type="text"
                       name="Phone"
-                      value=""
+                      required
                       placeholder="Phone"
-                      asp-for="Phone"
+                      onChange={(e) => setPhone(e.target.value)}
                       className="form-control"
                     />
                     <span
@@ -112,9 +156,9 @@ function Register() {
                     <input
                       type="text"
                       name="State"
-                      value=""
+                      required
                       placeholder="State"
-                      asp-for="State"
+                      onChange={(e) => setState(e.target.value)}
                       className="form-control"
                     />
                     <span
@@ -128,9 +172,9 @@ function Register() {
                     <input
                       type="text"
                       name="Country"
-                      value=""
+                      required
                       placeholder="Country"
-                      asp-for="Country"
+                      onChange={(e) => setCountry(e.target.value)}
                       className="form-control"
                     />
                     <span
@@ -144,9 +188,9 @@ function Register() {
                     <input
                       type="text"
                       name="PostalCode"
-                      value=""
+                      required
                       placeholder="PostalCode"
-                      asp-for="PostalCode"
+                      onChange={(e) => setPostCode(e.target.value)}
                       className="form-control"
                     />
                     <span
@@ -161,9 +205,9 @@ function Register() {
                     <input
                       type="password"
                       name="Password"
-                      value=""
+                      required
                       placeholder="Password"
-                      asp-for="Password"
+                      onChange={(e) => setPassword(e.target.value)}
                       className="form-control"
                     />
                     <span
@@ -177,9 +221,9 @@ function Register() {
                     <input
                       type="password"
                       name="ConfirmPassword"
-                      value=""
+                      required
                       placeholder="Confirm Password"
-                      asp-for="ConfirmPassword"
+                      onChange={(e) => setConfirmPassword(e.target.value)}
                       className="form-control"
                     />
                     <span

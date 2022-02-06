@@ -74,28 +74,57 @@ export const getUserByIdAction = (userId) => async (dispatch) => {
 
 //###################################################
 
-export const createUserAccountAction = () => async (dispatch) => {
-  //###
-  dispatch({
-    type: USER_CREATE_REQUEST,
-  });
-  //###
-  try {
-    const { data } = await Axios.post(`/fashion5/api/v1/users/createUsers`);
+export const createUserAccountAction =
+  (
+    firstname,
+    lastname,
+    username,
+    email,
+    address,
+    phone,
+    state,
+    country,
+    postcode,
+    password
+  ) =>
+  async (dispatch) => {
+    //###
     dispatch({
-      type: USER_CREATE_SUCCESS,
-      payload: data,
+      type: USER_CREATE_REQUEST,
     });
-  } catch (error) {
-    dispatch({
-      type: USER_CREATE_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
-    });
-  }
-};
+    //###
+    try {
+      const { data } = await Axios.post(`/fashion5/api/v1/users/createUsers`, {
+        firstname,
+        lastname,
+        username,
+        email,
+        address,
+        phone,
+        state,
+        country,
+        postcode,
+        password,
+      });
+      dispatch({
+        type: USER_CREATE_SUCCESS,
+        payload: data,
+      });
+      //to automatically login user if reg is successful
+      dispatch({
+        type: USER_LOGIN_SUCCESS,
+        payload: data,
+      });
+    } catch (error) {
+      dispatch({
+        type: USER_CREATE_FAIL,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      });
+    }
+  };
 
 //#######################################################
 

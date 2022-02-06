@@ -7,4 +7,4 @@ const CaterorySchema = mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Cartegory", CaterorySchema);
+module.exports = mongoose.model("Category", CaterorySchema);

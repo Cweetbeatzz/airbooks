@@ -9,7 +9,11 @@ const ProductSchema = new mongoose.Schema(
       maxlength: [30, "Name cannot exceed 30 characters"],
     },
     price: Number,
-    category: Array,
+    category: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Category",
+      required: true,
+    },
     company: String,
     image: String,
     description: {
