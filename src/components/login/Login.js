@@ -1,9 +1,43 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { loginUserAction } from "../../actions/userActions";
 
-function Login() {
+function Login(props) {
+  //########################################################
+
+  const [getEmail, setEmail] = useState("");
+  const [getPassword, setPassword] = useState("");
+  //
+  //########################################################
+
+  // const dispatch = useDispatch();
+  // //
+  // //########################################################
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   //calling the user login action
+  //   dispatch(loginUserAction(getEmail, getPassword));
+  // };
+  // //
+  // //########################################################
+
+  // const signedIn = useSelector((state) => state.userLogin);
+  // const { userInfo } = signedIn;
+
+  // const redirect = props.location.search
+  //   ? props.location.search.split("=")[1]
+  //   : "/";
+
+  // //########################################################
+  // useEffect(() => {
+  //   if (userInfo) {
+  //     props.history.push(redirect);
+  //   }
+  // }, [props.history, redirect, userInfo]);
+  //########################################################
   return (
-    <Container>
+    <div>
       <br />
       <div className="container">
         <div className="text-center">
@@ -30,6 +64,8 @@ function Login() {
                       placeholder="Email"
                       asp-for="Email"
                       className="form-control text-dark"
+                      required
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
                 </div>
@@ -42,6 +78,8 @@ function Login() {
                       placeholder="Password"
                       asp-for="Password"
                       className="form-control text-dark"
+                      required
+                      onChange={(e) => setPassword(e.target.value)}
                     />
                   </div>
                 </div>
@@ -80,10 +118,8 @@ function Login() {
           <br />
         </div>
       </div>
-    </Container>
+    </div>
   );
 }
 
 export default Login;
-
-const Container = styled.div``;

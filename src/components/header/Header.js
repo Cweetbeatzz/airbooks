@@ -2,13 +2,30 @@ import React, { useState } from "react";
 import { ReactDOM } from "react";
 import { Container } from "./Header.styles";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./Header.styles.css";
+import { loginOutUserAction } from "../../actions/userActions";
 
 function Header(params) {
   //
   // const cart = useSelector((state) => state.cart);
   // const { cartItems } = cart;
+
+  //#######################################################################
+
+  //if user is logged in render username
+
+  // const signedIn = useSelector((state) => state.userLogin);
+  // const { userInfo } = signedIn;
+
+  //#######################################################################
+
+  //logout
+  // const dispatch = useDispatch();
+
+  // const handleLogOut = () => {
+  //   dispatch(loginOutUserAction);
+  // };
   //#######################################################################
   return (
     <header>

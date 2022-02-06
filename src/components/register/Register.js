@@ -200,8 +200,8 @@ function Register() {
                     </div>
                     <div>
                       <label asp-for="Agreement" className="form-check-label">
-                        I accept the <a href="#">Terms of Use</a> and
-                        <a href="#">Privacy Policy</a>
+                        I accept the <a href="link">Terms of Use</a> and
+                        <a href="link">Privacy Policy</a>
                       </label>
                     </div>
                   </div>

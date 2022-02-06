@@ -1,4 +1,3 @@
-import data from "";
 import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import thunk from "redux-thunk";
 import { cartReducers } from "./reducers/cartReducers";
@@ -27,6 +26,12 @@ import {
 
 //
 const intialState = {
+  // check web browser if user has been logged in before to get credientials otherwise set new when user is logged in
+  userLogin: {
+    userInfo: localStorage.getItem("userInfo")
+      ? JSON.parse(localStorage.getItem("userInfo"))
+      : null,
+  },
   cart: {
     cartItems: localStorage.getItem("cartitem")
       ? JSON.parse(localStorage.getItem("cartitem"))
@@ -39,9 +44,9 @@ const reducer = combineReducers({
   //product
   productList: ProductListReducer,
   productDetails: ProductDetailsReducer,
-  productUpdate:updateProductReducer,
-  createProduct:createProductReducer,
-  delProduct:deleteProductReducer,
+  productUpdate: updateProductReducer,
+  createProduct: createProductReducer,
+  delProduct: deleteProductReducer,
   //cart
   cart: cartReducers,
   //users
