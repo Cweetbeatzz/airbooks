@@ -6,7 +6,7 @@ const userRouter = express.Router();
 
 userRouter.get("/getAllUsers", async (req, res) => {
   const allusers = await Users.find({});
-  const { password, confirmPassword, ...others } = allusers;
+  const { password, ...others } = allusers;
   res.status(200).json(others);
 });
 

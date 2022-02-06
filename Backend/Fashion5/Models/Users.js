@@ -57,10 +57,7 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: [true, "Password is Required"],
     },
-    confirmPassword: {
-      type: String,
-      required: [true, "Confirm Password is Required"],
-    },
+
     isAdmin: { type: Boolean, default: false },
   },
   {

@@ -9,6 +9,10 @@ import {
   updateCategoryReducer,
 } from "./reducers/categoryReducer";
 import {
+  createOrderReducer,
+  getOrderByIdReducer,
+} from "./reducers/orderReducers";
+import {
   createProductReducer,
   deleteProductReducer,
   ProductDetailsReducer,
@@ -62,6 +66,9 @@ const reducer = combineReducers({
   createCategory: createCategoryReducer,
   updateCategory: updateCategoryReducer,
   deleteCategory: deleteCategoryReducer,
+  //order
+  createOrder: createOrderReducer,
+  orderById: getOrderByIdReducer,
 });
 
 //

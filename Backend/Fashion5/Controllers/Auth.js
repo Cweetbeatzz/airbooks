@@ -18,7 +18,6 @@ const hashPassword = (_password) => {
 //
 authRouter.post("/register", async (req, res) => {
   const hashedpass = hashPassword(req.body.password);
-  const hashedConfirmpass = hashPassword(req.body.confirmPassword);
 
   const newUser = new Users({
     firstname: req.body.firstname,
@@ -31,7 +30,6 @@ authRouter.post("/register", async (req, res) => {
     state: req.body.state,
     postalcode: req.body.postalcode,
     password: hashedpass,
-    confirmPassword: hashedConfirmpass,
   });
 
   try {
@@ -57,7 +55,7 @@ authRouter.post("/login", (req, res) => {
       { expiresIn: "1d" }
     );
     //destructure the search result and exclude password visibility
-    const { password, confirmPassword, ...others } = searchEmail;
+    const { password, ...others } = searchEmail;
     res.status(200).json({ others, accessToken });
   } catch (error) {
     res.status(404).send(error);

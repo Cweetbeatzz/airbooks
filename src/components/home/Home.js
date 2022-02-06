@@ -312,7 +312,7 @@ function Home() {
             />
             <div className="card-body">
               <p className="card-text bg-info text-white text-center">
-                classNameIC JEWERELES
+                JEWERELES
               </p>
             </div>
           </div>
