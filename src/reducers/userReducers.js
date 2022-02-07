@@ -58,7 +58,7 @@ export const userByIdReducer = (
 
 //##################################################################
 
-export const createUserReducer = (state, action) => {
+export const createUserReducer = (state = {}, action) => {
   switch (action.type) {
     case USER_CREATE_REQUEST:
       return { loading: true };
@@ -73,7 +73,7 @@ export const createUserReducer = (state, action) => {
 
 //##################################################################
 
-export const updateUserReducer = (state, action) => {
+export const updateUserReducer = (state = {}, action) => {
   switch (action.type) {
     case USER_UPDATE_REQUEST:
       return { loading: true };
@@ -88,7 +88,7 @@ export const updateUserReducer = (state, action) => {
 
 //##################################################################
 
-export const deleteUserReducer = (state, action) => {
+export const deleteUserReducer = (state = {}, action) => {
   switch (action.type) {
     case USER_DELETE_REQUEST:
       return { loading: true };

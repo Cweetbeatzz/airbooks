@@ -51,6 +51,7 @@ export const getUserByIdAction = (userId) => async (dispatch) => {
   //###
   dispatch({
     type: USER_DETAILS_REQUEST,
+    payload: userId,
   });
   //###
   try {
@@ -91,6 +92,18 @@ export const createUserAccountAction =
     //###
     dispatch({
       type: USER_CREATE_REQUEST,
+      payload: {
+        firstname,
+        lastname,
+        username,
+        email,
+        address,
+        phone,
+        state,
+        country,
+        postcode,
+        password,
+      },
     });
     //###
     try {
@@ -112,7 +125,7 @@ export const createUserAccountAction =
       });
       //to automatically login user if reg is successful
       dispatch({
-        type: USER_LOGIN_SUCCESS,
+        type: USER_CREATE_SUCCESS,
         payload: data,
       });
     } catch (error) {
@@ -132,6 +145,7 @@ export const updateUserAccountAction = (userId) => async (dispatch) => {
   //###
   dispatch({
     type: USER_UPDATE_REQUEST,
+    payload: userId,
   });
   //###
   try {
@@ -159,6 +173,7 @@ export const deleteUserAccountAction = (userId) => async (dispatch) => {
   //###
   dispatch({
     type: USER_DELETE_REQUEST,
+    payload: userId,
   });
   //###
   try {
@@ -190,7 +205,7 @@ export const loginUserAction = (email, password) => async (dispatch) => {
   });
   //###
   try {
-    const { data } = await Axios.post(`/fashion5/api/v1/users/login`, {
+    const { data } = await Axios.post(`/fashion5/api/v1/auth/login`, {
       email,
       password,
     });

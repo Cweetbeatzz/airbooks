@@ -73,6 +73,7 @@ export const createProductAction = () => async (dispatch) => {
 export const updateProductAction = (productId) => async (dispatch) => {
   dispatch({
     type: PRODUCT_UPDATE_REQUEST,
+    payload: productId,
   });
 
   try {
@@ -90,6 +91,7 @@ export const updateProductAction = (productId) => async (dispatch) => {
 export const deleteProductAction = (productId) => async (dispatch) => {
   dispatch({
     type: PRODUCT_DELETE_REQUEST,
+    payload: productId,
   });
 
   try {

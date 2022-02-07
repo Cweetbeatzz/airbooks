@@ -54,7 +54,7 @@ export const ProductDetailsReducer = (
 
 //##################################################################
 
-export const createProductReducer = (state, action) => {
+export const createProductReducer = (state = {}, action) => {
   switch (action.type) {
     case PRODUCT_CREATE_REQUEST:
       return { loading: true };
@@ -69,7 +69,7 @@ export const createProductReducer = (state, action) => {
 
 //##################################################################
 
-export const updateProductReducer = (state, action) => {
+export const updateProductReducer = (state = {}, action) => {
   switch (action.type) {
     case PRODUCT_UPDATE_REQUEST:
       return { loading: true };
@@ -84,7 +84,7 @@ export const updateProductReducer = (state, action) => {
 
 //##################################################################
 
-export const deleteProductReducer = (state, action) => {
+export const deleteProductReducer = (state = {}, action) => {
   switch (action.type) {
     case PRODUCT_DELETE_REQUEST:
       return { loading: true };

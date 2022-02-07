@@ -54,7 +54,7 @@ export const CategoryByIdReducer = (
 
 //##################################################################
 
-export const createCategoryReducer = (state, action) => {
+export const createCategoryReducer = (state = {}, action) => {
   switch (action.type) {
     case CATEGORY_CREATE_REQUEST:
       return { loading: true };
@@ -69,7 +69,7 @@ export const createCategoryReducer = (state, action) => {
 
 //##################################################################
 
-export const updateCategoryReducer = (state, action) => {
+export const updateCategoryReducer = (state = {}, action) => {
   switch (action.type) {
     case CATEGORY_UPDATE_REQUEST:
       return { loading: true };
@@ -84,7 +84,7 @@ export const updateCategoryReducer = (state, action) => {
 
 //##################################################################
 
-export const deleteCategoryReducer = (state, action) => {
+export const deleteCategoryReducer = (state = {}, action) => {
   switch (action.type) {
     case CATEGORY_DELETE_REQUEST:
       return { loading: true };
