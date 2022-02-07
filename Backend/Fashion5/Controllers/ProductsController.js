@@ -1,7 +1,6 @@
 const ProductsModel = require("../Models/Products");
 const express = require("express");
 const productsRouter = express.Router();
-const multer = require("multer");
 const { uploadLocation } = require("../Services/imageUploads");
 
 //#######################################################

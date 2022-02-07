@@ -1,58 +1,31 @@
 const express = require("express");
 const Users = require("../Models/Users");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
 require("dotenv").config();
-const { hashPassword, comparePasswords } = require("../Services/passwordHash");
-
+const { comparePasswords } = require("../Services/passwordHash");
+const { generateToken } = require("../Services/Jwt");
 const authRouter = express.Router();
 
 //#############################################################
 //
-authRouter.post("/register", async (req, res) => {
-  const hashedpass = hashPassword(req.body.password);
-
-  const newUser = new Users({
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
-    username: req.body.username,
-    email: req.body.email,
-    address: req.body.address,
-    phone: req.body.phone,
-    country: req.body.country,
-    state: req.body.state,
-    postalcode: req.body.postalcode,
-    password: hashedpass,
-  });
-
-  try {
-    await newUser.save();
-    res.status(201).json({ newUser });
-  } catch (error) {
-    res.status(404).send(error);
+authRouter.post("/login", async (req, res) => {
+  //search fr email
+  const searchUserEmail = await Users.findOne({ email: req.body.email });
+  // compare passwords
+  if (searchUserEmail) {
+    //if password correct
+    if (comparePasswords(req.body.password, searchUserEmail.password)) {
+      //send these details plus the generated token
+      res.status(200).json({
+        id: searchUserEmail._id,
+        username: searchUserEmail.username,
+        email: searchUserEmail.email,
+        isAdmin: searchUserEmail.isAdmin,
+        token: generateToken(searchUserEmail),
+      });
+    }
   }
-});
 
-//#############################################################
-//
-authRouter.post("/login", (req, res) => {
-  try {
-    const searchEmail = Users.findOne({ email: req.body.email });
-    // const hashedpass = bcrypt;
-    const accessToken = jwt.sign(
-      {
-        id: Users._id,
-        isAdmin: Users.isAdmin,
-      },
-      process.env.JWT_SECRET_KEY,
-      { expiresIn: "1d" }
-    );
-    //destructure the search result and exclude password visibility
-    const { password, ...others } = searchEmail;
-    res.status(200).json({ others, accessToken });
-  } catch (error) {
-    res.status(404).send(error);
-  }
+  res.status(401).send({ message: "Unauthorized access" });
 });
 
 //#############################################################
