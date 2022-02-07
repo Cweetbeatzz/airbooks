@@ -7,7 +7,7 @@ const { uploadLocation } = require("../Services/imageUploads");
 //#######################################################
 
 productsRouter.get("/getAllProducts", async (req, res) => {
-  const output = ProductsModel.find({}).sort({ createdAt: -1 }).limit(30);
+  const output = await ProductsModel.find({});
   res.status(200).json({ output });
 });
 
@@ -24,7 +24,7 @@ productsRouter.get("/getAllProductsByCategory", async (req, res) => {
 
   res.status(200).json({ products });
 });
-//
+
 //#######################################################
 
 productsRouter.get("/getProductsById/:id", async (req, res) => {
@@ -52,8 +52,8 @@ productsRouter.post(
       price: req.body.price,
       category: req.body.category,
       company: req.body.company,
-      productImage: req.body.productImage,
-      description: req.file.path,
+      productImage: req.file.path,
+      description: req.body.description,
     });
     try {
       await newProduct.save();
