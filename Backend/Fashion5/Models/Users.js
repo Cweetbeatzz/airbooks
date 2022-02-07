@@ -59,6 +59,9 @@ const UserSchema = new mongoose.Schema(
     },
 
     isAdmin: { type: Boolean, default: false },
+    isClient: { type: Boolean, default: true },
+    isSeller: { type: Boolean, default: false },
+    isTransit: { type: Boolean, default: false },
   },
   {
     timestamps: true,

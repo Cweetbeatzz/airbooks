@@ -3,17 +3,10 @@ const Users = require("../Models/Users");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
-
-// const passwordHasher = require("../Services/passwordHash");
+const { hashPassword, comparePasswords } = require("../Services/passwordHash");
 
 const authRouter = express.Router();
 
-//#############################################################
-
-const hashPassword = (_password) => {
-  const output = bcrypt.hashSync(_password, 8);
-  return output;
-};
 //#############################################################
 //
 authRouter.post("/register", async (req, res) => {

@@ -12,7 +12,7 @@ const cors = require("cors");
 
 //<----------- middlewares ---------------->
 //use static files
-app.use(express.static("./public/images"));
+app.use("./Public/uploadImages", express.static("./Public/uploadImages"));
 app.use(express.json());
 app.use(cors());
 

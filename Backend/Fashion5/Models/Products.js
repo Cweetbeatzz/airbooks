@@ -8,14 +8,21 @@ const ProductSchema = new mongoose.Schema(
       trim: true,
       maxlength: [30, "Name cannot exceed 30 characters"],
     },
-    price: Number,
+    price: {
+      type: Number,
+      required: [true, "Price of product is required"],
+      default: 0.0,
+    },
     category: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Category",
-      required: true,
+      required: [true, "Category Selection for this product is required"],
     },
-    company: String,
-    image: String,
+    company: {
+      type: String,
+      required: [true, "Business/Company Name is required"],
+    },
+    productImage: { type: String, required: [true, "Image is required"] },
     description: {
       type: String,
       required: [true, "Description is required"],

@@ -1,6 +1,7 @@
 const ProductsModel = require("../Models/Products");
 const express = require("express");
 const productsRouter = express.Router();
+const { uploadLocation } = require("../Services/imageUploads");
 
 //
 //#######################################################
@@ -14,23 +15,13 @@ productsRouter.get("/getAllProducts", async (req, res) => {
 //#######################################################
 
 productsRouter.get("/getAllProductsByCategory", async (req, res) => {
-  const prod = req.query.new;
   const qcategory = req.query.category;
   let products;
 
-  try {
-    if (prod) {
-      products = await ProductsModel.find().sort({ createdAt: -1 }).limit(15);
-    } else if (qcategory) {
-      products = await ProductsModel.find({ categories: { $in: [qcategory] } })
-        .sort({ createdAt: -1 })
-        .limit(15);
-    } else {
-      products = ProductsModel.find({});
-    }
-  } catch (error) {
-    res.status(404).send(error);
-  }
+  products = await ProductsModel.find({ categories: { $in: [qcategory] } })
+    .sort({ createdAt: -1 })
+    .limit(15);
+
   res.status(200).json({ products });
 });
 //
@@ -51,10 +42,15 @@ productsRouter.get("/getProductsById", async (req, res) => {
 //
 //#######################################################
 
-productsRouter.post("/createProducts", async (req, res) => {
-  const result = await ProductsModel.create(req.body);
-  res.status(201).json({ result });
-});
+productsRouter.post(
+  "/createProducts",
+  uploadLocation.single("productImage"),
+  async (req, res, next) => {
+    //
+    const result = await ProductsModel.create(req.body);
+    res.status(201).json({ result });
+  }
+);
 
 //
 //#######################################################
