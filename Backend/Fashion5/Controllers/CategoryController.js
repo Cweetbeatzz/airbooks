@@ -36,7 +36,7 @@ catrgoryRouter.post("/createCategories", async (req, res) => {
 //
 //#######################################################
 
-catrgoryRouter.patch("/updateCategoriesById", async (req, res) => {
+catrgoryRouter.patch("/updateCategoriesById/:id", async (req, res) => {
   //
   const cat = await CategoryModel.findOneAndUpdate(req.params.id);
 
@@ -45,20 +45,20 @@ catrgoryRouter.patch("/updateCategoriesById", async (req, res) => {
       .status(404)
       .send({ message: `No Category found matching the following ID` });
   }
-  res.send(cat);
+  res.send({ message: "Update Successful" });
 });
 
 //
 //#######################################################
 
-catrgoryRouter.delete("/deleteCategoriesById", async (req, res) => {
+catrgoryRouter.delete("/deleteCategoriesById/:id", async (req, res) => {
   //
   const cat = await CategoryModel.findOneAndDelete(req.params.id);
 
   if (!cat) {
     res.status(404).send({ message: `No task matching the following ID` });
   }
-  res.send(cat);
+  res.send({});
 });
 
 //#######################################################

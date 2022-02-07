@@ -1,8 +1,11 @@
 const bcrypt = require("bcryptjs");
 
-export const hashPassword = (_password) => {
+//hash & salted password
+const hashPassword = (_password) => {
   const output = bcrypt.hashSync(_password, 8);
   return output;
 };
 
-export const comparePasswords = () => {};
+const comparePasswords = () => {};
+
+module.exports = { hashPassword };

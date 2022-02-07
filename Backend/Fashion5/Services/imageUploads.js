@@ -4,9 +4,9 @@ const multer = require("multer");
 //<-------------------IMAGE STORAGE--------------------->
 
 //location
-export const storage = multer.diskStorage({
+const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "../Public/uploadImages");
+    cb(null, "uploads/");
   },
   filename: (req, file, cb) => {
     cb(null, new Date().toISOString() + file.originalname);
@@ -14,7 +14,7 @@ export const storage = multer.diskStorage({
 });
 
 //file type fr uploads
-export const Acceptfiletype = (req, file, cb) => {
+function Acceptfiletype(req, file, cb) {
   //accept a file
   if (
     file.mimetype === "image/jpeg" ||
@@ -26,11 +26,13 @@ export const Acceptfiletype = (req, file, cb) => {
     //reject a file
     cb(new Error("Only 'jpeg,png,jpg' images files are surpotted"), false);
   }
-};
+}
 
 //########
-export const uploadLocation = multer({
-  dest: storage,
+const uploadLocation = multer({
+  dest: "uploads/",
   limits: { filesize: 1024 * 1024 * 5 },
   fileFilter: Acceptfiletype,
 });
+
+module.exports = { uploadLocation };

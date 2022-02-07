@@ -1,6 +1,7 @@
 const Users = require("../Models/Users");
 const express = require("express");
 const userRouter = express.Router();
+const { hashPassword } = require("../Services/passwordHash");
 
 //#######################################################
 
@@ -25,8 +26,27 @@ userRouter.get("/getUsersById/:id", async (req, res) => {
 //#######################################################
 
 userRouter.post("/createUsers", async (req, res) => {
-  const result = await Users.create(req.body);
-  res.status(201).json({ result });
+  const hashedpass = hashPassword(req.body.password);
+
+  const newUser = new Users({
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    username: req.body.username,
+    email: req.body.email,
+    address: req.body.address,
+    phone: req.body.phone,
+    country: req.body.country,
+    state: req.body.state,
+    postalcode: req.body.postalcode,
+    password: hashedpass,
+  });
+
+  try {
+    await newUser.save();
+    res.status(201).json({ newUser });
+  } catch (error) {
+    res.status(404).send(error);
+  }
 });
 
 //#######################################################
