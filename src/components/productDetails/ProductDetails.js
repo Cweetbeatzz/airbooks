@@ -21,11 +21,7 @@ function ProductDetails(props) {
         </h2>
       </div>
       <hr />
-      {/* {loading ? (
-          <Loading></Loading>
-        ) : error ? (
-          <Message variant="danger">{error}</Message>
-        ) : ( */}
+
       <div className="row card text-center m-3">
         <div className="bd-example bd-example-images m-4">
           <div className="text-center">
@@ -68,7 +64,6 @@ function ProductDetails(props) {
           </div>
         </div>
       </div>
-      ){/* } */}
       <hr />
     </div>
   );

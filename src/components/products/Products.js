@@ -3,6 +3,7 @@ import Message from "./Message";
 import Loading from "./Loading";
 import { useDispatch, useSelector } from "react-redux";
 import { productListAction } from "../../actions/productsActions";
+import { Link } from "react-router-dom";
 
 function Products(props) {
   //##########################################################
@@ -13,6 +14,9 @@ function Products(props) {
 
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
+
+  // console.log(products);
+  // console.log(productList);
 
   //##########################################################
   // const addToCart = async () => {
@@ -45,12 +49,15 @@ function Products(props) {
                 style={{ width: "200px" }}
                 key={product._id}
               >
-                <img
-                  className="card-img-top w-100"
-                  src={product.image}
-                  style={{ width: "150px" }}
-                  alt=" "
-                />
+                <Link to={`/ProductsDetail/${product._id}`}>
+                  <img
+                    className="card-img-top w-100"
+                    src={product.image}
+                    style={{ width: "150px" }}
+                    alt=" "
+                  />
+                </Link>
+
                 <span className="card-body d-flex justify-content-evenly">
                   <a className="text-black" href="link">
                     {product.name}

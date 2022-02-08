@@ -3,6 +3,7 @@ import Footer from "./components/footer/Footer.js";
 import Header from "./components/header/Header";
 import Home from "./components/home/Home";
 import Products from "./components/products/Products";
+import ProductDetail from "./components/productDetails/ProductDetails";
 import CreateProducts from "./components/products/Create";
 import UpdateProducts from "./components/products/Update";
 import DeleteProducts from "./components/products/Delete";
@@ -34,6 +35,7 @@ function App() {
           <Route path="*" element={<Home />} />
           <Route path="home" element={<Home />} />
           <Route path="Products" element={<Products />} />
+          <Route path="ProductsDetail/:id" element={<ProductDetail />} />
           <Route path="CreateProducts" element={<CreateProducts />} />
           <Route path="UpdateProducts" element={<UpdateProducts />} />
           <Route path="DeleteProducts" element={<DeleteProducts />} />

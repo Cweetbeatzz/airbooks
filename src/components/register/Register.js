@@ -261,6 +261,7 @@ function Register() {
                     <strong>SUBMIT</strong>
                   </button>
                 </div>
+                
               </form>
             </div>
           </div>

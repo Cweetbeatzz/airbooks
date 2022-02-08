@@ -1,4 +1,7 @@
 import {
+  PRODUCT_CATEGORY_LIST_FAIL,
+  PRODUCT_CATEGORY_LIST_REQUEST,
+  PRODUCT_CATEGORY_LIST_SUCCESS,
   PRODUCT_CREATE_FAIL,
   PRODUCT_CREATE_REQUEST,
   PRODUCT_CREATE_SUCCESS,
@@ -25,7 +28,9 @@ export const productListAction = () => async (dispatch) => {
   });
 
   try {
-    const { data } = await Axios.get("/fashion5/api/v1/products");
+    const { data } = await Axios.get(
+      "/fashion5/api/v1/products/getAllProducts"
+    );
     dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: PRODUCT_LIST_FAIL, payload: error.message });
@@ -34,13 +39,31 @@ export const productListAction = () => async (dispatch) => {
 
 //###################################################
 
+export const productListByategoryAction = () => async (dispatch) => {
+  dispatch({
+    type: PRODUCT_CATEGORY_LIST_REQUEST,
+  });
+
+  try {
+    const { data } = await Axios.get(
+      "/fashion5/api/v1/products/getAllProductsByCategory"
+    );
+    dispatch({ type: PRODUCT_CATEGORY_LIST_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: PRODUCT_CATEGORY_LIST_FAIL, payload: error.message });
+  }
+};
+//###################################################
+
 export const productDetailsAction = (productId) => async (dispatch) => {
   dispatch({
     type: PRODUCT_DETAILS_REQUEST,
     payload: productId,
   });
   try {
-    const { data } = await Axios.get(`/fashion5/api/v1/products/${productId}`);
+    const { data } = await Axios.get(
+      `/fashion5/api/v1/products/getProductsById/${productId}`
+    );
     dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data });
   } catch (error) {
     dispatch({

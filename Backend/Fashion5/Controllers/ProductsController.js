@@ -7,7 +7,7 @@ const { uploadLocation } = require("../Services/imageUploads");
 
 productsRouter.get("/getAllProducts", async (req, res) => {
   const output = await ProductsModel.find({});
-  res.status(200).json({ output });
+  res.status(200).send({ output });
 });
 
 //
@@ -21,7 +21,7 @@ productsRouter.get("/getAllProductsByCategory", async (req, res) => {
     .sort({ createdAt: -1 })
     .limit(30);
 
-  res.status(200).json({ products });
+  res.status(200).send({ products });
 });
 
 //#######################################################
@@ -56,7 +56,7 @@ productsRouter.post(
     });
     try {
       await newProduct.save();
-      res.status(201).json({ newProduct });
+      res.status(201).send({ newProduct });
     } catch (error) {
       res.status(404).send(error);
     }
