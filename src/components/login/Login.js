@@ -22,19 +22,19 @@ function Login(props) {
   //
   //########################################################
 
-  // const signedIn = useSelector((state) => state.userLogin);
-  // const { userInfo } = signedIn;
+  const signedIn = useSelector((state) => state.userLogin);
+  const { userInfo } = signedIn;
 
-  // const redirect = props.location.search
-  //   ? props.location.search.split("=")[1]
-  //   : "/";
+  const redirect = props.location.search
+    ? props.location.search.split("=")[1]
+    : "/";
 
-  // //########################################################
-  // useEffect(() => {
-  //   if (userInfo) {
-  //     props.history.push(redirect);
-  //   }
-  // }, [props.history, redirect, userInfo]);
+  //########################################################
+  useEffect(() => {
+    if (userInfo) {
+      props.history.push(redirect);
+    }
+  }, [props.history, redirect, userInfo]);
   //########################################################
   return (
     <div>

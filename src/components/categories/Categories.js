@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getAllCategoriesAction } from "../../actions/categoryActions";
 
 function Categories() {
-  // const [getCategoryList, setCategoryList] = useState("");
+  const [getCategoryList, setCategoryList] = useState("");
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const categoryList = useSelector((state) => state.categoryList);
+  const { loading, error, payload } = categoryList;
 
-  // useEffect(() => {
-  //   dispatch(getAllCategoriesAction());
-  // });
+  useEffect(() => {
+    dispatch(getAllCategoriesAction());
+  }, [dispatch]);
   return (
     <div>
       <div class="container-fluid">

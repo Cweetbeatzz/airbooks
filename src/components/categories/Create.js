@@ -3,14 +3,14 @@ import { useDispatch } from "react-redux";
 import { createCategoryAction } from "../../actions/categoryActions";
 
 function Create() {
-  const [getCategory, setCategory] = useState("");
+  const [getCategoryName, setCategoryName] = useState("");
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // const onFormSubmit = (e) => {
-  //   e.preventDefault();
-  //   dispatch(createCategoryAction(getCategory));
-  // };
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+    dispatch(createCategoryAction(getCategoryName));
+  };
   return (
     <div>
       <div class="text-center">
@@ -25,6 +25,7 @@ function Create() {
             <form
               asp-action="Create"
               class="text-center justify-content-center"
+              onSubmit={onFormSubmit}
             >
               <div asp-validation-summary="ModelOnly" class="text-danger"></div>
               <div class="form-group">
@@ -32,7 +33,7 @@ function Create() {
                 <input
                   asp-for="Name"
                   class="form-control"
-                  onChange={(e) => setCategory(e.target.value)}
+                  onChange={(e) => setCategoryName(e.target.value)}
                 />
                 <span asp-validation-for="Name" class="text-danger"></span>
               </div>

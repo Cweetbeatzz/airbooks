@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { getAllCategoriesAction } from "../../actions/categoryActions";
 import { Container } from "./home.styles";
 import styles from "./home.styles.css";
 // #####################################################################
 
 function Home() {
+  const [getCategoryList, setCategoryList] = useState("");
+
+  const dispatch = useDispatch();
+  const categoryList = useSelector((state) => state.categoryList);
+  const { loading, error, payload } = categoryList;
+
+  useEffect(() => {
+    dispatch(getAllCategoriesAction());
+  }, [dispatch]);
+
   return (
     <div>
       <div
@@ -78,14 +90,16 @@ function Home() {
       <div className="container m-1 mx-auto">
         <div className="row d-flex flex-row catlist" style={{ width: "50px" }}>
           <div className="text-center bg-light mx-auto w-100">
+            {/* {payload.map((category) => ( */}
             <div className="d-inline-block navbar-expand-sm mt-sm-3 pl-1 pr-1 m-1">
               <a
                 className="d-flex flex-row text-primary"
                 href="{{item.categories_absolute_url}}"
               >
-                <strong>CATEGORIES</strong>
+                <strong>CATEGORY</strong>
               </a>
             </div>
+            {/* ))} */}
           </div>
         </div>
       </div>
