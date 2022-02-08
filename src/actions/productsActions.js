@@ -55,20 +55,24 @@ export const productDetailsAction = (productId) => async (dispatch) => {
 
 //###################################################
 
-export const createProductAction = () => async (dispatch) => {
-  dispatch({
-    type: PRODUCT_CREATE_REQUEST,
-  });
+export const createProductAction =
+  (name, price, category, company, productImage, description) =>
+  async (dispatch) => {
+    dispatch({
+      type: PRODUCT_CREATE_REQUEST,
+      payload: { name, price, category, company, productImage, description },
+    });
 
-  try {
-    const { data } = await Axios.get(
-      "/fashion5/api/v1/products/createProducts"
-    );
-    dispatch({ type: PRODUCT_CREATE_SUCCESS, payload: data });
-  } catch (error) {
-    dispatch({ type: PRODUCT_CREATE_FAIL, payload: error.message });
-  }
-};
+    try {
+      const { data } = await Axios.get(
+        "/fashion5/api/v1/products/createProducts",
+        { name, price, category, company, productImage, description }
+      );
+      dispatch({ type: PRODUCT_CREATE_SUCCESS, payload: data });
+    } catch (error) {
+      dispatch({ type: PRODUCT_CREATE_FAIL, payload: error.message });
+    }
+  };
 
 //###################################################
 

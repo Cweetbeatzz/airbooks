@@ -46,6 +46,7 @@ export const getCategoryByIdAction = (categoryId) => async (dispatch) => {
   //###
   dispatch({
     type: CATEGORY_DETAILS_REQUEST,
+    payload: categoryId,
   });
   //###
   try {
@@ -70,6 +71,7 @@ export const createCategoryAction = (categoryName) => async (dispatch) => {
   //###
   dispatch({
     type: CATEGORY_CREATE_REQUEST,
+    payload: categoryName,
   });
   //###
   try {
@@ -95,6 +97,7 @@ export const updateCategoryAction = (categoryId) => async (dispatch) => {
   //###
   dispatch({
     type: CATEGORY_UPDATE_REQUEST,
+    payload: categoryId,
   });
   //###
   try {
@@ -119,6 +122,7 @@ export const deleteCategoryAction = (categoryId) => async (dispatch) => {
   //###
   dispatch({
     type: CATEGORY_DELETE_REQUEST,
+    payload: categoryId,
   });
   //###
   try {
