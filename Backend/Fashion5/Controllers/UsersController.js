@@ -2,6 +2,7 @@ const Users = require("../Models/Users");
 const express = require("express");
 const userRouter = express.Router();
 const { hashPassword } = require("../Services/passwordHash");
+const { generateToken } = require("../Services/Jwt");
 
 //#######################################################
 
@@ -42,8 +43,17 @@ userRouter.post("/createUsers", async (req, res) => {
   });
 
   try {
-    await newUser.save();
-    res.status(201).json({ newUser });
+    const created = await newUser.save();
+    res.status(201).json({
+      id: created._id,
+      username: created.username,
+      email: created.email,
+      isAdmin: created.isAdmin,
+      isClient: created.isClient,
+      isSeller: created.isSeller,
+      isTransit: created.isTransit,
+      // token: generateToken(created),
+    });
   } catch (error) {
     res.status(404).send(error);
   }

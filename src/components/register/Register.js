@@ -60,7 +60,7 @@ function Register() {
           <hr />
           <div className="row text-center p-3">
             <div className="col-md-6 mx-auto">
-              <form method="post" className="" onSubmit={handleSubmitForm}>
+              <form method="post" className="form" onSubmit={handleSubmitForm}>
                 <div className="form-group mb-3">
                   <input
                     type="text"
@@ -138,7 +138,7 @@ function Register() {
                 <div className="form-group row mb-3">
                   <div className="col-md-12">
                     <input
-                      type="text"
+                      type="number"
                       name="Phone"
                       required
                       placeholder="Phone"
@@ -186,15 +186,15 @@ function Register() {
                 <div className="form-group row mb-3">
                   <div className="col-md-12">
                     <input
-                      type="text"
-                      name="PostalCode"
+                      type="number"
+                      name="PostCode"
                       required
                       placeholder="PostalCode"
                       onChange={(e) => setPostCode(e.target.value)}
                       className="form-control"
                     />
                     <span
-                      asp-validation-for="PostalCode"
+                      asp-validation-for="PostCode"
                       className="text-danger"
                     ></span>
                   </div>

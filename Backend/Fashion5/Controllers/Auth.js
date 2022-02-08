@@ -10,12 +10,13 @@ const authRouter = express.Router();
 authRouter.post("/login", async (req, res) => {
   //search fr email
   const searchUserEmail = await Users.findOne({ email: req.body.email });
+
   // compare passwords
   if (searchUserEmail) {
     //if password correct
     if (comparePasswords(req.body.password, searchUserEmail.password)) {
       //send these details plus the generated token
-      res.status(200).json({
+      res.status(200).send({
         id: searchUserEmail._id,
         username: searchUserEmail.username,
         email: searchUserEmail.email,
@@ -25,10 +26,10 @@ authRouter.post("/login", async (req, res) => {
         isTransit: searchUserEmail.isTransit,
         token: generateToken(searchUserEmail),
       });
+      return;
     }
   }
-
-  res.status(401).send({ message: "Unauthorized access" });
+  res.status(401).send({ error: "Unauthorized access" });
 });
 
 //#############################################################

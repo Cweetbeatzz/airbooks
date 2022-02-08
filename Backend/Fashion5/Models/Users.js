@@ -54,7 +54,7 @@ const UserSchema = new mongoose.Schema(
     },
     postalcode: {
       type: Number,
-      required: [true, "PostCode is Required"],
+      // required: [true, "PostCode is Required"],
       trim: true,
       maxlength: [15, "PostCode must not exceed 15 characters"],
     },
