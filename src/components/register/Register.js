@@ -18,33 +18,33 @@ function Register() {
   const [getPassword, setPassword] = useState("");
   const [getConfirmPassword, setConfirmPassword] = useState("");
   //#################################################################
-  // const dispatch = useDispatch();
-  // //#################################################################
+  const dispatch = useDispatch();
+  //#################################################################
 
-  // const handleSubmitForm = (e) => {
-  //   //#######
-  //   e.preventDefault();
-  //   //#######
-  //   if (getPassword !== getConfirmPassword) {
-  //     alert("Passwords do not Match!!!");
-  //   } else {
-  //     //#######
-  //     dispatch(
-  //       createUserAccountAction(
-  //         getFirstName,
-  //         getLastname,
-  //         getUsername,
-  //         getEmail,
-  //         getAddress,
-  //         getPhone,
-  //         getState,
-  //         getCountry,
-  //         getPostCode,
-  //         getPassword
-  //       )
-  //     );
-  //   }
-  // };
+  const handleSubmitForm = (e) => {
+    //#######
+    e.preventDefault();
+    //#######
+    if (getPassword !== getConfirmPassword) {
+      alert("Passwords do not Match!!!");
+    } else {
+      //#######
+      dispatch(
+        createUserAccountAction(
+          getFirstName,
+          getLastname,
+          getUsername,
+          getEmail,
+          getAddress,
+          getPhone,
+          getState,
+          getCountry,
+          getPostCode,
+          getPassword
+        )
+      );
+    }
+  };
   //#################################################################
 
   return (
@@ -60,7 +60,7 @@ function Register() {
           <hr />
           <div className="row text-center p-3">
             <div className="col-md-6 mx-auto">
-              <form method="post" className="" action=".">
+              <form method="post" className="" onSubmit={handleSubmitForm}>
                 <div className="form-group mb-3">
                   <input
                     type="text"

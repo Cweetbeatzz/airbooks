@@ -10,17 +10,17 @@ function Login(props) {
   //
   //########################################################
 
-  // const dispatch = useDispatch();
-  // //
-  // //########################################################
+  const dispatch = useDispatch();
+  //
+  //########################################################
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   //calling the user login action
-  //   dispatch(loginUserAction(getEmail, getPassword));
-  // };
-  // //
-  // //########################################################
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    //calling the user login action
+    dispatch(loginUserAction(getEmail, getPassword));
+  };
+  //
+  //########################################################
 
   // const signedIn = useSelector((state) => state.userLogin);
   // const { userInfo } = signedIn;
@@ -50,7 +50,7 @@ function Login(props) {
           <hr />
           <div className="row text-center p-3">
             <div className="col-md-6 mx-auto">
-              <form asp-action="Login" method="post">
+              <form asp-action="Login" method="post" onSubmit={handleSubmit}>
                 <div
                   asp-validation-summary="ModelOnly"
                   className="text-danger"

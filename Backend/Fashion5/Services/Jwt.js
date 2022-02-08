@@ -10,6 +10,9 @@ const generateToken = (user) => {
       username: user.username,
       email: user.email,
       isAdmin: user.isAdmin,
+      isClient: user.isClient,
+      isSeller: user.isSeller,
+      isTransit: user.isTransit,
     },
     process.env.JWT_SECRET_KEY,
     { expiresIn: "1d" }
