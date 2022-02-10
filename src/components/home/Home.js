@@ -2,20 +2,24 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getAllCategoriesAction } from "../../redux/actions/categoryActions";
-import { Container } from "./home.styles";
 import styles from "./home.styles.css";
+import Message from "../products/Message";
+import Loading from "../products/Loading";
+import NoCategories from "../categories/NoCategories";
 // #####################################################################
 
 function Home() {
-  const [getCategoryList, setCategoryList] = useState("");
-
   const dispatch = useDispatch();
   const categoryList = useSelector((state) => state.categoryList);
-  const { loading, error, payload } = categoryList;
+  const { loading, error, allcategories } = categoryList;
+
+  //##########################################################
 
   useEffect(() => {
     dispatch(getAllCategoriesAction());
   }, [dispatch]);
+
+  //##########################################################
 
   return (
     <div>
@@ -87,26 +91,36 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="container m-1 mx-auto">
-        <div className="row d-flex flex-row catlist" style={{ width: "50px" }}>
+
+      <div className="container m-1 mx-auto bg-danger">
+        <div className="row d-flex flex-row " style={{ height: "50px" }}>
           <div className="text-center bg-light mx-auto w-100">
-            {/* {payload.map((category) => ( */}
-            <div className="d-inline-block navbar-expand-sm mt-sm-3 pl-1 pr-1 m-1">
-              <a
-                className="d-flex flex-row text-primary"
-                href="{{item.categories_absolute_url}}"
-              >
-                <strong>CATEGORY</strong>
-              </a>
+            <div className="d-flex d-md-flex mt-sm-3 pl-1 pr-1 m-1 w-100 justify-content-center">
+              {loading ? (
+                <Loading></Loading>
+              ) : error ? (
+                <Message variant="danger">{error}</Message>
+              ) : (
+                allcategories.map((category) => {
+                  return (
+                    <Link
+                      className="d-flex text-primary mx-3"
+                      to="#"
+                      key={category._id}
+                    >
+                      <strong>{category.name}</strong>
+                    </Link>
+                  );
+                })
+              )}
             </div>
-            {/* ))} */}
           </div>
         </div>
       </div>
+
       {/* <!-- @*#############################################################################*@ --> */}
-      <div>
-        <hr className="my-4" />
-      </div>
+      <br />
+      <br />
       <div className="container-fluid">
         <div className="advertarea text-center justify-content-center">
           <div

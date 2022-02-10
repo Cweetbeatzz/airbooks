@@ -2,8 +2,8 @@ import React from "react";
 
 function Loading() {
   return (
-    <div>
-      <i className="fa fa-spinner fa-spin"></i> Loading...
+    <div className="text-center  ">
+      <h4>LOADING...</h4>
     </div>
   );
 }

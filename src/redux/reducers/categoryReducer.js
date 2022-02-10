@@ -18,15 +18,19 @@ import {
   CATEGORY_UPDATE_SUCCESS,
 } from "../constants/categoryConstants";
 
-export const CategoryListReducer = (
-  state = { loading: true, categories: [] },
-  action
-) => {
+const initialState = {
+  loading: true,
+  products: [],
+};
+
+//##################################################################
+
+export const CategoryListReducer = (state = initialState, action) => {
   switch (action.type) {
     case CATEGORY_LIST_REQUEST:
       return { loading: true };
     case CATEGORY_LIST_SUCCESS:
-      return { loading: false, payload: action.payload };
+      return { loading: false, allcategories: action.payload };
     case CATEGORY_LIST_FAIL:
       return { loading: false, error: action.payload };
     default:

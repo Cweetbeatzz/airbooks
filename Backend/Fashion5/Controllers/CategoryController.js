@@ -1,19 +1,19 @@
 const CategoryModel = require("../Models/Category");
 const express = require("express");
-const catrgoryRouter = express.Router();
+const categoryRouter = express.Router();
 
 //
 //#######################################################
 
-catrgoryRouter.get("/getAllCategories", async (req, res) => {
-  const cat = await CategoryModel.find({});
-  res.send(cat);
+categoryRouter.get("/getAllCategories", async (req, res) => {
+  const categories = await CategoryModel.find({});
+  res.status(200).send(categories);
 });
 
 //
 //#######################################################
 
-catrgoryRouter.get("/getCategoriesById/:id", async (req, res) => {
+categoryRouter.get("/getCategoriesById/:id", async (req, res) => {
   //
   const category = await CategoryModel.findById(req.params.id);
 
@@ -28,7 +28,7 @@ catrgoryRouter.get("/getCategoriesById/:id", async (req, res) => {
 //
 //#######################################################
 
-catrgoryRouter.post("/createCategories", async (req, res) => {
+categoryRouter.post("/createCategories", async (req, res) => {
   const result = await CategoryModel.create(req.body);
   res.status(201).json({ result });
 });
@@ -36,7 +36,7 @@ catrgoryRouter.post("/createCategories", async (req, res) => {
 //
 //#######################################################
 
-catrgoryRouter.patch("/updateCategoriesById/:id", async (req, res) => {
+categoryRouter.patch("/updateCategoriesById/:id", async (req, res) => {
   //
   const cat = await CategoryModel.findOneAndUpdate(req.params.id);
 
@@ -51,7 +51,7 @@ catrgoryRouter.patch("/updateCategoriesById/:id", async (req, res) => {
 //
 //#######################################################
 
-catrgoryRouter.delete("/deleteCategoriesById/:id", async (req, res) => {
+categoryRouter.delete("/deleteCategoriesById/:id", async (req, res) => {
   //
   const cat = await CategoryModel.findOneAndDelete(req.params.id);
 
@@ -63,4 +63,4 @@ catrgoryRouter.delete("/deleteCategoriesById/:id", async (req, res) => {
 
 //#######################################################
 
-module.exports = catrgoryRouter;
+module.exports = categoryRouter;
