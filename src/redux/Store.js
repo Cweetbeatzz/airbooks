@@ -1,17 +1,17 @@
 import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import thunk from "redux-thunk";
-import { cartReducers } from "./reducers/cartReducers";
+import { cartReducers } from "../redux/reducers/cartReducers";
 import {
   CategoryByIdReducer,
   CategoryListReducer,
   createCategoryReducer,
   deleteCategoryReducer,
   updateCategoryReducer,
-} from "./reducers/categoryReducer";
+} from "../redux/reducers/categoryReducer";
 import {
   createOrderReducer,
   getOrderByIdReducer,
-} from "./reducers/orderReducers";
+} from "../redux/reducers/orderReducers";
 import {
   createProductReducer,
   deleteProductReducer,
@@ -19,7 +19,7 @@ import {
   ProductListByCategoryReducer,
   ProductListReducer,
   updateProductReducer,
-} from "./reducers/productsReducers";
+} from "../redux/reducers/productsReducers";
 import {
   createUserReducer,
   deleteUserReducer,
@@ -27,7 +27,7 @@ import {
   updateUserReducer,
   userByIdReducer,
   userListReducer,
-} from "./reducers/userReducers";
+} from "../redux/reducers/userReducers";
 
 //
 const intialState = {

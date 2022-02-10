@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllCategoriesAction } from "../../actions/categoryActions";
+import { getAllCategoriesAction } from "../../redux/actions/categoryActions";
 
 function Categories() {
   const [getCategoryList, setCategoryList] = useState("");

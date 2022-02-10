@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   addToCartAction,
   RemoveFromCartAction,
-} from "../../actions/cartActions";
+} from "../../redux/actions/cartActions";
 
 function Cart(props) {
   //

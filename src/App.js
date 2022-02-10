@@ -2,7 +2,7 @@ import "./App.css";
 import Footer from "./components/footer/Footer.js";
 import Header from "./components/header/Header";
 import Home from "./components/home/Home";
-import Products from "./components/products/Products";
+import Products from "./components/products/ProductList";
 import ProductDetail from "./components/productDetails/ProductDetails";
 import CreateProducts from "./components/products/Create";
 import UpdateProducts from "./components/products/Update";

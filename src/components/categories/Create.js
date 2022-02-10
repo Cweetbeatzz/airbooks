@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { createCategoryAction } from "../../actions/categoryActions";
+import { createCategoryAction } from "../../redux/actions/categoryActions";
 
 function Create() {
   const [getCategoryName, setCategoryName] = useState("");

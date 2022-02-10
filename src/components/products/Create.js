@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { createProductAction } from "../../actions/productsActions";
+import { createProductAction } from "../../redux/actions/productsActions";
 
 function Create() {
   //#################################################################

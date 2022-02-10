@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getAllCategoriesAction } from "../../actions/categoryActions";
+import { getAllCategoriesAction } from "../../redux/actions/categoryActions";
 import { Container } from "./home.styles";
 import styles from "./home.styles.css";
 // #####################################################################

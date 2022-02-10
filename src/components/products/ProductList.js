@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import Message from "./Message";
 import Loading from "./Loading";
 import { useDispatch, useSelector } from "react-redux";
-import { productListAction } from "../../actions/productsActions";
+import { productListAction } from "../../redux/actions/productsActions";
 import { Link } from "react-router-dom";
 
-function Products(props) {
+function ProductList(props) {
   //##########################################################
   const [quantity, setQuantity] = useState(1);
   // const productId = props.match.params.id;
@@ -29,7 +29,13 @@ function Products(props) {
   }, [dispatch]);
 
   //##########################################################
-
+  // if (!products) {
+  //   return (
+  //     <div className="text-center mt-5 alert-warning p-5">
+  //       <h4>NO PRODUCTS</h4>
+  //     </div>
+  //   );
+  // }
   return (
     <div>
       <br />
@@ -99,4 +105,4 @@ function Products(props) {
   );
 }
 
-export default Products;
+export default ProductList;

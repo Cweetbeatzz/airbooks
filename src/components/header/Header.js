@@ -4,7 +4,7 @@ import { Container } from "./Header.styles";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./Header.styles.css";
-import { loginOutUserAction } from "../../actions/userActions";
+import { loginOutUserAction } from "../../redux/actions/userActions";
 
 function Header(params) {
   //

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { productDetailsAction } from "../../actions/productsActions";
+import { productDetailsAction } from "../../redux/actions/productsActions";
 
 function ProductDetails(props) {
   const dispatch = useDispatch();

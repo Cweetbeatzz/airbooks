@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { deleteCategoryAction } from "../../actions/categoryActions";
+import { deleteCategoryAction } from "../../redux/actions/categoryActions";
 
 function Delete(props) {
   // const categoryId = props.params.id;

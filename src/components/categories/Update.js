@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { updateCategoryAction } from "../../actions/categoryActions";
+import { updateCategoryAction } from "../../redux/actions/categoryActions";
 
 function Update() {
   const [getCategoryId, setCategoryId] = useState("");

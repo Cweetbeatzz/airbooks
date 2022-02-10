@@ -21,10 +21,7 @@ import {
 
 //##################################################################
 
-export const ProductListReducer = (
-  state = { loading: true, products: [] },
-  action
-) => {
+export const ProductListReducer = (state = { products: [] }, action) => {
   switch (action.type) {
     case PRODUCT_LIST_REQUEST:
       return { loading: true };
