@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { createUserAccountAction } from "../../actions/userActions";
+import { createUserAccountAction } from "../../redux/actions/userActions";
 
 function Register() {
   //#################################################################
@@ -261,7 +261,6 @@ function Register() {
                     <strong>SUBMIT</strong>
                   </button>
                 </div>
-                
               </form>
             </div>
           </div>

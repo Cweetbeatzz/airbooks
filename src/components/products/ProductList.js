@@ -16,7 +16,7 @@ function ProductList(props) {
   const { loading, error, products } = productList;
 
   // console.log(products);
-  // console.log(productList);
+  console.log(productList);
 
   //##########################################################
   // const addToCart = async () => {
@@ -29,13 +29,21 @@ function ProductList(props) {
   }, [dispatch]);
 
   //##########################################################
-  // if (!products) {
-  //   return (
-  //     <div className="text-center mt-5 alert-warning p-5">
-  //       <h4>NO PRODUCTS</h4>
-  //     </div>
-  //   );
-  // }
+  if (!products) {
+    return (
+      <div className="text-center mt-5 alert-warning p-5">
+        <h4>NO PRODUCTS</h4>
+      </div>
+    );
+  }
+  //##########################################################
+  if (loading) {
+    return (
+      <div className="text-center mt-5 alert-warning p-5">
+        <h4>LOADING...</h4>
+      </div>
+    );
+  }
   return (
     <div>
       <br />

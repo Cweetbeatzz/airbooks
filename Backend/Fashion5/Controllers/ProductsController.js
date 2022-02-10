@@ -6,8 +6,8 @@ const { uploadLocation } = require("../Services/imageUploads");
 //#######################################################
 
 productsRouter.get("/getAllProducts", async (req, res) => {
-  const output = await ProductsModel.find({});
-  res.status(200).send({ output });
+  const products = await ProductsModel.find({});
+  res.status(200).send({ products });
 });
 
 //
