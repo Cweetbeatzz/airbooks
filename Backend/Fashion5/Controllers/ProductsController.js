@@ -7,7 +7,7 @@ const { uploadLocation } = require("../Services/imageUploads");
 
 productsRouter.get("/getAllProducts", async (req, res) => {
   const products = await ProductsModel.find({});
-  res.status(200).send({ products });
+  res.status(200).send(products);
 });
 
 //
@@ -88,7 +88,7 @@ productsRouter.delete("/deleteProductsById/:id", async (req, res) => {
   if (!cat) {
     res.status(404).send({ message: `No task matching the following ID` });
   }
-  res.send(cat);
+  res.status(200).send({ message: "Product Deleted" });
 });
 
 module.exports = productsRouter;

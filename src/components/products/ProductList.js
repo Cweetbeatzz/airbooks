@@ -13,10 +13,7 @@ function ProductList(props) {
   const dispatch = useDispatch();
 
   const productList = useSelector((state) => state.productList);
-  const { loading, error, products } = productList;
-
-  // console.log(products);
-  console.log(productList);
+  const { loading, error, product } = productList;
 
   //##########################################################
   // const addToCart = async () => {
@@ -29,7 +26,7 @@ function ProductList(props) {
   }, [dispatch]);
 
   //##########################################################
-  if (!products) {
+  if (!product) {
     return (
       <div className="text-center mt-5 alert-warning p-5">
         <h4>NO PRODUCTS</h4>
@@ -39,8 +36,15 @@ function ProductList(props) {
   //##########################################################
   if (loading) {
     return (
-      <div className="text-center mt-5 alert-warning p-5">
+      <div className="text-center mt-5 alert-info p-5">
         <h4>LOADING...</h4>
+      </div>
+    );
+  }
+  if (error) {
+    return (
+      <div className="text-center mt-5 alert-danger p-5">
+        <h4>ERROR LOADING PRODUCTS...</h4>
       </div>
     );
   }
@@ -57,7 +61,7 @@ function ProductList(props) {
       <div>
         <div className="container-fluid p-5 bg-light">
           <div className="productcontent justify-content-center justify-content-evenly">
-            {products.map((product) => (
+            {product.map((product) => (
               <div
                 className="card"
                 style={{ width: "200px" }}
@@ -67,7 +71,7 @@ function ProductList(props) {
                   <img
                     className="card-img-top w-100"
                     src={product.image}
-                    style={{ width: "150px" }}
+                    style={{ width: "150px", height: "70px" }}
                     alt=" "
                   />
                 </Link>
