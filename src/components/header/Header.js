@@ -15,17 +15,17 @@ function Header(params) {
 
   //if user is logged in render username
 
-  // const signedIn = useSelector((state) => state.userLogin);
-  // const { userInfo } = signedIn;
+  const signedIn = useSelector((state) => state.userLogin);
+  const { userInfo } = signedIn;
 
   //#######################################################################
 
   //logout
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // const handleLogOut = () => {
-  //   dispatch(loginOutUserAction);
-  // };
+  const handleLogOut = () => {
+    dispatch(loginOutUserAction);
+  };
   //#######################################################################
   return (
     <header>
@@ -107,7 +107,7 @@ function Header(params) {
               </svg>
             </Link>
 
-            {/* <Link className="nav-link text-dark m-0" to="account">
+            <Link className="nav-link text-dark m-0" to="account">
               {" "}
               ACCOUNT{" "}
               <svg
@@ -124,11 +124,15 @@ function Header(params) {
                   d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
                 />
               </svg>
-            </Link> */}
+            </Link>
 
-            {/* <Link className="nav-link text-dark" to="logout">
+            <Link
+              className="nav-link text-dark"
+              to="logout"
+              onClick={handleLogOut}
+            >
               <strong>LOGOUT</strong>
-            </Link> */}
+            </Link>
           </div>
         </div>
       </nav>

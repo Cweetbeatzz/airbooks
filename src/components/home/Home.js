@@ -485,7 +485,7 @@ function Home() {
         <div className="col-6 mx-auto">
           <div className="text-center mx-auto">
             <h3 className="text-primary">
-              <strong>COLLECTIONS</strong>
+              <strong>SPECIAL OFFERS</strong>
             </h3>
             <div className="col-6 mx-auto bg-info">
               <hr className="w-50" />
