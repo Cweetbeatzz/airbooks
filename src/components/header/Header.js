@@ -83,6 +83,11 @@ function Header(params) {
                   <strong>ADMIN</strong>
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link text-dark" to="categories">
+                  <strong>CATEGORIES</strong>
+                </Link>
+              </li>
             </ul>
             <Link className="nav-link text-dark  m-0" to="cart">
               CART{" "}

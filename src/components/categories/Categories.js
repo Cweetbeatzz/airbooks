@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { getAllCategoriesAction } from "../../redux/actions/categoryActions";
 
 function Categories() {
@@ -14,18 +15,24 @@ function Categories() {
   }, [dispatch]);
   return (
     <div>
+      <br />
+      <br />
       <div class="container-fluid">
         <div class="text-center">
           <h4>
             <strong>CATEGORIES</strong>
           </h4>
-          <hr class="btn-dark" style={{ width: "300px" }} />
+          <hr class="btn-dark mx-auto" style={{ width: "300px" }} />
         </div>
         <div class="text-center">
           <p>
-            <a class="btn btn-primary" style={{ width: "300px" }} href="link">
+            <Link
+              class="btn btn-primary"
+              style={{ width: "300px" }}
+              to="/CreateCategory"
+            >
               Create New
-            </a>
+            </Link>
           </p>
         </div>
         <div class=" container container-border text-center">
@@ -40,13 +47,13 @@ function Categories() {
               <tr>
                 <td>Name</td>
                 <td>
-                  <a asp-action="Edit" href="item.Id">
+                  <Link asp-action="Edit" to="/UpdateCategory">
                     <strong>EDIT</strong>
-                  </a>{" "}
+                  </Link>{" "}
                   |
-                  <a asp-action="Delete" href="item.Id">
+                  <Link asp-action="Delete" to="item.Id">
                     <strong>DELETE</strong>
-                  </a>
+                  </Link>
                 </td>
               </tr>
             </tbody>

@@ -1,35 +1,49 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateCategoryAction } from "../../redux/actions/categoryActions";
 
-function Update() {
+function UpdateCategory() {
   const [getCategoryId, setCategoryId] = useState("");
+  const [getCategoryName, setCategoryName] = useState("");
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // const onFormSubmit = (e) => {
-  //   e.preventDefault();
-  //   dispatch(updateCategoryAction(getCategoryId));
-  // };
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+    dispatch(updateCategoryAction(getCategoryId));
+  };
+
+  useEffect(() => {}, [dispatch, getCategoryId]);
   return (
     <div>
+      <br />
+      <br />
       <div class="text-center">
         <h4>
           <strong>EDIT CATEGORY</strong>
         </h4>
       </div>
       <hr />
-      <div class="container p-5">
+      <div class="container p-3">
         <div class="row justify-content-center">
           <div class="col-md-7">
-            <form asp-action="Edit" class="text-center justify-content-center">
+            <form
+              asp-action="Edit"
+              class="text-center justify-content-center"
+              onSubmit={onFormSubmit}
+            >
               <div asp-validation-summary="ModelOnly" class="text-danger"></div>
               <input type="hidden" asp-for="Id" />
               <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
+                <input
+                  asp-for="Name"
+                  class="form-control"
+                  onChange={(e) => setCategoryName(e.target.value)}
+                />
                 <span asp-validation-for="Name" class="text-danger"></span>
               </div>
+              <br />
               <div class="form-group">
                 <button type="submit" value="Edit" class="btn btn-primary">
                   SAVE
@@ -39,14 +53,8 @@ function Update() {
           </div>
         </div>
       </div>
-
-      <div class="text-center">
-        <a asp-action="Index" class="btn btn-primary" href="link">
-          <strong>BACK</strong>
-        </a>
-      </div>
     </div>
   );
 }
 
-export default Update;
+export default UpdateCategory;

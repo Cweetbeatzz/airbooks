@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { createCategoryAction } from "../../redux/actions/categoryActions";
 
-function Create() {
+function CreateCategory() {
   const [getCategoryName, setCategoryName] = useState("");
 
   const dispatch = useDispatch();
@@ -11,15 +12,18 @@ function Create() {
     e.preventDefault();
     dispatch(createCategoryAction(getCategoryName));
   };
+
   return (
     <div>
+      <br />
+      <br />
       <div class="text-center">
         <h4>
           <strong>CREATE CATEGORY</strong>
         </h4>
       </div>
       <hr />
-      <div class="container p-5">
+      <div class="container p-3">
         <div class="row justify-content-center">
           <div class="col-md-7">
             <form
@@ -33,10 +37,12 @@ function Create() {
                 <input
                   asp-for="Name"
                   class="form-control"
+                  placeholder="Enter Category Name"
                   onChange={(e) => setCategoryName(e.target.value)}
                 />
                 <span asp-validation-for="Name" class="text-danger"></span>
               </div>
+              <br />
               <div class="form-group">
                 <button
                   type="submit"
@@ -53,12 +59,12 @@ function Create() {
       </div>
 
       <div class="text-center">
-        <a asp-action="Index" class="btn btn-primary" href="link">
+        <Link asp-action="Index" class="btn btn-primary" to="/categories">
           <strong>BACK</strong>
-        </a>
+        </Link>
       </div>
     </div>
   );
 }
 
-export default Create;
+export default CreateCategory;

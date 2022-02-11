@@ -8,8 +8,8 @@ import CreateProducts from "./components/products/Create";
 import UpdateProducts from "./components/products/Update";
 import DeleteProducts from "./components/products/Delete";
 import Categories from "./components/categories/Categories";
-import CreateCategories from "./components/categories/Create";
-import UpdateCategories from "./components/categories/Update";
+import CreateCategory from "./components/categories/CreateCategory";
+import UpdateCategory from "./components/categories/UpdateCategory";
 import DeleteCategories from "./components/categories/Delete";
 import Cart from "./components/cart/Cart";
 import ProdCategories from "./components/prodByCategories/ProdByCategories";
@@ -36,13 +36,12 @@ function App() {
           <Route path="home" element={<Home />} />
           <Route path="Products" element={<Products />} />
           <Route path="ProductsDetail/:id" element={<ProductDetail />} />
-          <Route path="CreateProducts" element={<CreateProducts />} />
+          <Route path="Create" element={<CreateProducts />} />
           <Route path="UpdateProducts" element={<UpdateProducts />} />
           <Route path="DeleteProducts" element={<DeleteProducts />} />
           <Route path="Categories" element={<Categories />} />
-          <Route path="CreateCategories" element={<CreateCategories />} />
-          <Route path="UpdateCategories" element={<UpdateCategories />} />
-          <Route path="DeleteCategories" element={<DeleteCategories />} />
+          <Route path="CreateCategory" element={<CreateCategory />} />
+          <Route path="UpdateCategory" element={<UpdateCategory />} />
           <Route path="DeleteCategories" element={<DeleteCategories />} />
           <Route path="Cart" element={<Cart />} />
           <Route path="ProdCategories" element={<ProdCategories />} />
