@@ -35,7 +35,7 @@ productsRouter.get("/getProductsById/:id", async (req, res) => {
       .status(404)
       .send({ message: `No Products found matching the following ID` });
   }
-  res.send(products);
+  res.status(200).send(products);
 });
 
 //

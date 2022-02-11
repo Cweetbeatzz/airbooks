@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   addToCartAction,
   RemoveFromCartAction,
 } from "../../redux/actions/cartActions";
 
 function Cart(props) {
+  const [getItemCount, setItemCount] = useState(1);
   //
   // //get cart from store
   // const cart = useSelector((state) => state.cart);
@@ -33,6 +35,9 @@ function Cart(props) {
 
   const checkOut = (id) => {};
 
+  const incrementCart = () => {};
+  const decrementCart = () => {};
+  const deleteAllCartItems = () => {};
   //#####################################################
   return (
     <div>
@@ -59,24 +64,27 @@ function Cart(props) {
               <td>name</td>
               <td>Quantity</td>
               <td>
-                <a
+                <Link
                   id="AddToCart"
                   className="btn btn-primary btn-sm mx-1"
-                  href="link"
+                  to="#"
+                  onClick={incrementCart}
                 >
                   +
-                </a>
-                <a
+                </Link>
+                <Link
                   id="DecreaseFromCart"
                   className="btn btn-warning btn-sm mx-1"
-                  href="link"
+                  to="#"
+                  onClick={decrementCart}
                 >
                   -
-                </a>
-                <a
+                </Link>
+                <Link
                   id="DeleteFromCart"
                   className="btn btn-danger btn-sm mx-1"
-                  href="link"
+                  to="#"
+                  onClick={deleteAllCartItems}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +105,7 @@ function Cart(props) {
                                       1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
                     />
                   </svg>
-                </a>
+                </Link>
               </td>
               <td>price</td>
               <td>$0</td>

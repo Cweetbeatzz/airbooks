@@ -13,6 +13,7 @@ function CreateCategory() {
     dispatch(createCategoryAction(getCategoryName));
   };
 
+  useEffect(() => {}, []);
   return (
     <div>
       <br />
@@ -46,7 +47,8 @@ function CreateCategory() {
                   required
                   className="form-control"
                   placeholder="Enter Category Name"
-                  onChange={(e) => setCategoryName(e.target.value)}
+                  onChange={(e) => setCategoryName(e.currentTarget.value)}
+                  value={getCategoryName}
                 />
                 <span asp-validation-for="Name" className="text-danger"></span>
               </div>

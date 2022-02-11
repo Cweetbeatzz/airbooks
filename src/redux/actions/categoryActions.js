@@ -76,7 +76,7 @@ export const createCategoryAction = (categoryName) => async (dispatch) => {
   //###
   try {
     const { data } = await Axios.post(
-      `/fashion5/api/v1/category/createCategories`,
+      "/fashion5/api/v1/category/createCategories",
       { categoryName }
     );
     dispatch({
@@ -86,7 +86,10 @@ export const createCategoryAction = (categoryName) => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: CATEGORY_CREATE_FAIL,
-      payload: error.message,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
     });
   }
 };

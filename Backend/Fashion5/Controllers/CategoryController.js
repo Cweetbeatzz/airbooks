@@ -31,8 +31,8 @@ categoryRouter.get("/getCategoriesById/:id", async (req, res) => {
 categoryRouter.post("/createCategories", async (req, res) => {
   const newCategory = new CategoryModel({ name: req.body.name });
   try {
-    await newCategory.save();
-    res.status(201).send({ newCategory });
+    const created = await newCategory.save();
+    res.status(201).json({ category: created.name });
   } catch (error) {
     res.status(404).send(error);
   }
@@ -50,7 +50,7 @@ categoryRouter.patch("/updateCategoriesById/:id", async (req, res) => {
       .status(404)
       .send({ message: `No Category found matching the following ID` });
   }
-  
+
   res.status(200).send({ message: "Update Successful" });
 });
 

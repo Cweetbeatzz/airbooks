@@ -1,9 +1,13 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllCategoriesAction } from "../../redux/actions/categoryActions";
 import { createProductAction } from "../../redux/actions/productsActions";
 
 function CreateProducts() {
   //#################################################################
+  const categorylist = useSelector((state) => state.categoryList);
+  const { loading, error, category } = categorylist;
+  console.log(category);
 
   const [getProductName, setProductName] = useState();
   const [getPrice, setPrice] = useState();
@@ -30,6 +34,9 @@ function CreateProducts() {
     );
   };
   //#################################################################
+  useEffect(() => {
+    dispatch(getAllCategoriesAction);
+  }, [dispatch]);
 
   return (
     <div>
@@ -56,7 +63,7 @@ function CreateProducts() {
                 <input
                   name="BusinessName"
                   class="form-control"
-                  onchange={(e) => setcompany(e.target.value)}
+                  onChange={(e) => setcompany(e.target.value)}
                 />
                 <span
                   asp-validation-for="BusinessName"
@@ -71,7 +78,7 @@ function CreateProducts() {
                 <input
                   asp-for="ProductName"
                   class="form-control"
-                  onchange={(e) => setProductName(e.target.value)}
+                  onChange={(e) => setProductName(e.target.value)}
                 />
                 <span
                   asp-validation-for="ProductName"
@@ -88,7 +95,7 @@ function CreateProducts() {
                   rows="4"
                   class="form-control"
                   placeholder="Write a Description about the Product..."
-                  onchange={(e) => setdescription(e.target.value)}
+                  onChange={(e) => setdescription(e.target.value)}
                 ></textarea>
                 <span
                   asp-validation-for="Description"
@@ -106,7 +113,7 @@ function CreateProducts() {
                     type="file"
                     class="form-control custom-file-input"
                     id="customfile"
-                    onchange={(e) => setproductImage(e.target.value)}
+                    onChange={(e) => setproductImage(e.target.value)}
                   />
                 </div>
                 <span asp-validation-for="Image" class="text-danger"></span>
@@ -119,7 +126,7 @@ function CreateProducts() {
                 <input
                   asp-for="Price"
                   class="form-control"
-                  onchange={(e) => setPrice(e.target.value)}
+                  onChange={(e) => setPrice(e.target.value)}
                 />
                 <span asp-validation-for="Price" class="text-danger"></span>
               </div>

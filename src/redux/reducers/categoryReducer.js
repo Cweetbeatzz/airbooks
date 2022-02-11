@@ -20,7 +20,7 @@ import {
 
 const initialState = {
   loading: true,
-  products: [],
+  allcategories: [],
 };
 
 //##################################################################
@@ -48,7 +48,7 @@ export const CategoryByIdReducer = (
     case CATEGORY_DETAILS_REQUEST:
       return { loading: true };
     case CATEGORY_DETAILS_SUCCESS:
-      return { loading: false, payload: action.payload };
+      return { loading: false, category: action.payload };
     case CATEGORY_DETAILS_FAIL:
       return { loading: false, error: action.payload };
     default:

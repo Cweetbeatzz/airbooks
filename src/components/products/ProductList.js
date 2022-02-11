@@ -64,16 +64,14 @@ function ProductList(props) {
                       style={{ width: "150px", height: "170px" }}
                       alt=" "
                     />
-                  </Link>
 
-                  <span className="card-body d-flex justify-content-evenly">
-                    <a className="text-black" href="link">
-                      {product.name}
-                    </a>
-                    <h6 className="text-info">
-                      <strong>{product.price}</strong>
-                    </h6>
-                  </span>
+                    <span className="card-body d-flex justify-content-evenly">
+                      <h6 className="text-black">{product.name}</h6>
+                      <h6 className="text-info">
+                        <strong>{product.price}</strong>
+                      </h6>
+                    </span>
+                  </Link>
                   <button
                     className="btn btn-dark btn-sm m-0 addtocart text-white"
                     id="addtocart"

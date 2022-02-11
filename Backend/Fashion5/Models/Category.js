@@ -2,7 +2,10 @@ const mongoose = require("mongoose");
 
 const CaterorySchema = mongoose.Schema(
   {
-    name: String,
+    name: {
+      type: String,
+      required: [true, "Category Name is required"],
+    },
   },
   { timestamps: true }
 );
