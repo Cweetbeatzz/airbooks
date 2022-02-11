@@ -4,7 +4,7 @@ import Header from "./components/header/Header";
 import Home from "./components/home/Home";
 import ProductList from "./components/products/ProductList";
 import ProductStore from "./components/products/ProductStore";
-import ProductDetail from "./components/productDetails/ProductDetails";
+import ProductDetails from "./components/products/ProductDetails";
 import CreateProducts from "./components/products/CreateProducts";
 import UpdateProducts from "./components/products/UpdateProducts";
 import DeleteProduct from "./components/products/DeleteProduct";
@@ -37,7 +37,7 @@ function App() {
           <Route path="home" element={<Home />} />
           <Route path="ProductList" element={<ProductList />} />
           <Route path="ProductStore" element={<ProductStore />} />
-          <Route path="ProductsDetail/:id" element={<ProductDetail />} />
+          <Route path="ProductsDetails" element={<ProductDetails />} />
           <Route path="CreateProducts" element={<CreateProducts />} />
           <Route path="UpdateProducts" element={<UpdateProducts />} />
           <Route path="DeleteProduct" element={<DeleteProduct />} />

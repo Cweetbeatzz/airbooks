@@ -71,7 +71,7 @@ export const createCategoryAction = (categoryName) => async (dispatch) => {
   //###
   dispatch({
     type: CATEGORY_CREATE_REQUEST,
-    payload: categoryName,
+    payload: { categoryName },
   });
   //###
   try {

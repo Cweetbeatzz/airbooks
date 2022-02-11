@@ -8,7 +8,7 @@ function CreateCategory() {
 
   const dispatch = useDispatch();
 
-  const onFormSubmit = (e) => {
+  const onCategoryFormSubmit = (e) => {
     e.preventDefault();
     dispatch(createCategoryAction(getCategoryName));
   };
@@ -17,37 +17,45 @@ function CreateCategory() {
     <div>
       <br />
       <br />
-      <div class="text-center">
+      <div className="text-center">
         <h4>
           <strong>CREATE CATEGORY</strong>
         </h4>
       </div>
       <hr />
-      <div class="container p-3">
-        <div class="row justify-content-center">
-          <div class="col-md-7">
+      <div className="container p-3">
+        <div className="row justify-content-center">
+          <div className="col-md-7">
             <form
-              asp-action="Create"
-              class="text-center justify-content-center"
-              onSubmit={onFormSubmit}
+              className="text-center justify-content-center"
+              onSubmit={onCategoryFormSubmit}
+              method="post"
             >
-              <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-              <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
+              <div
+                asp-validation-summary="ModelOnly"
+                className="text-danger"
+              ></div>
+              <div className="form-group">
+                <label asp-for="Name" className="control-label">
+                  {" "}
+                  Category Name
+                </label>
                 <input
-                  asp-for="Name"
-                  class="form-control"
+                  type="text"
+                  name="name"
+                  required
+                  className="form-control"
                   placeholder="Enter Category Name"
                   onChange={(e) => setCategoryName(e.target.value)}
                 />
-                <span asp-validation-for="Name" class="text-danger"></span>
+                <span asp-validation-for="Name" className="text-danger"></span>
               </div>
               <br />
-              <div class="form-group">
+              <div className="form-group">
                 <button
                   type="submit"
                   value="Create"
-                  class="btn btn-primary"
+                  className="btn btn-primary"
                   style={{ width: "300px" }}
                 >
                   SUBMIT
@@ -58,8 +66,8 @@ function CreateCategory() {
         </div>
       </div>
 
-      <div class="text-center">
-        <Link asp-action="Index" class="btn btn-primary" to="/categories">
+      <div className="text-center">
+        <Link asp-action="Index" className="btn btn-primary" to="/categories">
           <strong>BACK</strong>
         </Link>
       </div>

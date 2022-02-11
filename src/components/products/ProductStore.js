@@ -54,8 +54,8 @@ function ProductStore(props) {
                   <Link to={`/ProductsDetail/${product._id}`}>
                     <img
                       className="card-img-top w-100"
-                      src={product.image}
-                      style={{ width: "150px", height: "70px" }}
+                      src={product.productImage}
+                      style={{ width: "150px", height: "170px" }}
                       alt=" "
                     />
                   </Link>

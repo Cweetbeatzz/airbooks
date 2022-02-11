@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getAllCategoriesAction } from "../../redux/actions/categoryActions";
+import Loading from "../products/Loading";
+import Message from "../products/Message";
 
 function Categories() {
-  const [getCategoryList, setCategoryList] = useState("");
-
   const dispatch = useDispatch();
   const categoryList = useSelector((state) => state.categoryList);
-  const { loading, error, payload } = categoryList;
+  const { loading, error, allcategories } = categoryList;
 
   useEffect(() => {
     dispatch(getAllCategoriesAction());
@@ -35,7 +35,8 @@ function Categories() {
             </Link>
           </p>
         </div>
-        <div class=" container container-border text-center">
+
+        <div class=" container container-border text-center justify-content-center">
           <table class="table table-striped">
             <thead>
               <tr>
@@ -44,18 +45,26 @@ function Categories() {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Name</td>
-                <td>
-                  <Link asp-action="Edit" to="/UpdateCategory">
-                    <strong>EDIT</strong>
-                  </Link>{" "}
-                  |
-                  <Link asp-action="Delete" to="/deletecategory">
-                    <strong>DELETE</strong>
-                  </Link>
-                </td>
-              </tr>
+              {loading ? (
+                <Loading></Loading>
+              ) : error ? (
+                <Message variant="danger">{error}</Message>
+              ) : (
+                allcategories.map((category) => (
+                  <tr key={category._id}>
+                    <td>{category.name}</td>
+                    <td>
+                      <Link asp-action="Edit" to="/UpdateCategory">
+                        <strong>EDIT</strong>
+                      </Link>{" "}
+                      |
+                      <Link asp-action="Delete" to="/deletecategory">
+                        <strong>DELETE</strong>
+                      </Link>
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>

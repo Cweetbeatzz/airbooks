@@ -9,7 +9,9 @@ const storage = multer.diskStorage({
     cb(null, "uploads/");
   },
   filename: (req, file, cb) => {
-    cb(null, new Date().toISOString() + file.originalname);
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+    cb(null, file.originalname + "-" + uniqueSuffix);
+    // cb(null, new Date().toISOString() + file.originalname);
   },
 });
 
@@ -30,7 +32,8 @@ function Acceptfiletype(req, file, cb) {
 
 //########
 const uploadLocation = multer({
-  dest: "uploads/",
+  // dest: "uploads/",
+  storage: storage,
   limits: { filesize: 1024 * 1024 * 5 },
   fileFilter: Acceptfiletype,
 });

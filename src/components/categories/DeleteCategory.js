@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { deleteCategoryAction } from "../../redux/actions/categoryActions";
 
 function DeleteCategory(props) {
@@ -34,9 +35,9 @@ function DeleteCategory(props) {
         <form asp-action="Delete">
           <input type="hidden" asp-for="Id" />
           <input type="submit" value="Delete" class="btn btn-danger" /> |
-          <a asp-action="Index" href="link">
+          <Link asp-action="Index" to="/categories">
             <strong>BACK</strong>
-          </a>
+          </Link>
         </form>
       </div>
     </div>

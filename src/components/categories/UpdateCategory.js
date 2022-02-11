@@ -2,18 +2,18 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateCategoryAction } from "../../redux/actions/categoryActions";
 
-function UpdateCategory() {
-  const [getCategoryId, setCategoryId] = useState("");
+function UpdateCategory(props) {
+  let CategoryId = props.id;
   const [getCategoryName, setCategoryName] = useState("");
 
   const dispatch = useDispatch();
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    dispatch(updateCategoryAction(getCategoryId));
+    dispatch(updateCategoryAction(CategoryId));
   };
 
-  useEffect(() => {}, [dispatch, getCategoryId]);
+  useEffect(() => {}, [dispatch, CategoryId]);
   return (
     <div>
       <br />

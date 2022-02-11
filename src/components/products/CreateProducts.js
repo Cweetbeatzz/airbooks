@@ -102,7 +102,7 @@ function CreateProducts() {
                 </label>
                 <div class="custom-file">
                   <input
-                    asp-for="Image"
+                    name="productImage"
                     type="file"
                     class="form-control custom-file-input"
                     id="customfile"
