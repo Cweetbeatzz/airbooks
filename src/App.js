@@ -2,15 +2,15 @@ import "./App.css";
 import Footer from "./components/footer/Footer.js";
 import Header from "./components/header/Header";
 import Home from "./components/home/Home";
-import Products from "./components/products/ProductList";
+import ProductList from "./components/products/ProductList";
+import ProductStore from "./components/products/ProductStore";
 import ProductDetail from "./components/productDetails/ProductDetails";
-import CreateProducts from "./components/products/Create";
-import UpdateProducts from "./components/products/Update";
-import DeleteProducts from "./components/products/Delete";
+import CreateProducts from "./components/products/CreateProducts";
+import UpdateProducts from "./components/products/UpdateProducts";
+import DeleteProduct from "./components/products/DeleteProduct";
 import Categories from "./components/categories/Categories";
 import CreateCategory from "./components/categories/CreateCategory";
 import UpdateCategory from "./components/categories/UpdateCategory";
-import DeleteCategories from "./components/categories/Delete";
 import Cart from "./components/cart/Cart";
 import ProdCategories from "./components/prodByCategories/ProdByCategories";
 import Register from "./components/register/Register";
@@ -24,6 +24,7 @@ import Account from "./components/account/Account";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import DeleteCategory from "./components/categories/DeleteCategory";
 
 function App() {
   return (
@@ -34,15 +35,16 @@ function App() {
         <Routes>
           <Route path="*" element={<Home />} />
           <Route path="home" element={<Home />} />
-          <Route path="Products" element={<Products />} />
+          <Route path="ProductList" element={<ProductList />} />
+          <Route path="ProductStore" element={<ProductStore />} />
           <Route path="ProductsDetail/:id" element={<ProductDetail />} />
-          <Route path="Create" element={<CreateProducts />} />
+          <Route path="CreateProducts" element={<CreateProducts />} />
           <Route path="UpdateProducts" element={<UpdateProducts />} />
-          <Route path="DeleteProducts" element={<DeleteProducts />} />
+          <Route path="DeleteProduct" element={<DeleteProduct />} />
           <Route path="Categories" element={<Categories />} />
           <Route path="CreateCategory" element={<CreateCategory />} />
           <Route path="UpdateCategory" element={<UpdateCategory />} />
-          <Route path="DeleteCategories" element={<DeleteCategories />} />
+          <Route path="DeleteCategory" element={<DeleteCategory />} />
           <Route path="Cart" element={<Cart />} />
           <Route path="ProdCategories" element={<ProdCategories />} />
           <Route path="Register" element={<Register />} />

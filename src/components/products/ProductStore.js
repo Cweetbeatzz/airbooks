@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { productListAction } from "../../redux/actions/productsActions";
 import { Link } from "react-router-dom";
 
-function ProductList(props) {
+function ProductStore(props) {
   //##########################################################
   const [quantity, setQuantity] = useState(1);
   // const productId = props.match.params.id;
@@ -34,12 +34,6 @@ function ProductList(props) {
         <h1 className="text-info">
           <strong>PRODUCTS</strong>
         </h1>
-      </div>
-      <br />
-      <div class="text-center">
-        <Link class="btn btn-primary" to="/createproducts">
-          <strong>CREATE PRODUCT</strong>
-        </Link>
       </div>
       <hr />
 
@@ -108,4 +102,4 @@ function ProductList(props) {
   );
 }
 
-export default ProductList;
+export default ProductStore;

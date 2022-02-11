@@ -51,7 +51,7 @@ function Categories() {
                     <strong>EDIT</strong>
                   </Link>{" "}
                   |
-                  <Link asp-action="Delete" to="item.Id">
+                  <Link asp-action="Delete" to="/deletecategory">
                     <strong>DELETE</strong>
                   </Link>
                 </td>

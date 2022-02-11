@@ -48,7 +48,7 @@ function Header(params) {
           <div className="navbar-collapse collapse d-sm-inline-flex justify-content-between">
             <ul className="navbar-nav flex-grow-1">
               <li className="nav-item">
-                <Link className="nav-link text-dark" to="products">
+                <Link className="nav-link text-dark" to="productstore">
                   <strong>STORE</strong>
                 </Link>
               </li>
@@ -86,6 +86,11 @@ function Header(params) {
               <li className="nav-item">
                 <Link className="nav-link text-dark" to="categories">
                   <strong>CATEGORIES</strong>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link text-dark" to="productlist">
+                  <strong>PRODUCTS</strong>
                 </Link>
               </li>
             </ul>

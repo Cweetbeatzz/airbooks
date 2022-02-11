@@ -2,22 +2,24 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteCategoryAction } from "../../redux/actions/categoryActions";
 
-function Delete(props) {
-  // const categoryId = props.params.id;
-  // const dispatch = useDispatch();
+function DeleteCategory(props) {
+  const categoryId = props.id;
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(deleteCategoryAction(categoryId));
-  // }, []);
+  useEffect(() => {
+    dispatch(deleteCategoryAction(categoryId));
+  }, [dispatch, categoryId]);
   //#####################################################################
   return (
     <div>
+      <br />
+      <br />
       <div class="text-center">
         <h4>
           <strong>DELETE CATEGORY</strong>
         </h4>
-        <div>
-          <h4>Are you sure you want to delete this?</h4>
+        <div className="alert alert-danger">
+          <h6>Are you sure you want to delete this?</h6>
         </div>
       </div>
       <hr />
@@ -41,4 +43,4 @@ function Delete(props) {
   );
 }
 
-export default Delete;
+export default DeleteCategory;

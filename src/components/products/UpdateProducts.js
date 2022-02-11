@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { createProductAction } from "../../redux/actions/productsActions";
+import { Link } from "react-router-dom";
+import { updateProductAction } from "../../redux/actions/productsActions";
 
-function Create() {
+function UpdateProducts() {
   //#################################################################
 
   const [getProductName, setProductName] = useState();
@@ -18,24 +19,16 @@ function Create() {
     //#######
     e.preventDefault();
     //#######
-    dispatch(
-      createProductAction(
-        getProductName,
-        getPrice,
-        getcategory,
-        getcompany,
-        getproductImage,
-        getdescription
-      )
-    );
+    dispatch(updateProductAction());
   };
   //#################################################################
-
   return (
     <div>
-      <div class="text-center">
+      <br />
+      <br />
+      <div class="text-center text-info">
         <h4>
-          <strong>CREATE PRODUCT</strong>
+          <strong>EDIT PRODUCT</strong>
         </h4>
       </div>
       <hr />
@@ -49,7 +42,7 @@ function Create() {
               onSubmit={handleFormSubmit}
             >
               <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-              <div class="form-group">
+              <div class="form-group m-2">
                 <label class="control-label"> Business Name</label>
                 <input
                   name="BusinessName"
@@ -62,8 +55,10 @@ function Create() {
                 ></span>
               </div>
 
-              <div class="form-group">
-                <label asp-for="ProductName" class="control-label"></label>
+              <div class="form-group m-2">
+                <label asp-for="ProductName" class="control-label">
+                  Product Name
+                </label>
                 <input
                   asp-for="ProductName"
                   class="form-control"
@@ -75,8 +70,10 @@ function Create() {
                 ></span>
               </div>
 
-              <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
+              <div class="form-group m-2">
+                <label asp-for="Description" class="control-label">
+                  Description
+                </label>
                 <textarea
                   asp-for="Description"
                   rows="4"
@@ -90,8 +87,10 @@ function Create() {
                 ></span>
               </div>
 
-              <div class="form-group">
-                <label asp-for="Image" class="control-label"></label>
+              <div class="form-group m-2">
+                <label asp-for="Image" class="control-label">
+                  Choose File
+                </label>
                 <div class="custom-file">
                   <input
                     asp-for="Image"
@@ -100,15 +99,14 @@ function Create() {
                     id="customfile"
                     onchange={(e) => setproductImage(e.target.value)}
                   />
-                  <label class="custom-file-label" for="customfile">
-                    Choose File
-                  </label>
                 </div>
                 <span asp-validation-for="Image" class="text-danger"></span>
               </div>
 
-              <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
+              <div class="form-group m-2">
+                <label asp-for="Price" class="control-label">
+                  Price
+                </label>
                 <input
                   asp-for="Price"
                   class="form-control"
@@ -117,8 +115,10 @@ function Create() {
                 <span asp-validation-for="Price" class="text-danger"></span>
               </div>
 
-              <div class="form-group">
-                <label asp-for="CategoryId" class="control-label"></label>
+              <div class="form-group m-2">
+                <label asp-for="CategoryId" class="control-label">
+                  Category
+                </label>
                 <select
                   asp-for="CategoryId"
                   class="form-control"
@@ -128,7 +128,7 @@ function Create() {
                   <option value="0"> Please Select a Category</option>
                 </select>
               </div>
-
+              <br />
               <div class="form-group">
                 <button
                   type="submit"
@@ -143,14 +143,19 @@ function Create() {
           </div>
         </div>
       </div>
+      <br />
+      <br />
 
-      <div class="text-center">
-        <a asp-action="Index" class="btn btn-primary" href="link">
-          <strong>BACK</strong>
-        </a>
-      </div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 }
 
-export default Create;
+export default UpdateProducts;
