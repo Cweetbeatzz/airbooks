@@ -29,10 +29,12 @@ categoryRouter.get("/getCategoriesById/:id", async (req, res) => {
 //#######################################################
 
 categoryRouter.post("/createCategories", async (req, res) => {
-  const newCategory = new CategoryModel({ name: req.body.name });
+  const newCategory = new CategoryModel({
+    categoryName: req.body.categoryName,
+  });
   try {
     const created = await newCategory.save();
-    res.status(201).json({ category: created.name });
+    res.status(201).json({ category: created.categoryName });
   } catch (error) {
     res.status(404).send(error);
   }
@@ -42,7 +44,7 @@ categoryRouter.post("/createCategories", async (req, res) => {
 //#######################################################
 
 categoryRouter.put("/updateCategoriesById/:id", async (req, res) => {
-  let oldCategoryName = { name: req.body.name };
+  let oldCategoryName = { categoryName: req.body.name };
   //
   const cat = await CategoryModel.findByIdAndUpdate(req.params.id, {
     $set: oldCategoryName,

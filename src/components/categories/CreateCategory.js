@@ -13,7 +13,7 @@ function CreateCategory() {
     dispatch(createCategoryAction(getCategoryName));
   };
 
-  useEffect(() => {}, []);
+  // useEffect(() => {}, []);
   return (
     <div>
       <br />
@@ -28,7 +28,7 @@ function CreateCategory() {
         <div className="row justify-content-center">
           <div className="col-md-7">
             <form
-              className="text-center justify-content-center"
+              className="text-center justify-content-center form"
               onSubmit={onCategoryFormSubmit}
               method="post"
             >
@@ -43,13 +43,13 @@ function CreateCategory() {
                 </label>
                 <input
                   type="text"
-                  name="name"
+                  name="categoryName"
                   required
                   className="form-control"
                   placeholder="Enter Category Name"
-                  onChange={(e) => setCategoryName(e.currentTarget.value)}
+                  onChange={(e) => setCategoryName(e.target.value)}
                   value={getCategoryName}
-                  id="name"
+                  id="categoryName"
                 />
                 <span asp-validation-for="Name" className="text-danger"></span>
               </div>

@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCategoriesAction } from "../../redux/actions/categoryActions";
 import { createProductAction } from "../../redux/actions/productsActions";
+import Loading from "./Loading";
+import Message from "./Message";
 
 function CreateProducts() {
   //#################################################################
   const categorylist = useSelector((state) => state.categoryList);
-  const { loading, error, category } = categorylist;
-  console.log(category);
+  const { loading, error, allcategories } = categorylist;
+  console.log(allcategories);
 
   const [getProductName, setProductName] = useState();
   const [getPrice, setPrice] = useState();
@@ -142,6 +144,20 @@ function CreateProducts() {
                   onSelect={(e) => setcategory(e.target.value)}
                 >
                   <option value="0"> Please Select a Category</option>
+                  {loading ? (
+                    <Loading></Loading>
+                  ) : error ? (
+                    <Message variant="danger">{error}</Message>
+                  ) : (
+                    allcategories.map((cat) => {
+                      return (
+                        <option key={cat._id} value={cat._id}>
+                          {" "}
+                          {cat.name}
+                        </option>
+                      );
+                    })
+                  )}
                 </select>
               </div>
               <br />

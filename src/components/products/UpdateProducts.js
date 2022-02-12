@@ -1,9 +1,15 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { updateProductAction } from "../../redux/actions/productsActions";
+import Loading from "./Loading";
+import Message from "./Message";
 
 function UpdateProducts() {
+  //#################################################################
+  const categorylist = useSelector((state) => state.categoryList);
+  const { loading, error, allcategories } = categorylist;
+  console.log(allcategories);
   //#################################################################
 
   const [getProductName, setProductName] = useState();
@@ -126,6 +132,20 @@ function UpdateProducts() {
                   onSelect={(e) => setcategory(e.target.value)}
                 >
                   <option value="0"> Please Select a Category</option>
+                  {loading ? (
+                    <Loading></Loading>
+                  ) : error ? (
+                    <Message variant="danger">{error}</Message>
+                  ) : (
+                    allcategories.map((cat) => {
+                      return (
+                        <option key={cat._id} value={cat._id}>
+                          {" "}
+                          {cat.name}
+                        </option>
+                      );
+                    })
+                  )}
                 </select>
               </div>
               <br />

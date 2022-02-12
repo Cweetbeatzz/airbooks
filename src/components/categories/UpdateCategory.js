@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateCategoryAction } from "../../redux/actions/categoryActions";
+import { useParams } from "react-router-dom";
 
 function UpdateCategory(props) {
-  let CategoryId = props.id;
+  let { id } = useParams();
   const [getCategoryName, setCategoryName] = useState("");
 
   const dispatch = useDispatch();
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    dispatch(updateCategoryAction(CategoryId));
+    dispatch(updateCategoryAction(id));
   };
 
-  useEffect(() => {}, [dispatch, CategoryId]);
+  useEffect(() => {}, [dispatch, id]);
   return (
     <div>
       <br />
@@ -37,9 +38,12 @@ function UpdateCategory(props) {
               <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input
-                  asp-for="Name"
+                  type="text"
+                  name="name"
                   class="form-control"
                   onChange={(e) => setCategoryName(e.target.value)}
+                  id="name"
+                  value={getCategoryName}
                 />
                 <span asp-validation-for="Name" class="text-danger"></span>
               </div>

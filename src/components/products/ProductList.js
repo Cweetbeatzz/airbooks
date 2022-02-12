@@ -57,7 +57,7 @@ function ProductList(props) {
                   style={{ width: "200px" }}
                   key={product._id}
                 >
-                  <Link to={`/ProductsDetail/${product._id}`}>
+                  <Link to={`/ProductsDetails/${product._id}`}>
                     <img
                       className="card-img-top w-100"
                       src={product.productImage}

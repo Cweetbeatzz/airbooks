@@ -2,10 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { deleteCategoryAction } from "../../redux/actions/categoryActions";
+import { useParams } from "react-router-dom";
 
 function DeleteCategory(props) {
-  const categoryId = props.id;
+  const { categoryId } = useParams();
   const dispatch = useDispatch();
+
+  const submitDelete = (e) => {
+    e.preventDefault();
+  };
 
   useEffect(() => {
     dispatch(deleteCategoryAction(categoryId));
@@ -32,7 +37,7 @@ function DeleteCategory(props) {
           <dd class="col-sm-6">Name</dd>
         </dl>
         <hr class="btn-primary" />
-        <form asp-action="Delete">
+        <form asp-action="Delete" method="post" onSubmit={submitDelete}>
           <input type="hidden" asp-for="Id" />
           <input type="submit" value="Delete" class="btn btn-danger" /> |
           <Link asp-action="Index" to="/categories">
