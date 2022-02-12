@@ -61,21 +61,36 @@ userRouter.post("/createUsers", async (req, res) => {
 
 //#######################################################
 
-userRouter.patch("/updateUsersById/:id", async (req, res) => {
+userRouter.put("/updateUsersById/:id", async (req, res) => {
+  const hashedpass = hashPassword(req.body.password);
+  let oldUserDetails = {
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    username: req.body.username,
+    email: req.body.email,
+    address: req.body.address,
+    phone: req.body.phone,
+    country: req.body.country,
+    state: req.body.state,
+    postalcode: req.body.postalcode,
+    password: hashedpass,
+  };
   //
-  const userById = await Users.findOneAndUpdate(req.params.id);
+  const userById = await Users.findByIdAndUpdate(req.params.id, {
+    $set: oldUserDetails,
+  });
 
   if (!userById) {
     res.status(404).send({ message: `No task matching the following ID` });
   }
-  res.send(userById);
+  res.status(200).send({ message: "Update Successful" });
 });
 
 //#######################################################
 
 userRouter.delete("/deleteUsersById/:id", async (req, res) => {
   //
-  const userById = await Users.findOneAndDelete(req.params.id);
+  const userById = await Users.findByIdAndDelete(req.params.id);
 
   if (!userById) {
     res.status(404).send({ message: `No task matching the following ID` });

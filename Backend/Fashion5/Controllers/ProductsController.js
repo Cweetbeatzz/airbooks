@@ -66,24 +66,38 @@ productsRouter.post(
 //
 //#######################################################
 
-productsRouter.patch("/updateProductsById/:id", async (req, res) => {
-  //
-  const product = await ProductsModel.findOneAndUpdate(req.params.id);
+productsRouter.put(
+  "/updateProductsById/:id",
+  uploadLocation.single("productImage"),
+  async (req, res) => {
+    let oldProductDetails = {
+      name: req.body.name,
+      price: req.body.price,
+      category: req.body.category,
+      company: req.body.company,
+      productImage: req.file.path,
+      description: req.body.description,
+    };
+    //
+    const product = await ProductsModel.findByIdAndUpdate(req.params.id, {
+      $set: oldProductDetails,
+    });
 
-  if (!product) {
-    res
-      .status(404)
-      .send({ message: `No Product found matching the following ID` });
+    if (!product) {
+      res
+        .status(404)
+        .send({ message: `No Product found matching the following ID` });
+    }
+    res.status(200).send({ message: "Update Successful" });
   }
-  res.send(product);
-});
+);
 
 //
 //#######################################################
 
 productsRouter.delete("/deleteProductsById/:id", async (req, res) => {
   //
-  const cat = await ProductsModel.findOneAndDelete(req.params.id);
+  const cat = await ProductsModel.findByIdAndDelete(req.params.id);
 
   if (!cat) {
     res.status(404).send({ message: `No task matching the following ID` });

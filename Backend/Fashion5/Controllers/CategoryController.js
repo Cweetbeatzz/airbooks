@@ -41,9 +41,12 @@ categoryRouter.post("/createCategories", async (req, res) => {
 //
 //#######################################################
 
-categoryRouter.patch("/updateCategoriesById/:id", async (req, res) => {
+categoryRouter.put("/updateCategoriesById/:id", async (req, res) => {
+  let oldCategoryName = { name: req.body.name };
   //
-  const cat = await CategoryModel.findByIdAndUpdate(req.params.id);
+  const cat = await CategoryModel.findByIdAndUpdate(req.params.id, {
+    $set: oldCategoryName,
+  });
 
   if (!cat) {
     res

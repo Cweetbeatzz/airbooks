@@ -49,6 +49,7 @@ function CreateCategory() {
                   placeholder="Enter Category Name"
                   onChange={(e) => setCategoryName(e.currentTarget.value)}
                   value={getCategoryName}
+                  id="name"
                 />
                 <span asp-validation-for="Name" className="text-danger"></span>
               </div>
@@ -56,7 +57,6 @@ function CreateCategory() {
               <div className="form-group">
                 <button
                   type="submit"
-                  value="Create"
                   className="btn btn-primary"
                   style={{ width: "300px" }}
                 >
