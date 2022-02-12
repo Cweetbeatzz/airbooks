@@ -47,7 +47,7 @@ productsRouter.post(
   async (req, res, next) => {
     //
     const newProduct = new ProductsModel({
-      name: req.body.name,
+      productName: req.body.productName,
       price: req.body.price,
       category: req.body.category,
       company: req.body.company,

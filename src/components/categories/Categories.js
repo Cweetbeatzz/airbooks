@@ -52,7 +52,7 @@ function Categories() {
               ) : (
                 allcategories.map((category) => (
                   <tr key={category._id}>
-                    <td>{category.name}</td>
+                    <td>{category.categoryName}</td>
                     <td>
                       <Link asp-action="Edit" to="/UpdateCategory">
                         <strong>EDIT</strong>

@@ -108,7 +108,7 @@ function Home() {
                       to="#"
                       key={category._id}
                     >
-                      <strong>{category.name}</strong>
+                      <strong>{category.categoryName}</strong>
                     </Link>
                   );
                 })

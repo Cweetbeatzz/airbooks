@@ -37,7 +37,7 @@ function CreateProducts() {
   };
   //#################################################################
   useEffect(() => {
-    dispatch(getAllCategoriesAction);
+    dispatch(getAllCategoriesAction());
   }, [dispatch]);
 
   return (
@@ -55,7 +55,7 @@ function CreateProducts() {
           <div class="col-md-6">
             <form
               asp-action="Create"
-              enctype="multipart/form-data"
+              encType="multipart/form-data"
               method="post"
               onSubmit={handleFormSubmit}
             >
@@ -78,7 +78,7 @@ function CreateProducts() {
                   Product Name
                 </label>
                 <input
-                  asp-for="ProductName"
+                  name="productName"
                   class="form-control"
                   onChange={(e) => setProductName(e.target.value)}
                 />
@@ -153,7 +153,7 @@ function CreateProducts() {
                       return (
                         <option key={cat._id} value={cat._id}>
                           {" "}
-                          {cat.name}
+                          {cat.categoryName}
                         </option>
                       );
                     })

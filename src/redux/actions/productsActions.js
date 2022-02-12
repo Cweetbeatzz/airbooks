@@ -79,17 +79,24 @@ export const productDetailsAction = (id) => async (dispatch) => {
 //###################################################
 
 export const createProductAction =
-  (name, price, category, company, productImage, description) =>
+  (productName, price, category, company, productImage, description) =>
   async (dispatch) => {
     dispatch({
       type: PRODUCT_CREATE_REQUEST,
-      payload: { name, price, category, company, productImage, description },
+      payload: {
+        productName,
+        price,
+        category,
+        company,
+        productImage,
+        description,
+      },
     });
 
     try {
-      const { data } = await Axios.get(
+      const { data } = await Axios.post(
         "/fashion5/api/v1/products/createProducts",
-        { name, price, category, company, productImage, description }
+        { productName, price, category, company, productImage, description }
       );
       dispatch({ type: PRODUCT_CREATE_SUCCESS, payload: data });
     } catch (error) {
@@ -106,7 +113,7 @@ export const updateProductAction = (productId) => async (dispatch) => {
   });
 
   try {
-    const { data } = await Axios.get(
+    const { data } = await Axios.put(
       `/fashion5/api/v1/products/updateProductsById/${productId}`
     );
     dispatch({ type: PRODUCT_UPDATE_SUCCESS, payload: data });
@@ -124,7 +131,7 @@ export const deleteProductAction = (productId) => async (dispatch) => {
   });
 
   try {
-    const { data } = await Axios.get(
+    const { data } = await Axios.delete(
       `/fashion5/api/v1/products/deleteProductsById/${productId}`
     );
     dispatch({ type: PRODUCT_DELETE_SUCCESS, payload: data });
