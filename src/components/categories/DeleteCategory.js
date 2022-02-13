@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { deleteCategoryAction } from "../../redux/actions/categoryActions";
+import {
+  deleteCategoryAction,
+  getAllCategoriesAction,
+} from "../../redux/actions/categoryActions";
 import { useParams } from "react-router-dom";
 import Loading from "../products/Loading";
 import Message from "../products/Message";
 
 function DeleteCategory(props) {
-  const { categoryId } = useParams();
+  const { id } = useParams();
   const dispatch = useDispatch();
 
   const categoryDetail = useSelector((state) => state.deleteCategory);
@@ -15,9 +18,12 @@ function DeleteCategory(props) {
 
   const submitDelete = (e) => {
     e.preventDefault();
-    dispatch(deleteCategoryAction(categoryId));
+    dispatch(deleteCategoryAction(id));
   };
 
+  useEffect(() => {
+    dispatch(getAllCategoriesAction());
+  }, [dispatch, id]);
   //#####################################################################
   return (
     <div>

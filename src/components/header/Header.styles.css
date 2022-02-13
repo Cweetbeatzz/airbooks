@@ -8,3 +8,7 @@ a {
   top: -4px;
   color: white;
 }
+
+#header {
+  font-size: 6px !important;
+}

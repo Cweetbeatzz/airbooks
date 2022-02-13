@@ -1,0 +1,18 @@
+#loading {
+  width: 100vw;
+  height: 100vh;
+  /* background-color: white; */
+  display: grid;
+  place-items: center;
+  max-width: 100%;
+  border-radius: 200px;
+  z-index: 999;
+
+  animation: loadingState 800ms linear infinite;
+}
+
+@keyframes loadingState {
+  to {
+    transform: rotateZ(-360deg);
+  }
+}

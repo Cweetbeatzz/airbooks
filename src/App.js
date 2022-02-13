@@ -39,12 +39,12 @@ function App() {
           <Route path="/ProductStore" element={<ProductStore />} />
           <Route path="/ProductsDetails/:id" element={<ProductDetails />} />
           <Route path="/CreateProducts" element={<CreateProducts />} />
-          <Route path="/UpdateProducts" element={<UpdateProducts />} />
-          <Route path="/DeleteProduct" element={<DeleteProduct />} />
+          <Route path="/UpdateProducts/:id" element={<UpdateProducts />} />
+          <Route path="/DeleteProduct/:id" element={<DeleteProduct />} />
           <Route path="/Categories" element={<Categories />} />
           <Route path="/CreateCategory" element={<CreateCategory />} />
-          <Route path="/UpdateCategory" element={<UpdateCategory />} />
-          <Route path="/DeleteCategory" element={<DeleteCategory />} />
+          <Route path="/UpdateCategory/:id" element={<UpdateCategory />} />
+          <Route path="/DeleteCategory/:id" element={<DeleteCategory />} />
           <Route path="/Cart" element={<Cart />} />
           <Route path="/ProdCategories" element={<ProdCategories />} />
           <Route path="/Register" element={<Register />} />

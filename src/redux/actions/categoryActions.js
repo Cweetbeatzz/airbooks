@@ -42,16 +42,16 @@ export const getAllCategoriesAction = () => async (dispatch) => {
 };
 //###################################################
 
-export const getCategoryByIdAction = (categoryId) => async (dispatch) => {
+export const getCategoryByIdAction = (id) => async (dispatch) => {
   //###
   dispatch({
     type: CATEGORY_DETAILS_REQUEST,
-    payload: categoryId,
+    payload: id,
   });
   //###
   try {
     const { data } = await Axios.get(
-      `/fashion5/api/v1/category/getCategoriesById/${categoryId}`
+      `/fashion5/api/v1/category/getCategoriesById/${id}`
     );
     dispatch({
       type: CATEGORY_DETAILS_SUCCESS,
@@ -96,16 +96,16 @@ export const createCategoryAction = (categoryName) => async (dispatch) => {
 
 //#######################################################
 
-export const updateCategoryAction = (categoryId) => async (dispatch) => {
+export const updateCategoryAction = (id) => async (dispatch) => {
   //###
   dispatch({
     type: CATEGORY_UPDATE_REQUEST,
-    payload: { categoryId },
+    payload: id,
   });
   //###
   try {
     const { data } = await Axios.put(
-      `/fashion5/api/v1/category/updateCategoriesById/${categoryId}`
+      `/fashion5/api/v1/category/updateCategoriesById/${id}`
     );
     dispatch({
       type: CATEGORY_UPDATE_SUCCESS,
@@ -121,16 +121,16 @@ export const updateCategoryAction = (categoryId) => async (dispatch) => {
 
 //#######################################################
 
-export const deleteCategoryAction = (categoryId) => async (dispatch) => {
+export const deleteCategoryAction = (id) => async (dispatch) => {
   //###
   dispatch({
     type: CATEGORY_DELETE_REQUEST,
-    payload: categoryId,
+    payload: id,
   });
   //###
   try {
     const { data } = await Axios.delete(
-      `/fashion5/api/v1/category/deleteCategoriesById/${categoryId}`
+      `/fashion5/api/v1/category/deleteCategoriesById/${id}`
     );
     dispatch({
       type: CATEGORY_DELETE_SUCCESS,

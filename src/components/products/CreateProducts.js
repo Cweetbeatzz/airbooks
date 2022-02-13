@@ -36,6 +36,8 @@ function CreateProducts() {
     );
   };
   //#################################################################
+
+  //#################################################################
   useEffect(() => {
     dispatch(getAllCategoriesAction());
   }, [dispatch]);
@@ -114,7 +116,7 @@ function CreateProducts() {
                     name="productImage"
                     type="file"
                     class="form-control custom-file-input"
-                    id="customfile"
+                    id="productImage"
                     onChange={(e) => setproductImage(e.target.files[0])}
                   />
                 </div>
@@ -140,8 +142,7 @@ function CreateProducts() {
                 <select
                   asp-for="CategoryId"
                   class="form-control"
-                  asp-items="@ViewBag.CategoryList"
-                  onSelect={(e) => setcategory(e.target.value)}
+                  onChange={(e) => setcategory(e.target.value)}
                 >
                   <option value="0"> Please Select a Category</option>
                   {loading ? (
@@ -154,6 +155,7 @@ function CreateProducts() {
                         <option key={cat._id} value={cat._id}>
                           {" "}
                           {cat.categoryName}
+                          {cat._id}
                         </option>
                       );
                     })

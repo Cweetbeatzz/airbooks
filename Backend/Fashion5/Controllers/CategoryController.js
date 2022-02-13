@@ -44,7 +44,7 @@ categoryRouter.post("/createCategories", async (req, res) => {
 //#######################################################
 
 categoryRouter.put("/updateCategoriesById/:id", async (req, res) => {
-  let oldCategoryName = { categoryName: req.body.name };
+  let oldCategoryName = { categoryName: req.body.categoryName };
   //
   const cat = await CategoryModel.findByIdAndUpdate(req.params.id, {
     $set: oldCategoryName,
@@ -56,7 +56,9 @@ categoryRouter.put("/updateCategoriesById/:id", async (req, res) => {
       .send({ message: `No Category found matching the following ID` });
   }
 
-  res.status(200).send({ message: "Update Successful" });
+  res
+    .status(200)
+    .send([{ message: "Update Successful" }, { category: cat.categoryName }]);
 });
 
 //

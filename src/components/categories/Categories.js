@@ -54,11 +54,17 @@ function Categories() {
                   <tr key={category._id}>
                     <td>{category.categoryName}</td>
                     <td>
-                      <Link asp-action="Edit" to="/UpdateCategory">
+                      <Link
+                        asp-action="Edit"
+                        to={`/UpdateCategory/${category._id}`}
+                      >
                         <strong>EDIT</strong>
                       </Link>{" "}
                       |
-                      <Link asp-action="Delete" to="/deletecategory">
+                      <Link
+                        asp-action="Delete"
+                        to={`/deletecategory/${category._id}`}
+                      >
                         <strong>DELETE</strong>
                       </Link>
                     </td>

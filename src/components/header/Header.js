@@ -48,48 +48,80 @@ function Header(params) {
           <div className="navbar-collapse collapse d-sm-inline-flex justify-content-between">
             <ul className="navbar-nav flex-grow-1">
               <li className="nav-item">
-                <Link className="nav-link text-dark" to="productstore">
+                <Link
+                  className="nav-link text-dark"
+                  to="productstore"
+                  id={styles.header}
+                >
                   <strong>STORE</strong>
                 </Link>
               </li>
 
               <li className="nav-item">
-                <Link className="nav-link text-dark" to="login">
+                <Link
+                  className="nav-link text-dark"
+                  to="login"
+                  id={styles.header}
+                >
                   <strong>LOGIN</strong>
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link text-dark" to="register">
+                <Link
+                  className="nav-link text-dark"
+                  to="register"
+                  id={styles.header}
+                >
                   <strong>REGISTER</strong>
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link text-dark" to="contact">
+                <Link
+                  className="nav-link text-dark"
+                  to="contact"
+                  id={styles.header}
+                >
                   <strong>CONTACT</strong>
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link text-dark" to="about">
+                <Link
+                  className="nav-link text-dark"
+                  to="about"
+                  id={styles.header}
+                >
                   <strong>ABOUT US</strong>
                 </Link>
               </li>
               {/* <li className="nav-item">
-                <Link className="nav-link text-dark" to="privacy">
+                <Link className="nav-link text-dark" to="privacy" id={styles.header}>
                   <strong>PRIVACY</strong>
                 </Link>
               </li> */}
               <li className="nav-item">
-                <Link className="nav-link text-dark" to="admin">
+                <Link
+                  className="nav-link text-dark"
+                  to="admin"
+                  id={styles.header}
+                >
                   <strong>ADMIN</strong>
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link text-dark" to="categories">
+                <Link
+                  className="nav-link text-dark"
+                  to="categories"
+                  id={styles.header}
+                >
                   <strong>CATEGORIES</strong>
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link text-dark" to="productlist">
+                <Link
+                  className="nav-link text-dark"
+                  to="productlist"
+                  id={styles.header}
+                >
                   <strong>PRODUCTS</strong>
                 </Link>
               </li>
@@ -117,7 +149,11 @@ function Header(params) {
               </svg>
             </Link>
 
-            <Link className="nav-link text-dark m-0" to="account">
+            <Link
+              className="nav-link text-dark m-0"
+              to="account"
+              id={styles.header}
+            >
               {" "}
               ACCOUNT{" "}
               <svg
@@ -140,6 +176,7 @@ function Header(params) {
               className="nav-link text-dark"
               to="logout"
               onClick={handleLogOut}
+              id={styles.header}
             >
               <strong>LOGOUT</strong>
             </Link>

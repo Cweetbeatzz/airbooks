@@ -39,7 +39,7 @@ function ProductStore(props) {
 
       <div>
         <div className="container-fluid p-5 bg-light">
-          <div className="productcontent justify-content-center justify-content-evenly">
+          <div className="productcontent justify-content-center justify-content-evenly ">
             {loading ? (
               <Loading></Loading>
             ) : error ? (
