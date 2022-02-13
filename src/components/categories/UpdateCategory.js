@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateCategoryAction } from "../../redux/actions/categoryActions";
 import { useParams } from "react-router-dom";
 
 function UpdateCategory(props) {
+  const categoryDetail = useSelector((state) => state.categoryById);
+  let { category } = categoryDetail;
+  console.log(category);
   let { id } = useParams();
-  const [getCategoryName, setCategoryName] = useState("");
+  const [getCategoryName, setCategoryName] = useState(category?.categoryName);
+  console.log(category.categoryName);
 
   const dispatch = useDispatch();
 

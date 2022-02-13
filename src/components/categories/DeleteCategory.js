@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { deleteCategoryAction } from "../../redux/actions/categoryActions";
 import { useParams } from "react-router-dom";
+import Loading from "../products/Loading";
+import Message from "../products/Message";
 
 function DeleteCategory(props) {
   const { categoryId } = useParams();
   const dispatch = useDispatch();
 
+  const categoryDetail = useSelector((state) => state.deleteCategory);
+  const { loading, error, category } = categoryDetail;
+
   const submitDelete = (e) => {
     e.preventDefault();
+    dispatch(deleteCategoryAction(categoryId));
   };
 
-  useEffect(() => {
-    dispatch(deleteCategoryAction(categoryId));
-  }, [dispatch, categoryId]);
   //#####################################################################
   return (
     <div>
@@ -31,13 +34,19 @@ function DeleteCategory(props) {
       <hr />
 
       <div class="container text-center">
-        <hr />
-        <dl class="row">
-          <dt class="col-sm-6">Name</dt>
-          <dd class="col-sm-6">Name</dd>
-        </dl>
-        <hr class="btn-primary" />
-        <form asp-action="Delete" method="post" onSubmit={submitDelete}>
+        <form method="post" onSubmit={submitDelete}>
+          <hr />
+          {loading ? (
+            <Loading></Loading>
+          ) : error ? (
+            <Message variant="danger">{error}</Message>
+          ) : (
+            <dl class="row" key={category._id} id={category._id}>
+              <dt class="col-sm-6">Category Name</dt>
+              <dd class="col-sm-6">{category.categoryName}</dd>
+            </dl>
+          )}
+          <hr class="btn-primary" />
           <input type="hidden" asp-for="Id" />
           <input type="submit" value="Delete" class="btn btn-danger" /> |
           <Link asp-action="Index" to="/categories">

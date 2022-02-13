@@ -96,30 +96,28 @@ export const createCategoryAction = (categoryName) => async (dispatch) => {
 
 //#######################################################
 
-export const updateCategoryAction =
-  (categoryId, categoryName) => async (dispatch) => {
-    //###
+export const updateCategoryAction = (categoryId) => async (dispatch) => {
+  //###
+  dispatch({
+    type: CATEGORY_UPDATE_REQUEST,
+    payload: { categoryId },
+  });
+  //###
+  try {
+    const { data } = await Axios.put(
+      `/fashion5/api/v1/category/updateCategoriesById/${categoryId}`
+    );
     dispatch({
-      type: CATEGORY_UPDATE_REQUEST,
-      payload: { categoryId, categoryName },
+      type: CATEGORY_UPDATE_SUCCESS,
+      payload: data,
     });
-    //###
-    try {
-      const { data } = await Axios.put(
-        `/fashion5/api/v1/category/updateCategoriesById/${categoryId}`,
-        { categoryName }
-      );
-      dispatch({
-        type: CATEGORY_UPDATE_SUCCESS,
-        payload: data,
-      });
-    } catch (error) {
-      dispatch({
-        type: CATEGORY_UPDATE_FAIL,
-        payload: error.message,
-      });
-    }
-  };
+  } catch (error) {
+    dispatch({
+      type: CATEGORY_UPDATE_FAIL,
+      payload: error.message,
+    });
+  }
+};
 
 //#######################################################
 

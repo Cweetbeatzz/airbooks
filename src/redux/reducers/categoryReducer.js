@@ -78,7 +78,7 @@ export const updateCategoryReducer = (state = {}, action) => {
     case CATEGORY_UPDATE_REQUEST:
       return { loading: true };
     case CATEGORY_UPDATE_SUCCESS:
-      return { loading: false, payload: action.payload };
+      return { loading: false, category: action.payload };
     case CATEGORY_UPDATE_FAIL:
       return { loading: false, error: action.payload };
     default:
@@ -88,12 +88,15 @@ export const updateCategoryReducer = (state = {}, action) => {
 
 //##################################################################
 
-export const deleteCategoryReducer = (state = {}, action) => {
+export const deleteCategoryReducer = (
+  state = { category: {}, loading: true },
+  action
+) => {
   switch (action.type) {
     case CATEGORY_DELETE_REQUEST:
       return { loading: true };
     case CATEGORY_DELETE_SUCCESS:
-      return { loading: false, payload: action.payload };
+      return { loading: false, category: action.payload };
     case CATEGORY_DELETE_FAIL:
       return { loading: false, error: action.payload };
     default:

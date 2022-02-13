@@ -66,7 +66,7 @@ function ProductList(props) {
                     />
 
                     <span className="card-body d-flex justify-content-evenly">
-                      <h6 className="text-black">{product.name}</h6>
+                      <h6 className="text-black">{product.productName}</h6>
                       <h6 className="text-info">
                         <strong>{product.price}</strong>
                       </h6>

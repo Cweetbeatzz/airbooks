@@ -5,11 +5,12 @@ import { productDetailsAction } from "../../redux/actions/productsActions";
 import Loading from "./Loading";
 import Message from "./Message";
 
-function ProductDetails(props) {
+function ProductDetails(props, match) {
   const dispatch = useDispatch();
-  const { id } = useParams();
+  const { id } = useParams([]);
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, products } = productDetails;
+  console.log(products);
 
   useEffect(() => {
     dispatch(productDetailsAction(id));
@@ -39,13 +40,14 @@ function ProductDetails(props) {
                   id="productsDetailsimage"
                   className="artwork"
                   width="300"
+                  height="250"
                   alt=""
                 />
               </div>
               <hr className="btn-dark w-50 text-center mx-auto" />
               <h6>{products.company}</h6>
               <h6 className="text-info">
-                <strong>{products.name}</strong>
+                <strong>{products.productName}</strong>
               </h6>
               <h6>{products.category}</h6>
               <h6>{products.description}</h6>
@@ -77,6 +79,14 @@ function ProductDetails(props) {
         </div>
       </div>
       <hr />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 }

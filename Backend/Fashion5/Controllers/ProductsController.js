@@ -35,7 +35,14 @@ productsRouter.get("/getProductsById/:id", async (req, res) => {
       .status(404)
       .send({ message: `No Products found matching the following ID` });
   }
-  res.status(200).send(products);
+  res.status(200).json({
+    productName: products.productName,
+    price: products.price,
+    category: products.category,
+    company: products.company,
+    productImage: products.file,
+    description: products.description,
+  });
 });
 
 //
@@ -75,7 +82,7 @@ productsRouter.put(
       price: req.body.price,
       category: req.body.category,
       company: req.body.company,
-      productImage: req.file.path,
+      productImage: req.file,
       description: req.body.description,
     };
     //
