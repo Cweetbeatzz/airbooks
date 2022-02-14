@@ -18,7 +18,7 @@ import { Link } from "react-router-dom";
 function sidebar() {
   return (
     <div>
-      <div className=" mb-3" id={styles.sidebar}>
+      <div className=" mb-3 mt-4" id={styles.sidebar}>
         <div className="d-flex mb-2 mx-2">
           <div className="px-1">
             <LineStyle />
@@ -75,7 +75,7 @@ function sidebar() {
           </div>
           <div className="py-1">
             <Link to="/roles">
-              <strrong>Staffs</strrong>
+              <strong>Staffs</strong>
             </Link>
           </div>
         </div>
