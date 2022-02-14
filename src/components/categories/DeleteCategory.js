@@ -15,7 +15,7 @@ function DeleteCategory(props) {
 
   const categoryDetail = useSelector((state) => state.deleteCategory);
   const { loading, error, category } = categoryDetail;
-
+  console.log(categoryDetail);
   const submitDelete = (e) => {
     e.preventDefault();
     dispatch(deleteCategoryAction(id));

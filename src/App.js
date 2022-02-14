@@ -21,6 +21,10 @@ import About from "./components/about/About";
 import Privacy from "./components/privacy/Privacy";
 import Admin from "./components/admin/Admin";
 import Account from "./components/account/Account";
+import AccountUpdate from "./components/account/AccountUpdate";
+import AccountDetails from "./components/account/AccountDetails";
+import AccountDelete from "./components/account/AccountDelete";
+import Roles from "./components/account/Roles";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -55,6 +59,10 @@ function App() {
           <Route path="/Privacy" element={<Privacy />} />
           <Route path="/Admin" element={<Admin />} />
           <Route path="/Account" element={<Account />} />
+          <Route path="/AccountUpdate/:id" element={<AccountUpdate />} />
+          <Route path="/AccountDetails/:id" element={<AccountDetails />} />
+          <Route path="/AccountDelete/:id" element={<AccountDelete />} />
+          <Route path="/Roles" element={<Roles />} />
         </Routes>
 
         <Footer />

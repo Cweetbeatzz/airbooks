@@ -34,7 +34,7 @@ function sidebar() {
             <AccountBox />
           </div>
           <div className="py-1">
-            <Link to="#">Users</Link>
+            <Link to="/account">Users</Link>
           </div>
         </div>
         <div className="d-flex mb-2 mx-2">
@@ -66,7 +66,7 @@ function sidebar() {
             <Work />
           </div>
           <div className="py-1">
-            <Link to="#">Staffs</Link>
+            <Link to="/roles">Staffs</Link>
           </div>
         </div>
         <div className="d-flex mb-2 mx-2">

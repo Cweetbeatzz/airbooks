@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUserAction } from "../../redux/actions/userActions";
+import Message from "../products/Message";
 
 function Login(props) {
   //########################################################
@@ -23,11 +24,12 @@ function Login(props) {
   //########################################################
 
   const signedIn = useSelector((state) => state.userLogin);
-  const { userInfo } = signedIn;
+  const { error, userInfo } = signedIn;
+  console.log(userInfo);
 
   // const redirect = props.location.search
   //   ? props.location.search.split("=")[1]
-  //   : "/";
+  //   : "home";
 
   //########################################################
   // useEffect(() => {
@@ -51,6 +53,7 @@ function Login(props) {
           <div className="row text-center p-3">
             <div className="col-md-6 mx-auto">
               <form asp-action="Login" method="post" onSubmit={handleSubmit}>
+                {error ? <Message variant="danger">{error}</Message> : ""}
                 <div
                   asp-validation-summary="ModelOnly"
                   className="text-danger"

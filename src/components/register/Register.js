@@ -47,6 +47,10 @@ function Register() {
   };
   //#################################################################
 
+  // const redirect = props.location.search
+  //   ? props.location.search.split("=")[1]
+  //   : "login";
+
   return (
     <div>
       <br />
