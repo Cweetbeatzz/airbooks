@@ -50,6 +50,15 @@ function Header(params) {
               <li className="nav-item">
                 <Link
                   className="nav-link text-dark"
+                  to="home"
+                  id={styles.header}
+                >
+                  <strong>HOME</strong>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className="nav-link text-dark"
                   to="productstore"
                   id={styles.header}
                 >
@@ -93,11 +102,15 @@ function Header(params) {
                   <strong>ABOUT US</strong>
                 </Link>
               </li>
-              {/* <li className="nav-item">
-                <Link className="nav-link text-dark" to="privacy" id={styles.header}>
+              <li className="nav-item">
+                <Link
+                  className="nav-link text-dark"
+                  to="privacy"
+                  id={styles.header}
+                >
                   <strong>PRIVACY</strong>
                 </Link>
-              </li> */}
+              </li>
               <li className="nav-item">
                 <Link
                   className="nav-link text-dark"
@@ -107,7 +120,7 @@ function Header(params) {
                   <strong>ADMIN</strong>
                 </Link>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link
                   className="nav-link text-dark"
                   to="categories"
@@ -115,8 +128,8 @@ function Header(params) {
                 >
                   <strong>CATEGORIES</strong>
                 </Link>
-              </li>
-              <li className="nav-item">
+              </li> */}
+              {/* <li className="nav-item">
                 <Link
                   className="nav-link text-dark"
                   to="productlist"
@@ -124,7 +137,7 @@ function Header(params) {
                 >
                   <strong>PRODUCTS</strong>
                 </Link>
-              </li>
+              </li> */}
             </ul>
             <Link className="nav-link text-dark  m-0" to="cart">
               CART{" "}

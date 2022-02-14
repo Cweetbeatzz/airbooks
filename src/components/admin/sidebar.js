@@ -13,6 +13,7 @@ import {
   AccountBalance,
   Storefront,
 } from "@material-ui/icons";
+import { Link } from "react-router-dom";
 
 function sidebar() {
   return (
@@ -23,9 +24,9 @@ function sidebar() {
             <LineStyle />
           </div>
           <div className="py-1">
-            <h5>
+            <Link to="#">
               <strong>Home</strong>
-            </h5>
+            </Link>
           </div>
         </div>
         <div className="d-flex mb-2 mx-2">
@@ -33,7 +34,7 @@ function sidebar() {
             <AccountBox />
           </div>
           <div className="py-1">
-            <h5>Users</h5>
+            <Link to="#">Users</Link>
           </div>
         </div>
         <div className="d-flex mb-2 mx-2">
@@ -41,7 +42,7 @@ function sidebar() {
             <AccountBalance />
           </div>
           <div className="py-1">
-            <h5>Sales</h5>
+            <Link to="#">Sales</Link>
           </div>
         </div>
         <div className="d-flex mb-2 mx-2">
@@ -49,7 +50,7 @@ function sidebar() {
             <Report />
           </div>
           <div className="py-1">
-            <h5>Reports</h5>
+            <Link to="#">Reports</Link>
           </div>
         </div>
         <div className="d-flex mb-2 mx-2">
@@ -57,7 +58,7 @@ function sidebar() {
             <NotificationsNone />
           </div>
           <div className="py-1">
-            <h5>Notifications</h5>
+            <Link to="#">Notifications</Link>
           </div>
         </div>
         <div className="d-flex mb-2 mx-2">
@@ -65,7 +66,7 @@ function sidebar() {
             <Work />
           </div>
           <div className="py-1">
-            <h5>Staffs</h5>
+            <Link to="#">Staffs</Link>
           </div>
         </div>
         <div className="d-flex mb-2 mx-2">
@@ -73,7 +74,7 @@ function sidebar() {
             <Payment />
           </div>
           <div className="py-1">
-            <h5>Transactions</h5>
+            <Link to="#">Transactions</Link>
           </div>
         </div>
         <div className="d-flex mb-2 mx-2">
@@ -81,7 +82,7 @@ function sidebar() {
             <Mail />
           </div>
           <div className="py-1">
-            <h5>Mail</h5>
+            <Link to="#">Mail</Link>
           </div>
         </div>
         <div className="d-flex mb-2 mx-2">
@@ -89,7 +90,7 @@ function sidebar() {
             <Timeline />
           </div>
           <div className="py-1">
-            <h5>Analytics</h5>
+            <Link to="#">Analytics</Link>
           </div>
         </div>
         <div className="d-flex mb-2 mx-2">
@@ -97,12 +98,12 @@ function sidebar() {
             <WorkOutline />
           </div>
           <div className="py-1">
-            <h5>Manage</h5>
+            <Link to="#">Manage</Link>
           </div>
         </div>
       </div>
 
-      <div className="dropdown-divider"></div>
+      {/* <div className="dropdown-divider"></div> */}
 
       <div className=" mb-3" id={styles.sidebar}>
         <div className="d-flex mb-2 mx-2">
@@ -110,42 +111,24 @@ function sidebar() {
             <Storefront />
           </div>
           <div className="py-1">
-            <h5>
+            <Link to="/ProductList">
               <strong>Products</strong>
-            </h5>
+            </Link>
           </div>
-        </div>
-        <div className="mb-2">
-          <h5>Create</h5>
-        </div>{" "}
-        <div className="mb-2">
-          <h5>Update</h5>
-        </div>{" "}
-        <div className="mb-2">
-          <h5>Delete</h5>
         </div>
       </div>
 
-      <div className="dropdown-divider"></div>
+      {/* <div className="dropdown-divider"></div> */}
       <div className=" mb-3" id={styles.sidebar}>
         <div className="d-flex mb-2 mx-2">
           <div className="px-1">
             <Storefront />
           </div>
           <div className="py-1">
-            <h5>
+            <Link to="/Categories">
               <strong>Categories</strong>
-            </h5>
+            </Link>
           </div>
-        </div>
-        <div className="mb-2">
-          <h5>Create</h5>
-        </div>{" "}
-        <div className="mb-2">
-          <h5>Update</h5>
-        </div>{" "}
-        <div className="mb-2">
-          <h5>Delete</h5>
         </div>
       </div>
       <br />

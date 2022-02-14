@@ -1,29 +1,30 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import {
-  addToCartAction,
-  RemoveFromCartAction,
-} from "../../redux/actions/cartActions";
+// import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
+// import {
+//   addToCartAction,
+//   RemoveFromCartAction,
+// } from "../../redux/actions/cartActions";
 
 function Cart(props) {
-  const [getItemCount, setItemCount] = useState(1);
+  // const [getItemCount, setItemCount] = useState(1);
   //
-  // //get cart from store
+  //get cart from store
   // const cart = useSelector((state) => state.cart);
-  // //
+  //
   // const { cartItems } = cart;
   // const dispatch = useDispatch();
-  // const productId = props.match.params.id;
+  // const { id } = useParams();
+
   // const qty = props.location.search
   //   ? Number(props.location.search.split("=")[1])
   //   : 1;
 
   // useEffect(() => {
-  //   if (productId) {
-  //     dispatch(addToCartAction(productId, qty));
+  //   if (id) {
+  //     dispatch(addToCartAction(id, qty));
   //   }
-  // }, [dispatch, productId, qty]);
+  // }, [dispatch, id, qty]);
 
   //#####################################################
 
@@ -33,11 +34,11 @@ function Cart(props) {
 
   //#####################################################
 
-  const checkOut = (id) => {};
+  // const checkOut = (id) => {};
 
-  const incrementCart = () => {};
-  const decrementCart = () => {};
-  const deleteAllCartItems = () => {};
+  // const incrementCart = () => {};
+  // const decrementCart = () => {};
+  // const deleteAllCartItems = () => {};
   //#####################################################
   return (
     <div>
@@ -68,7 +69,7 @@ function Cart(props) {
                   id="AddToCart"
                   className="btn btn-primary btn-sm mx-1"
                   to="#"
-                  onClick={incrementCart}
+                  // onClick={incrementCart}
                 >
                   +
                 </Link>
@@ -76,7 +77,7 @@ function Cart(props) {
                   id="DecreaseFromCart"
                   className="btn btn-warning btn-sm mx-1"
                   to="#"
-                  onClick={decrementCart}
+                  // onClick={decrementCart}
                 >
                   -
                 </Link>
@@ -84,7 +85,7 @@ function Cart(props) {
                   id="DeleteFromCart"
                   className="btn btn-danger btn-sm mx-1"
                   to="#"
-                  onClick={deleteAllCartItems}
+                  // onClick={deleteAllCartItems}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

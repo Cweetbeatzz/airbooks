@@ -13,11 +13,34 @@ productsRouter.get("/getAllProducts", async (req, res) => {
 //
 //#######################################################
 
-productsRouter.get("/getAllProductsByCategory", async (req, res) => {
+productsRouter.get("/getAllProductsByCategory/:category", async (req, res) => {
   const qcategory = req.query.category;
   let products;
 
   products = await ProductsModel.find({ categories: { $in: [qcategory] } })
+    .sort({ createdAt: -1 })
+    .limit(30);
+
+  res.status(200).send({ products });
+});
+
+//#######################################################
+
+//search by company, product name
+productsRouter.get("/getAllProductsBySearch/:search", async (req, res) => {
+  const { productName, company } = req.query;
+  const queryRequest = {};
+
+  if (productName) {
+    queryRequest.productName = { $regex: productName };
+  }
+  if (company) {
+    queryRequest.company = { $regex: company };
+  }
+
+  let products;
+
+  products = await ProductsModel.find(queryRequest)
     .sort({ createdAt: -1 })
     .limit(30);
 
@@ -111,5 +134,7 @@ productsRouter.delete("/deleteProductsById/:id", async (req, res) => {
   }
   res.status(200).send({ message: "Product Deleted" });
 });
+
+//#######################################################
 
 module.exports = productsRouter;

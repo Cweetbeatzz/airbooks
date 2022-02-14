@@ -13,7 +13,6 @@ function CreateCategory() {
     dispatch(createCategoryAction(getCategoryName));
   };
 
-  // useEffect(() => {}, []);
   return (
     <div>
       <br />

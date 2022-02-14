@@ -10,8 +10,7 @@ function UpdateCategory(props) {
   let { id } = useParams();
   const categoryDetail = useSelector((state) => state.updateCategory);
   let { category } = categoryDetail;
-  const [getCategoryName, setCategoryName] = useState(category?.categoryName);
-
+  const [getCategoryName, setCategoryName] = useState(category.categoryName);
   console.log(categoryDetail);
 
   const dispatch = useDispatch();
@@ -21,9 +20,6 @@ function UpdateCategory(props) {
     dispatch(updateCategoryAction(id));
   };
 
-  useEffect(() => {
-    dispatch(updateCategoryAction(id));
-  }, [dispatch, id]);
   return (
     <div>
       <br />

@@ -117,7 +117,7 @@ function CreateProducts() {
                   <input
                     name="uploaded_file"
                     type="file"
-                    class="form-control-file custom-file-input"
+                    class="form-control custom-file-input"
                     id="productImage"
                     onChange={(e) => setproductImage(e.target.files[0])}
                   />

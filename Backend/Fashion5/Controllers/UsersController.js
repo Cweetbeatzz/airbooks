@@ -8,8 +8,17 @@ const { generateToken } = require("../Services/Jwt");
 
 userRouter.get("/getAllUsers", async (req, res) => {
   const allusers = await Users.find({});
-  const { password, ...others } = allusers;
-  res.status(200).json(others);
+  res.status(200).json({
+    firstname: allusers.firstname,
+    lastname: allusers.lastname,
+    username: allusers.username,
+    email: allusers.email,
+    address: allusers.address,
+    phone: allusers.phone,
+    country: allusers.country,
+    state: allusers.state,
+    postalcode: allusers.postalcode,
+  });
 });
 
 //#######################################################
@@ -21,7 +30,17 @@ userRouter.get("/getUsersById/:id", async (req, res) => {
   if (!users) {
     res.status(404).send({ message: `No task matching the following ID` });
   }
-  res.send(users);
+  res.status(200).send({
+    firstname: users.firstname,
+    lastname: users.lastname,
+    username: users.username,
+    email: users.email,
+    address: users.address,
+    phone: users.phone,
+    country: users.country,
+    state: users.state,
+    postalcode: users.postalcode,
+  });
 });
 
 //#######################################################
@@ -76,14 +95,27 @@ userRouter.put("/updateUsersById/:id", async (req, res) => {
     password: hashedpass,
   };
   //
-  const userById = await Users.findByIdAndUpdate(req.params.id, {
+  const updatedUser = await Users.findByIdAndUpdate(req.params.id, {
     $set: oldUserDetails,
   });
 
-  if (!userById) {
+  if (!updatedUser) {
     res.status(404).send({ message: `No task matching the following ID` });
   }
-  res.status(200).send({ message: "Update Successful" });
+  res.status(200).send([
+    { message: "Update Successful" },
+    {
+      firstname: updatedUser.firstname,
+      lastname: updatedUser.lastname,
+      username: updatedUser.username,
+      email: updatedUser.email,
+      address: updatedUser.address,
+      phone: updatedUser.phone,
+      country: updatedUser.country,
+      state: updatedUser.state,
+      postalcode: updatedUser.postalcode,
+    },
+  ]);
 });
 
 //#######################################################
@@ -95,7 +127,7 @@ userRouter.delete("/deleteUsersById/:id", async (req, res) => {
   if (!userById) {
     res.status(404).send({ message: `No task matching the following ID` });
   }
-  res.send(userById);
+  res.status(200).send([{ message: `Delete Successfull` }, {}]);
 });
 
 //#######################################################

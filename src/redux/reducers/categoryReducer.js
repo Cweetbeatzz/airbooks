@@ -73,7 +73,7 @@ export const createCategoryReducer = (state = {}, action) => {
 
 //##################################################################
 
-export const updateCategoryReducer = (state = {}, action) => {
+export const updateCategoryReducer = (state = { category: {} }, action) => {
   switch (action.type) {
     case CATEGORY_UPDATE_REQUEST:
       return { loading: true };
