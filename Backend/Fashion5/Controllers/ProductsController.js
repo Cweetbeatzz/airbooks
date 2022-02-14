@@ -40,7 +40,7 @@ productsRouter.get("/getProductsById/:id", async (req, res) => {
     price: products.price,
     category: products.category,
     company: products.company,
-    productImage: products.file,
+    productImage: products.productImage,
     description: products.description,
   });
 });
@@ -50,7 +50,7 @@ productsRouter.get("/getProductsById/:id", async (req, res) => {
 
 productsRouter.post(
   "/createProducts",
-  uploadLocation.single("productImage"),
+  uploadLocation.single("uploaded_file"),
   async (req, res, next) => {
     //
     const newProduct = new ProductsModel({

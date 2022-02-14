@@ -4,6 +4,8 @@ import { getAllCategoriesAction } from "../../redux/actions/categoryActions";
 import { createProductAction } from "../../redux/actions/productsActions";
 import Loading from "./Loading";
 import Message from "./Message";
+import Select from "react-select";
+import FileBase64 from "react-file-base64";
 
 function CreateProducts() {
   //#################################################################
@@ -113,9 +115,9 @@ function CreateProducts() {
                 </label>
                 <div class="custom-file">
                   <input
-                    name="productImage"
+                    name="uploaded_file"
                     type="file"
-                    class="form-control custom-file-input"
+                    class="form-control-file custom-file-input"
                     id="productImage"
                     onChange={(e) => setproductImage(e.target.files[0])}
                   />
@@ -155,7 +157,6 @@ function CreateProducts() {
                         <option key={cat._id} value={cat._id}>
                           {" "}
                           {cat.categoryName}
-                          {cat._id}
                         </option>
                       );
                     })

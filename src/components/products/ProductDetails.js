@@ -10,7 +10,7 @@ function ProductDetails() {
   const { id } = useParams([]);
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, products } = productDetails;
-  // console.log(products);
+  console.log(products);
 
   useEffect(() => {
     dispatch(productDetailsAction(id));
@@ -50,21 +50,37 @@ function ProductDetails() {
               <div className="col-5 my-auto mx-auto justify-content-md-start justify-content-center">
                 <hr className="btn-dark w-50 text-center mx-auto" />
                 <br />
+
+                <h6>
+                  <strong>Company</strong>
+                </h6>
                 <h6>{products.company}</h6>
                 <br />
 
+                <h6 className="text-dark">
+                  <strong>Product Name</strong>
+                </h6>
                 <h6 className="text-info">
                   <strong>{products.productName}</strong>
                 </h6>
                 <br />
 
+                <h6>
+                  <strong>Category</strong>
+                </h6>
                 <h6>{products.category}</h6>
                 <br />
 
+                <h6>
+                  <strong>Description</strong>
+                </h6>
                 <h6>{products.description}</h6>
                 <br />
 
                 <hr className="btn-dark w-50 text-center mx-auto" />
+                <h6 className="text-dark">
+                  <strong>Price</strong>
+                </h6>
                 <h6 className="text-info">
                   <strong>$ {products.price}</strong>
                 </h6>
