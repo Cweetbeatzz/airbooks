@@ -24,7 +24,7 @@ function sidebar() {
             <LineStyle />
           </div>
           <div className="py-1">
-            <Link to="#">
+            <Link to="home">
               <strong>Home</strong>
             </Link>
           </div>
@@ -34,7 +34,9 @@ function sidebar() {
             <AccountBox />
           </div>
           <div className="py-1">
-            <Link to="/account">Users</Link>
+            <Link to="/account">
+              <strong>Users</strong>
+            </Link>
           </div>
         </div>
         <div className="d-flex mb-2 mx-2">
@@ -42,7 +44,9 @@ function sidebar() {
             <AccountBalance />
           </div>
           <div className="py-1">
-            <Link to="#">Sales</Link>
+            <Link to="/Sales">
+              <strong>Sales</strong>
+            </Link>
           </div>
         </div>
         <div className="d-flex mb-2 mx-2">
@@ -50,7 +54,9 @@ function sidebar() {
             <Report />
           </div>
           <div className="py-1">
-            <Link to="#">Reports</Link>
+            <Link to="/Reports">
+              <strong>Reports</strong>
+            </Link>
           </div>
         </div>
         <div className="d-flex mb-2 mx-2">
@@ -58,7 +64,9 @@ function sidebar() {
             <NotificationsNone />
           </div>
           <div className="py-1">
-            <Link to="#">Notifications</Link>
+            <Link to="/Notifications">
+              <strong>Notifications</strong>
+            </Link>
           </div>
         </div>
         <div className="d-flex mb-2 mx-2">
@@ -66,7 +74,9 @@ function sidebar() {
             <Work />
           </div>
           <div className="py-1">
-            <Link to="/roles">Staffs</Link>
+            <Link to="/roles">
+              <strrong>Staffs</strrong>
+            </Link>
           </div>
         </div>
         <div className="d-flex mb-2 mx-2">
@@ -74,7 +84,9 @@ function sidebar() {
             <Payment />
           </div>
           <div className="py-1">
-            <Link to="#">Transactions</Link>
+            <Link to="/Transactions">
+              <strong>Transactions</strong>
+            </Link>
           </div>
         </div>
         <div className="d-flex mb-2 mx-2">
@@ -82,7 +94,9 @@ function sidebar() {
             <Mail />
           </div>
           <div className="py-1">
-            <Link to="#">Mail</Link>
+            <Link to="/Mail">
+              <strong>Mail</strong>
+            </Link>
           </div>
         </div>
         <div className="d-flex mb-2 mx-2">
@@ -90,7 +104,9 @@ function sidebar() {
             <Timeline />
           </div>
           <div className="py-1">
-            <Link to="#">Analytics</Link>
+            <Link to="/Analytics">
+              <strong>Analytics</strong>
+            </Link>
           </div>
         </div>
         <div className="d-flex mb-2 mx-2">
@@ -98,7 +114,9 @@ function sidebar() {
             <WorkOutline />
           </div>
           <div className="py-1">
-            <Link to="#">Manage</Link>
+            <Link to="/Manage">
+              <strong>Manage</strong>
+            </Link>
           </div>
         </div>
       </div>

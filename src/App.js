@@ -25,6 +25,13 @@ import AccountUpdate from "./components/account/AccountUpdate";
 import AccountDetails from "./components/account/AccountDetails";
 import AccountDelete from "./components/account/AccountDelete";
 import Roles from "./components/account/Roles";
+import Analytics from "./components/extras/Analytics";
+import Mail from "./components/extras/Mail";
+import Manage from "./components/extras/Manage";
+import Notifications from "./components/extras/Notifications";
+import Reports from "./components/extras/Reports";
+import Sales from "./components/extras/Sales";
+import Transactions from "./components/extras/Transactions";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -63,6 +70,13 @@ function App() {
           <Route path="/AccountDetails/:id" element={<AccountDetails />} />
           <Route path="/AccountDelete/:id" element={<AccountDelete />} />
           <Route path="/Roles" element={<Roles />} />
+          <Route path="/Analytics" element={<Analytics />} />
+          <Route path="/Mail" element={<Mail />} />
+          <Route path="/Manage" element={<Manage />} />
+          <Route path="/Notifications" element={<Notifications />} />
+          <Route path="/Reports" element={<Reports />} />
+          <Route path="/Sales" element={<Sales />} />
+          <Route path="/Transactions" element={<Transactions />} />
         </Routes>
 
         <Footer />
