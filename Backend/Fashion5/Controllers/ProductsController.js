@@ -81,7 +81,7 @@ productsRouter.post(
       price: req.body.price,
       category: req.body.category,
       company: req.body.company,
-      productImage: req.file.path,
+      productImage: req.file,
       description: req.body.description,
     });
     try {

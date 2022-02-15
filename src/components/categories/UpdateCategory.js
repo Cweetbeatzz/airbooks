@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getAllCategoriesAction,
-  updateCategoryAction,
-} from "../../redux/actions/categoryActions";
+import { updateCategoryAction } from "../../redux/actions/categoryActions";
 import { useParams, useLocation } from "react-router-dom";
 
 function UpdateCategory(props) {

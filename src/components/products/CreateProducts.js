@@ -26,6 +26,9 @@ function CreateProducts() {
     //#######
     e.preventDefault();
     //#######
+    // const data = new FormData();
+    // data.append("productImage", getproductImage);
+    //#######
     dispatch(
       createProductAction(
         getProductName,
@@ -120,6 +123,7 @@ function CreateProducts() {
                     class="form-control custom-file-input"
                     id="productImage"
                     onChange={(e) => setproductImage(e.target.files[0])}
+                    // value={getproductImage}
                   />
                 </div>
                 <span asp-validation-for="Image" class="text-danger"></span>

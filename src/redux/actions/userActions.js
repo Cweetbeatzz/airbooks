@@ -86,7 +86,8 @@ export const createUserAccountAction =
     state,
     country,
     postcode,
-    password
+    password,
+    history
   ) =>
   async (dispatch) => {
     //###
@@ -197,34 +198,35 @@ export const deleteUserAccountAction = (userId) => async (dispatch) => {
 
 //#######################################################
 
-export const loginUserAction = (email, password) => async (dispatch) => {
-  //###
-  dispatch({
-    type: USER_LOGIN_REQUEST,
-    payload: { email, password },
-  });
-  //###
-  try {
-    const { data } = await Axios.post(`/fashion5/api/v1/auth/login`, {
-      email,
-      password,
-    });
+export const loginUserAction =
+  (email, password, history) => async (dispatch) => {
+    //###
     dispatch({
-      type: USER_LOGIN_SUCCESS,
-      payload: data,
+      type: USER_LOGIN_REQUEST,
+      payload: { email, password },
     });
-    //save user info in web browser storage
-    localStorage.setItem("userInfo", JSON.stringify(data));
-  } catch (error) {
-    dispatch({
-      type: USER_LOGIN_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
-    });
-  }
-};
+    //###
+    try {
+      const { data } = await Axios.post(`/fashion5/api/v1/auth/login`, {
+        email,
+        password,
+      });
+      dispatch({
+        type: USER_LOGIN_SUCCESS,
+        payload: data,
+      });
+      //save user info in web browser storage
+      localStorage.setItem("userInfo", JSON.stringify(data));
+    } catch (error) {
+      dispatch({
+        type: USER_LOGIN_FAIL,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      });
+    }
+  };
 
 //#######################################################
 

@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUserAction } from "../../redux/actions/userActions";
 import Message from "../products/Message";
+import { useLocation, Redirect } from "react-router-dom";
 
 function Login(props) {
+  let location = useLocation();
   //########################################################
 
   const [getEmail, setEmail] = useState("");
@@ -19,6 +21,8 @@ function Login(props) {
     e.preventDefault();
     //calling the user login action
     dispatch(loginUserAction(getEmail, getPassword));
+    //
+    // history.push("/home");
   };
   //
   //########################################################
@@ -27,9 +31,7 @@ function Login(props) {
   const { error, userInfo } = signedIn;
   console.log(userInfo);
 
-  // const redirect = props.location.search
-  //   ? props.location.search.split("=")[1]
-  //   : "home";
+  // const redirect = location.search ? location.search.split("=")[1] : "home";
 
   //########################################################
   // useEffect(() => {

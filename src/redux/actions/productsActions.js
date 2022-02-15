@@ -94,6 +94,9 @@ export const createProductAction =
     });
 
     try {
+      // const imageData = new FormData();
+      // productImage = imageData.append("productImage", productImage);
+
       const { data } = await Axios.post(
         "/fashion5/api/v1/products/createProducts",
         { productName, price, category, company, productImage, description }

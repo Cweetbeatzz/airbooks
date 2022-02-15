@@ -24,7 +24,7 @@ function sidebar() {
             <LineStyle />
           </div>
           <div className="py-1">
-            <Link to="home">
+            <Link to="/home">
               <strong>Home</strong>
             </Link>
           </div>

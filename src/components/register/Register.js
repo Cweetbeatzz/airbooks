@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { createUserAccountAction } from "../../redux/actions/userActions";
 
-function Register() {
+function Register(props) {
   //#################################################################
 
   const [getFirstName, setFirstName] = useState("");
@@ -21,7 +21,7 @@ function Register() {
   const dispatch = useDispatch();
   //#################################################################
 
-  const handleSubmitForm = (e) => {
+  const handleSubmitForm = (e, history) => {
     //#######
     e.preventDefault();
     //#######
@@ -40,9 +40,11 @@ function Register() {
           getState,
           getCountry,
           getPostCode,
-          getPassword
+          getPassword,
+          props.history
         )
       );
+      // history.push("/login");
     }
   };
   //#################################################################
