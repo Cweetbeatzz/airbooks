@@ -26,16 +26,18 @@ function CreateProducts() {
     //#######
     e.preventDefault();
     //#######
-    // const data = new FormData();
-    // data.append("productImage", getproductImage);
+    const imageData = new FormData();
+    imageData.append("productImage", getproductImage);
     //#######
+    console.log(getproductImage);
+
     dispatch(
       createProductAction(
         getProductName,
         getPrice,
         getcategory,
         getcompany,
-        getproductImage,
+        imageData,
         getdescription
       )
     );
