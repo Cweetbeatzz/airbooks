@@ -6,8 +6,11 @@ import Loading from "./Loading";
 import Message from "./Message";
 import Select from "react-select";
 import FileBase64 from "react-file-base64";
+import { useForm } from "react-hook-form";
 
 function CreateProducts() {
+  //#################################################################
+  const { control, handleSubmit } = useForm();
   //#################################################################
   const categorylist = useSelector((state) => state.categoryList);
   const { loading, error, allcategories } = categorylist;

@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUserAction } from "../../redux/actions/userActions";
 import Message from "../products/Message";
-import { useLocation, Redirect } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { createBrowserHistory } from "history";
 
 function Login(props) {
   let location = useLocation();
+  let history = createBrowserHistory();
   //########################################################
 
   const [getEmail, setEmail] = useState("");
@@ -22,7 +24,9 @@ function Login(props) {
     //calling the user login action
     dispatch(loginUserAction(getEmail, getPassword));
     //
-    // history.push("/home");
+    setEmail("");
+    history.push("/home");
+    // return <Redirect to="/home" />;
   };
   //
   //########################################################
@@ -30,15 +34,15 @@ function Login(props) {
   const signedIn = useSelector((state) => state.userLogin);
   const { error, userInfo } = signedIn;
   console.log(userInfo);
-
+  const redirect = "/home";
   // const redirect = location.search ? location.search.split("=")[1] : "home";
 
   //########################################################
-  // useEffect(() => {
-  //   if (userInfo) {
-  //     props.history.push(redirect);
-  //   }
-  // }, [props.history, redirect, userInfo]);
+  useEffect(() => {
+    if (userInfo) {
+      history.push(redirect);
+    }
+  }, [history, redirect, userInfo]);
   //########################################################
   return (
     <div>
