@@ -21,6 +21,29 @@ function CreateProducts() {
   const [getdescription, setdescription] = useState();
 
   const dispatch = useDispatch();
+  //#################################################################
+
+  // const uploadFileHandler = (e) => {
+  //   const file = e.target.files[0];
+  //   const bodyFormData = new FormData();
+  //   bodyFormData.append("image", file);
+  //   setUploading(true);
+  //   axios
+  //     .post("/api/uploads", bodyFormData, {
+  //       headers: {
+  //         "Content-Type": "multipart/form-data",
+  //       },
+  //     })
+  //     .then((response) => {
+  //       setImage(response.data);
+  //       setUploading(false);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //       setUploading(false);
+  //     });
+  // };
+  //#################################################################
 
   const handleFormSubmit = (e) => {
     //#######
@@ -124,8 +147,8 @@ function CreateProducts() {
                     type="file"
                     class="form-control custom-file-input"
                     id="productImage"
-                    onChange={(e) => setproductImage(e.target.files[0])}
-                    // value={getproductImage}
+                    onChange={(e) => setproductImage(e.target.value)}
+                    value={getproductImage}
                   />
                 </div>
                 <span asp-validation-for="Image" class="text-danger"></span>
