@@ -4,6 +4,14 @@ import { loginUserAction } from "../../redux/actions/userActions";
 import Message from "../products/Message";
 import { useLocation } from "react-router-dom";
 import { createBrowserHistory } from "history";
+import {
+  Grid,
+  Typography,
+  TextField,
+  List,
+  ListItem,
+  Button,
+} from "@material-ui/core";
 
 function Login(props) {
   let location = useLocation();
@@ -50,9 +58,9 @@ function Login(props) {
       <div className="container">
         <div className="text-center">
           <div className="text-center">
-            <h1 className="text-primary">
+            <Typography className="text-primary" variant="h3">
               <strong>LOGIN</strong>
-            </h1>
+            </Typography>
           </div>
 
           <hr />
@@ -67,29 +75,29 @@ function Login(props) {
 
                 <div className="form-group row mb-3">
                   <div className="col-md-12">
-                    <input
+                    <TextField
+                      variant="outlined"
                       type="email"
                       name="Email"
                       placeholder="Email"
-                      asp-for="Email"
-                      className="form-control text-dark"
+                      className="form-control text-dark small"
                       required
                       onChange={(e) => setEmail(e.target.value)}
-                    />
+                    ></TextField>
                   </div>
                 </div>
 
                 <div className="form-group row">
                   <div className="col-md-12">
-                    <input
+                    <TextField
+                      variant="outlined"
                       type="password"
                       name="Password"
                       placeholder="Password"
-                      asp-for="Password"
                       className="form-control text-dark"
                       required
                       onChange={(e) => setPassword(e.target.value)}
-                    />
+                    ></TextField>
                   </div>
                 </div>
                 <br />
@@ -110,14 +118,16 @@ function Login(props) {
 
                 <hr />
                 <div className="col-md-4 mx-auto">
-                  <button
+                  <Button
+                    color="primary"
+                    variant="contained"
                     type="submit"
                     className="btn btn-primary text-white"
                     id="login"
                     value="Login"
                   >
                     <strong>LOGIN</strong>
-                  </button>
+                  </Button>
                 </div>
               </form>
             </div>
