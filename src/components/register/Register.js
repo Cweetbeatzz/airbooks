@@ -40,10 +40,22 @@ function Register(props) {
           getState,
           getCountry,
           getPostCode,
-          getPassword,
-          props.history
+          getPassword
         )
       );
+
+      setFirstName("");
+      setLastname("");
+      setUsername("");
+      setEmail("");
+      setAddress("");
+      setPhone("");
+      setState("");
+      setCountry("");
+      setPostCode("");
+      setPassword("");
+      setConfirmPassword("");
+
       // history.push("/login");
     }
   };

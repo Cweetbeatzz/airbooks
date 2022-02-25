@@ -86,8 +86,7 @@ export const createUserAccountAction =
     state,
     country,
     postcode,
-    password,
-    history
+    password
   ) =>
   async (dispatch) => {
     //###
