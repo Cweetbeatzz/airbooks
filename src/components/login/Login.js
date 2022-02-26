@@ -12,8 +12,20 @@ import {
   ListItem,
   Button,
 } from "@material-ui/core";
+import { useForm } from "react-hook-form";
 
 function Login(props) {
+  const {
+    register,
+    reset,
+    handleSubmit,
+    formState: { errors },
+    getValues,
+  } = useForm({
+    mode: "onTouched",
+    reValidateMode: "onBlur",
+    criteriaMode: "firstError",
+  });
   let location = useLocation();
   let history = createBrowserHistory();
   //########################################################
@@ -27,7 +39,7 @@ function Login(props) {
   //
   //########################################################
 
-  const handleSubmit = (e) => {
+  const handleLoginSubmit = (e) => {
     e.preventDefault();
     //calling the user login action
     dispatch(loginUserAction(getEmail, getPassword));
@@ -66,7 +78,11 @@ function Login(props) {
           <hr />
           <div className="row text-center p-3">
             <div className="col-md-6 mx-auto">
-              <form asp-action="Login" method="post" onSubmit={handleSubmit}>
+              <form
+                asp-action="Login"
+                method="post"
+                onSubmit={handleSubmit(handleLoginSubmit)}
+              >
                 {error ? <Message variant="danger">{error}</Message> : ""}
                 <div
                   asp-validation-summary="ModelOnly"
@@ -81,9 +97,21 @@ function Login(props) {
                       name="Email"
                       placeholder="Email"
                       className="form-control text-dark small"
-                      required
+                      {...register("Email", {
+                        required: "Email is required",
+                        pattern: {
+                          value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                          message: "Invalid Email Format",
+                        },
+                      })}
                       onChange={(e) => setEmail(e.target.value)}
                     ></TextField>
+                    {errors.Email && (
+                      <span className="text-danger ">
+                        <br />
+                        {errors.Email?.message}
+                      </span>
+                    )}
                   </div>
                 </div>
 
@@ -95,9 +123,18 @@ function Login(props) {
                       name="Password"
                       placeholder="Password"
                       className="form-control text-dark"
-                      required
+                      {...register("Password", {
+                        required: "Password is required",
+                        minLength: { value: 2 },
+                      })}
                       onChange={(e) => setPassword(e.target.value)}
                     ></TextField>
+                    {errors.Password && (
+                      <span className="text-danger ">
+                        <br />
+                        {errors.Password?.message}
+                      </span>
+                    )}
                   </div>
                 </div>
                 <br />

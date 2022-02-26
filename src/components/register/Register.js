@@ -6,7 +6,17 @@ import { useForm } from "react-hook-form";
 
 function Register(props) {
   //#################################################################
-  const { register, reset, handleSubmit, setError } = useForm();
+  const {
+    register,
+    reset,
+    handleSubmit,
+    formState: { errors },
+    getValues,
+  } = useForm({
+    mode: "onTouched",
+    reValidateMode: "onBlur",
+    criteriaMode: "firstError",
+  });
   //#################################################################
 
   const [getFirstName, setFirstName] = useState("");
@@ -52,6 +62,7 @@ function Register(props) {
       // history.push("/login");
     }
   };
+
   //#################################################################
 
   // const redirect = props.location.search
@@ -80,62 +91,81 @@ function Register(props) {
                   <input
                     type="text"
                     name="Firstname"
-                    required
-                    ref={register}
+                    {...register("Firstname", {
+                      required: "Firstname is required",
+                      minLength: { value: 2 },
+                    })}
                     placeholder="Firstname"
                     onChange={(e) => setFirstName(e.target.value)}
                     className="form-control"
                   />
-                  <span
-                    asp-validation-for="Firstname"
-                    className="text-danger"
-                  ></span>
+                  {errors.Firstname && (
+                    <span className="text-danger ">
+                      <br />
+                      {errors.Firstname?.message}
+                    </span>
+                  )}
                 </div>
                 <div className="form-group mb-3">
                   <input
                     type="text"
                     name="Lastname"
-                    ref={register}
-                    required
+                    {...register("Lastname", {
+                      required: "Lastname is required",
+                      minLength: { value: 2 },
+                    })}
                     placeholder="Lastname"
                     onChange={(e) => setLastname(e.target.value)}
                     className="form-control"
                   />
-                  <span
-                    asp-validation-for="Lastname"
-                    className="text-danger"
-                  ></span>
+                  {errors.Lastname && (
+                    <span className="text-danger ">
+                      <br />
+                      {errors.Lastname?.message}
+                    </span>
+                  )}
                 </div>
                 <div className="form-group mb-3">
                   <input
                     type="text"
                     name="Username"
-                    ref={register}
-                    required
+                    {...register("Username", {
+                      required: "Username is required",
+                      minLength: { value: 2 },
+                    })}
                     placeholder="Username"
                     onChange={(e) => setUsername(e.target.value)}
                     className="form-control"
                   />
-                  <span
-                    asp-validation-for="Username"
-                    className="text-danger"
-                  ></span>
+                  {errors.Username && (
+                    <span className="text-danger ">
+                      <br />
+                      {errors.Username?.message}
+                    </span>
+                  )}
                 </div>
                 <div className="form-group row mb-3">
                   <div className="col-md-12">
                     <input
                       type="email"
-                      name="email"
-                      ref={register}
-                      required
+                      name="Email"
+                      {...register("Email", {
+                        required: "Email is required",
+                        pattern: {
+                          value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                          message: "Invalid Email Format",
+                        },
+                      })}
                       placeholder="Email"
                       onChange={(e) => setEmail(e.target.value)}
                       className="form-control"
                     />
-                    <span
-                      asp-validation-for="email"
-                      className="text-danger"
-                    ></span>
+                    {errors.Email && (
+                      <span className="text-danger ">
+                        <br />
+                        {errors.Email?.message}
+                      </span>
+                    )}
                   </div>
                 </div>
                 <div className="form-group row mb-3">
@@ -143,16 +173,20 @@ function Register(props) {
                     <input
                       type="text"
                       name="Address"
-                      ref={register}
-                      required
+                      {...register("Address", {
+                        required: "Address is required",
+                        minLength: { value: 2 },
+                      })}
                       placeholder="Address"
                       onChange={(e) => setAddress(e.target.value)}
                       className="form-control"
                     />
-                    <span
-                      asp-validation-for="Address"
-                      className="text-danger"
-                    ></span>
+                    {errors.Address && (
+                      <span className="text-danger ">
+                        <br />
+                        {errors.Address?.message}
+                      </span>
+                    )}
                   </div>
                 </div>
                 <div className="form-group row mb-3">
@@ -160,16 +194,24 @@ function Register(props) {
                     <input
                       type="number"
                       name="Phone"
-                      ref={register}
-                      required
+                      {...register("Phone", {
+                        required: "Phone is required",
+                        pattern: {
+                          value:
+                            /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,9}$/,
+                          message: "Invalid Phone Format",
+                        },
+                      })}
                       placeholder="Phone"
                       onChange={(e) => setPhone(e.target.value)}
                       className="form-control"
                     />
-                    <span
-                      asp-validation-for="Phone"
-                      className="text-danger"
-                    ></span>
+                    {errors.Phone && (
+                      <span className="text-danger ">
+                        <br />
+                        {errors.Phone?.message}
+                      </span>
+                    )}
                   </div>
                 </div>
                 <div className="form-group row mb-3">
@@ -177,16 +219,20 @@ function Register(props) {
                     <input
                       type="text"
                       name="State"
-                      ref={register}
-                      required
+                      {...register("State", {
+                        required: "State is required",
+                        minLength: { value: 2 },
+                      })}
                       placeholder="State"
                       onChange={(e) => setState(e.target.value)}
                       className="form-control"
                     />
-                    <span
-                      asp-validation-for="State"
-                      className="text-danger"
-                    ></span>
+                    {errors.State && (
+                      <span className="text-danger ">
+                        <br />
+                        {errors.State?.message}
+                      </span>
+                    )}
                   </div>
                 </div>
                 <div className="form-group row mb-3">
@@ -194,16 +240,20 @@ function Register(props) {
                     <input
                       type="text"
                       name="Country"
-                      ref={register}
-                      required
+                      {...register("Country", {
+                        required: "Country is required",
+                        minLength: { value: 2 },
+                      })}
                       placeholder="Country"
                       onChange={(e) => setCountry(e.target.value)}
                       className="form-control"
                     />
-                    <span
-                      asp-validation-for="Country"
-                      className="text-danger"
-                    ></span>
+                    {errors.Country && (
+                      <span className="text-danger ">
+                        <br />
+                        {errors.Country?.message}
+                      </span>
+                    )}
                   </div>
                 </div>
                 <div className="form-group row mb-3">
@@ -211,16 +261,20 @@ function Register(props) {
                     <input
                       type="number"
                       name="PostCode"
-                      ref={register}
-                      required
+                      {...register("PostCode", {
+                        required: "PostCode is required",
+                        minLength: { value: 2 },
+                      })}
                       placeholder="PostalCode"
                       onChange={(e) => setPostCode(e.target.value)}
                       className="form-control"
                     />
-                    <span
-                      asp-validation-for="PostCode"
-                      className="text-danger"
-                    ></span>
+                    {errors.PostalCode && (
+                      <span className="text-danger ">
+                        <br />
+                        {errors.PostalCode?.message}
+                      </span>
+                    )}
                   </div>
                 </div>
 
@@ -229,16 +283,20 @@ function Register(props) {
                     <input
                       type="password"
                       name="Password"
-                      ref={register}
-                      required
+                      {...register("Password", {
+                        required: "Password is required",
+                        minLength: { value: 2 },
+                      })}
                       placeholder="Password"
                       onChange={(e) => setPassword(e.target.value)}
                       className="form-control"
                     />
-                    <span
-                      asp-validation-for="Password"
-                      className="text-danger"
-                    ></span>
+                    {errors.Password && (
+                      <span className="text-danger ">
+                        <br />
+                        {errors.Password?.message}
+                      </span>
+                    )}
                   </div>
                 </div>
                 <div className="form-group row mb-3">
@@ -246,16 +304,20 @@ function Register(props) {
                     <input
                       type="password"
                       name="ConfirmPassword"
-                      ref={register}
-                      required
+                      {...register("ConfirmPassword", {
+                        required: "ConfirmPassword is required",
+                        minLength: { value: 2 },
+                      })}
                       placeholder="Confirm Password"
                       onChange={(e) => setConfirmPassword(e.target.value)}
                       className="form-control"
                     />
-                    <span
-                      asp-validation-for="ConfirmPassword"
-                      className="text-danger"
-                    ></span>
+                    {errors.ConfirmPassword && (
+                      <span className="text-danger ">
+                        <br />
+                        {errors.ConfirmPassword?.message}
+                      </span>
+                    )}
                   </div>
                 </div>
                 <hr />
