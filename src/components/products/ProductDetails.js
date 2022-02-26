@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { productDetailsAction } from "../../redux/actions/productsActions";
@@ -40,7 +40,7 @@ function ProductDetails() {
             >
               <div className="text-center col-md-7">
                 <img
-                  src={products.productImage}
+                  src={`http://localhost:6800/${products.productImage}`}
                   id="productsDetailsimage"
                   className="artwork w-100 "
                   height="450"

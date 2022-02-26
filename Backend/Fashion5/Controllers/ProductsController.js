@@ -76,12 +76,14 @@ productsRouter.post(
   uploadLocation.single("uploaded_file"),
   async (req, res, next) => {
     //
+    let file = req.file.path;
+    //
     const newProduct = new ProductsModel({
       productName: req.body.productName,
       price: req.body.price,
       category: req.body.category,
       company: req.body.company,
-      productImage: req.file,
+      productImage: file,
       description: req.body.description,
     });
     try {
@@ -100,12 +102,15 @@ productsRouter.put(
   "/updateProductsById/:id",
   uploadLocation.single("productImage"),
   async (req, res) => {
+    //
+    let file = req.file.path;
+    //
     let oldProductDetails = {
       name: req.body.name,
       price: req.body.price,
       category: req.body.category,
       company: req.body.company,
-      productImage: req.file,
+      productImage: file,
       description: req.body.description,
     };
     //

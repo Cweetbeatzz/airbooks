@@ -26,36 +26,18 @@ function CreateProducts() {
   const dispatch = useDispatch();
   //#################################################################
 
-  // const uploadFileHandler = (e) => {
-  //   const file = e.target.files[0];
-  //   const bodyFormData = new FormData();
-  //   bodyFormData.append("image", file);
-  //   setUploading(true);
-  //   axios
-  //     .post("/api/uploads", bodyFormData, {
-  //       headers: {
-  //         "Content-Type": "multipart/form-data",
-  //       },
-  //     })
-  //     .then((response) => {
-  //       setImage(response.data);
-  //       setUploading(false);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //       setUploading(false);
-  //     });
-  // };
-  //#################################################################
-
   const handleFormSubmit = (e) => {
     //#######
     e.preventDefault();
     //#######
-    const imageData = new FormData();
-    imageData.append("productImage", getproductImage);
+    const data = new FormData();
+    data.append("getProductName", getProductName);
+    data.append("getPrice", getPrice);
+    data.append("getcategory", getcategory);
+    data.append("getcompany", getcompany);
+    data.append("getproductImage", getproductImage);
+    data.append("getdescription", getdescription);
     //#######
-    console.log(getproductImage);
 
     dispatch(
       createProductAction(
@@ -63,7 +45,7 @@ function CreateProducts() {
         getPrice,
         getcategory,
         getcompany,
-        imageData,
+        getproductImage,
         getdescription
       )
     );
@@ -150,8 +132,8 @@ function CreateProducts() {
                     type="file"
                     class="form-control custom-file-input"
                     id="productImage"
-                    onChange={(e) => setproductImage(e.target.value)}
-                    value={getproductImage}
+                    onChange={(e) => setproductImage(e.target.files[0])}
+                    // value={getproductImage}
                   />
                 </div>
                 <span asp-validation-for="Image" class="text-danger"></span>

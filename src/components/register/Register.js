@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { createUserAccountAction } from "../../redux/actions/userActions";
+import { useForm } from "react-hook-form";
 
 function Register(props) {
+  //#################################################################
+  const { register, reset, handleSubmit, setError } = useForm();
   //#################################################################
 
   const [getFirstName, setFirstName] = useState("");
@@ -43,18 +46,8 @@ function Register(props) {
           getPassword
         )
       );
-
-      setFirstName("");
-      setLastname("");
-      setUsername("");
-      setEmail("");
-      setAddress("");
-      setPhone("");
-      setState("");
-      setCountry("");
-      setPostCode("");
-      setPassword("");
-      setConfirmPassword("");
+      //resets the form after sucessfull submit
+      reset();
 
       // history.push("/login");
     }
@@ -78,12 +71,17 @@ function Register(props) {
           <hr />
           <div className="row text-center p-3">
             <div className="col-md-6 mx-auto">
-              <form method="post" className="form" onSubmit={handleSubmitForm}>
+              <form
+                method="post"
+                className="form"
+                onSubmit={handleSubmit(handleSubmitForm)}
+              >
                 <div className="form-group mb-3">
                   <input
                     type="text"
                     name="Firstname"
                     required
+                    ref={register}
                     placeholder="Firstname"
                     onChange={(e) => setFirstName(e.target.value)}
                     className="form-control"
@@ -97,6 +95,7 @@ function Register(props) {
                   <input
                     type="text"
                     name="Lastname"
+                    ref={register}
                     required
                     placeholder="Lastname"
                     onChange={(e) => setLastname(e.target.value)}
@@ -111,6 +110,7 @@ function Register(props) {
                   <input
                     type="text"
                     name="Username"
+                    ref={register}
                     required
                     placeholder="Username"
                     onChange={(e) => setUsername(e.target.value)}
@@ -126,6 +126,7 @@ function Register(props) {
                     <input
                       type="email"
                       name="email"
+                      ref={register}
                       required
                       placeholder="Email"
                       onChange={(e) => setEmail(e.target.value)}
@@ -142,6 +143,7 @@ function Register(props) {
                     <input
                       type="text"
                       name="Address"
+                      ref={register}
                       required
                       placeholder="Address"
                       onChange={(e) => setAddress(e.target.value)}
@@ -158,6 +160,7 @@ function Register(props) {
                     <input
                       type="number"
                       name="Phone"
+                      ref={register}
                       required
                       placeholder="Phone"
                       onChange={(e) => setPhone(e.target.value)}
@@ -174,6 +177,7 @@ function Register(props) {
                     <input
                       type="text"
                       name="State"
+                      ref={register}
                       required
                       placeholder="State"
                       onChange={(e) => setState(e.target.value)}
@@ -190,6 +194,7 @@ function Register(props) {
                     <input
                       type="text"
                       name="Country"
+                      ref={register}
                       required
                       placeholder="Country"
                       onChange={(e) => setCountry(e.target.value)}
@@ -206,6 +211,7 @@ function Register(props) {
                     <input
                       type="number"
                       name="PostCode"
+                      ref={register}
                       required
                       placeholder="PostalCode"
                       onChange={(e) => setPostCode(e.target.value)}
@@ -223,6 +229,7 @@ function Register(props) {
                     <input
                       type="password"
                       name="Password"
+                      ref={register}
                       required
                       placeholder="Password"
                       onChange={(e) => setPassword(e.target.value)}
@@ -239,6 +246,7 @@ function Register(props) {
                     <input
                       type="password"
                       name="ConfirmPassword"
+                      ref={register}
                       required
                       placeholder="Confirm Password"
                       onChange={(e) => setConfirmPassword(e.target.value)}
