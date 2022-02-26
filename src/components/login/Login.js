@@ -91,7 +91,7 @@ function Login(props) {
 
                 <div className="form-group row mb-3">
                   <div className="col-md-12">
-                    <TextField
+                    <input
                       variant="outlined"
                       type="email"
                       name="Email"
@@ -105,7 +105,7 @@ function Login(props) {
                         },
                       })}
                       onChange={(e) => setEmail(e.target.value)}
-                    ></TextField>
+                    />
                     {errors.Email && (
                       <span className="text-danger ">
                         <br />
@@ -117,7 +117,7 @@ function Login(props) {
 
                 <div className="form-group row">
                   <div className="col-md-12">
-                    <TextField
+                    <input
                       variant="outlined"
                       type="password"
                       name="Password"
@@ -128,7 +128,7 @@ function Login(props) {
                         minLength: { value: 2 },
                       })}
                       onChange={(e) => setPassword(e.target.value)}
-                    ></TextField>
+                    />
                     {errors.Password && (
                       <span className="text-danger ">
                         <br />

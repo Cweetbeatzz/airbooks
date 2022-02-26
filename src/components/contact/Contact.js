@@ -1,7 +1,25 @@
 import React from "react";
 import styled from "styled-components";
+import { useForm } from "react-hook-form";
 
 function Contact() {
+  const {
+    register,
+    reset,
+    handleSubmit,
+    formState: { errors },
+    getValues,
+  } = useForm({
+    mode: "onTouched",
+    reValidateMode: "onBlur",
+    criteriaMode: "firstError",
+  });
+  //##########################################################
+  const handleSubmitForm = (e) => {
+    e.preventDefault();
+  };
+  //##########################################################
+
   return (
     <div className="container">
       <br />
@@ -22,7 +40,11 @@ function Contact() {
             <div className="container-form">
               <div className="column">
                 <div className="col-lg-7 mt-3 mt-lg-0 d-flex align-items-stretch">
-                  <form action="forms" method="post">
+                  <form
+                    action="forms"
+                    method="post"
+                    onSubmit={handleSubmit(handleSubmitForm)}
+                  >
                     <input
                       type="hidden"
                       name="id"
@@ -41,16 +63,22 @@ function Contact() {
                       <input
                         type="text"
                         name="name"
+                        {...register("name", {
+                          required: "name is required",
+                          minLength: { value: 2 },
+                        })}
                         placeholder="Your Name"
                         className="form-control"
-                        id="name "
+                        id="name"
                         style={{ width: "400px" }}
                       />
                       <div>
-                        <span
-                          asp-validation-for="Name"
-                          className="text-danger"
-                        ></span>
+                        {errors.name && (
+                          <span className="text-danger ">
+                            <br />
+                            {errors.name?.message}
+                          </span>
+                        )}
                       </div>
                     </div>
                     <div className=" form-group mb-2">
@@ -58,15 +86,21 @@ function Contact() {
                         type="email"
                         className="form-control "
                         placeholder="Email "
-                        name="email "
+                        name="Email "
                         id="email"
+                        {...register("Email", {
+                          required: "Email is required",
+                          minLength: { value: 2 },
+                        })}
                         style={{ width: "400px" }}
                       />
                       <div>
-                        <span
-                          asp-validation-for="Email"
-                          className="text-danger"
-                        ></span>
+                        {errors.Email && (
+                          <span className="text-danger ">
+                            <br />
+                            {errors.Email?.message}
+                          </span>
+                        )}
                       </div>
                     </div>
                     <div className="form-group mb-2">
@@ -74,15 +108,21 @@ function Contact() {
                         type="text"
                         className="form-control "
                         placeholder="Subject "
-                        name="subject "
+                        name="Subject "
                         id="subject"
+                        {...register("Subject", {
+                          required: "Subject is required",
+                          minLength: { value: 2 },
+                        })}
                         style={{ width: "400px" }}
                       />
                       <div>
-                        <span
-                          asp-validation-for="Subject"
-                          className="text-danger"
-                        ></span>
+                        {errors.Subject && (
+                          <span className="text-danger ">
+                            <br />
+                            {errors.Subject?.message}
+                          </span>
+                        )}
                       </div>
                     </div>
                     <div className="form-group mb-2">
@@ -90,16 +130,21 @@ function Contact() {
                         className="form-control "
                         placeholder="Message "
                         name="message "
+                        {...register("Message", {
+                          required: "Message is required",
+                          minLength: { value: 2 },
+                        })}
                         rows="10 "
-                        asp-for="Message"
                         data-rule="required "
                         data-msg="Please write something for us "
                       ></textarea>
                       <div>
-                        <span
-                          asp-validation-for="Message"
-                          className="text-danger"
-                        ></span>
+                        {errors.Message && (
+                          <span className="text-danger ">
+                            <br />
+                            {errors.Message?.message}
+                          </span>
+                        )}
                       </div>
                     </div>
                     <br />
