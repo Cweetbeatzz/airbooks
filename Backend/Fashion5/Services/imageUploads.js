@@ -32,11 +32,11 @@ function Acceptfiletype(req, file, cb) {
 }
 
 //########
-const uploadLocation = multer({
+const upload = multer({
   // dest: "uploads/",
   storage: storage,
   limits: { filesize: 1024 * 1024 * 5 },
   fileFilter: Acceptfiletype,
 });
 
-module.exports = { uploadLocation };
+module.exports = { upload };

@@ -40,10 +40,7 @@ export const CategoryListReducer = (state = initialState, action) => {
 
 //##################################################################
 
-export const CategoryByIdReducer = (
-  state = { loading: true, category: {} },
-  action
-) => {
+export const CategoryByIdReducer = (state = { loading: true }, action) => {
   switch (action.type) {
     case CATEGORY_DETAILS_REQUEST:
       return { loading: true };

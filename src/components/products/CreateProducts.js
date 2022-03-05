@@ -133,7 +133,6 @@ function CreateProducts() {
                     class="form-control custom-file-input"
                     id="productImage"
                     onChange={(e) => setproductImage(e.target.files[0])}
-                    // value={getproductImage}
                   />
                 </div>
                 <span asp-validation-for="Image" class="text-danger"></span>

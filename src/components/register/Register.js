@@ -56,8 +56,6 @@ function Register(props) {
           getPassword
         )
       );
-      //resets the form after sucessfull submit
-      reset();
 
       // history.push("/login");
     }
@@ -345,6 +343,7 @@ function Register(props) {
                     type="submit"
                     value="Create"
                     className="btn btn-primary"
+                    onClick={() => reset()}
                   >
                     <strong>SUBMIT</strong>
                   </button>

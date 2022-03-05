@@ -1,7 +1,7 @@
 const ProductsModel = require("../Models/Products");
 const express = require("express");
 const productsRouter = express.Router();
-const { uploadLocation } = require("../Services/imageUploads");
+const { upload } = require("../Services/imageUploads");
 
 //#######################################################
 
@@ -73,10 +73,11 @@ productsRouter.get("/getProductsById/:id", async (req, res) => {
 
 productsRouter.post(
   "/createProducts",
-  uploadLocation.single("uploaded_file"),
+  upload.single("uploaded_file"),
   async (req, res, next) => {
+    const url = req.protocol + "://" + req.get("host");
     //
-    let file = req.file.path;
+    let file = req.file;
     //
     const newProduct = new ProductsModel({
       productName: req.body.productName,
@@ -100,7 +101,7 @@ productsRouter.post(
 
 productsRouter.put(
   "/updateProductsById/:id",
-  uploadLocation.single("productImage"),
+  upload.single("productImage"),
   async (req, res) => {
     //
     let file = req.file.path;

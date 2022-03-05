@@ -39,8 +39,8 @@ function Login(props) {
   //
   //########################################################
 
-  const handleLoginSubmit = (e) => {
-    e.preventDefault();
+  const handleLoginSubmit = (event) => {
+    event.preventDefault();
     //calling the user login action
     dispatch(loginUserAction(getEmail, getPassword));
     //
@@ -81,7 +81,7 @@ function Login(props) {
               <form
                 asp-action="Login"
                 method="post"
-                onSubmit={handleSubmit(handleLoginSubmit)}
+                onSubmit={handleLoginSubmit}
               >
                 {error ? <Message variant="danger">{error}</Message> : ""}
                 <div
@@ -92,19 +92,18 @@ function Login(props) {
                 <div className="form-group row mb-3">
                   <div className="col-md-12">
                     <input
-                      variant="outlined"
                       type="email"
                       name="Email"
                       placeholder="Email"
                       className="form-control text-dark small"
-                      {...register("Email", {
-                        required: "Email is required",
-                        pattern: {
-                          value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
-                          message: "Invalid Email Format",
-                        },
-                      })}
-                      onChange={(e) => setEmail(e.target.value)}
+                      // {...register("Email", {
+                      //   required: "Email is required",
+                      // pattern: {
+                      //   value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+                      //   message: "Invalid Email Format",
+                      // },
+                      // })}
+                      onChange={(event) => setEmail(event.target.value)}
                     />
                     {errors.Email && (
                       <span className="text-danger ">
@@ -118,16 +117,15 @@ function Login(props) {
                 <div className="form-group row">
                   <div className="col-md-12">
                     <input
-                      variant="outlined"
                       type="password"
                       name="Password"
                       placeholder="Password"
                       className="form-control text-dark"
-                      {...register("Password", {
-                        required: "Password is required",
-                        minLength: { value: 2 },
-                      })}
-                      onChange={(e) => setPassword(e.target.value)}
+                      // {...register("Password", {
+                      //   required: "Password is required",
+                      //   minLength: { value: 2 },
+                      // })}
+                      onChange={(event) => setPassword(event.target.value)}
                     />
                     {errors.Password && (
                       <span className="text-danger ">

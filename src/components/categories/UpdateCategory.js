@@ -1,22 +1,33 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateCategoryAction } from "../../redux/actions/categoryActions";
+import {
+  getCategoryByIdAction,
+  updateCategoryAction,
+} from "../../redux/actions/categoryActions";
 import { useParams, useLocation } from "react-router-dom";
 
 function UpdateCategory(props) {
+  //#########################################################
+
   let { id } = useParams();
-  const categoryDetail = useSelector((state) => state.updateCategory);
+  const categoryDetail = useSelector((state) => state.categoryById);
   let { category } = categoryDetail;
-  const [getCategoryName, setCategoryName] = useState(category.categoryName);
+  const [getCategoryName, setCategoryName] = useState();
   console.log(categoryDetail);
+  //#########################################################
 
   const dispatch = useDispatch();
+  //#########################################################
 
   const onFormSubmit = (e) => {
     e.preventDefault();
     dispatch(updateCategoryAction(id));
   };
-
+  //#########################################################
+  useEffect(() => {
+    dispatch(getCategoryByIdAction(id));
+    setCategoryName(category.categoryName);
+  }, [dispatch, id, category.categoryName]);
   return (
     <div>
       <br />
