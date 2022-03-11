@@ -39,7 +39,7 @@ function Login(props) {
   //
   //########################################################
 
-  const handleLoginSubmit = (event) => {
+  const handleLoginSubmit = (event, history) => {
     event.preventDefault();
     //calling the user login action
     dispatch(loginUserAction(getEmail, getPassword));
