@@ -5,11 +5,12 @@ const categoryRouter = require("./Controllers/CategoryController");
 const productsRouter = require("./Controllers/ProductsController");
 const authRouter = require("./Controllers/Auth");
 const stripeRouter = require("./Controllers/StripeController");
-const app = express();
 const db = require("./Database/connection");
 require("express-async-errors");
 const cors = require("cors");
 const socket = require("socket.io");
+const http = require("http");
+const app = express();
 
 //<----------- middlewares ---------------->
 //use static files
@@ -24,6 +25,7 @@ app.get("/", (req, res) => {
 });
 //#############################################################
 let server;
+server = http.createServer(app);
 //#############################################################
 
 //<----------- routes ---------------->
@@ -56,15 +58,5 @@ const startDB = async () => {
 
 //#############################################################
 
-//SOCKET.IO CONFIG
-const io = socket(server);
-io.on("connection", (client) => {
-  client.on("event", (data) => {
-    /* … */
-  });
-  client.on("disconnect", () => {
-    /* … */
-  });
-});
-
+module.export = server;
 startDB();
