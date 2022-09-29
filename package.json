@@ -38,6 +38,7 @@
     "redux": "^4.1.2",
     "redux-thunk": "^2.4.1",
     "slick-carousel": "^1.8.1",
+    "socket.io-client": "^4.5.2",
     "stripe": "^8.202.0",
     "styled-components": "^5.3.3",
     "sweetalert2": "^11.4.4",

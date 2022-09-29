@@ -9,6 +9,7 @@ const app = express();
 const db = require("./Database/connection");
 require("express-async-errors");
 const cors = require("cors");
+const socket = require("socket.io");
 
 //<----------- middlewares ---------------->
 //use static files
@@ -22,7 +23,7 @@ app.get("/", (req, res) => {
   res.send(`<h2>Welcome to Fashion5 API</h3>`);
 });
 //#############################################################
-
+let server;
 //#############################################################
 
 //<----------- routes ---------------->
@@ -44,7 +45,7 @@ const startDB = async () => {
         "mongodb://localhost:27017/Fashion5"
     );
     //server connection
-    app.listen(
+    server = app.listen(
       port,
       console.log(`Server is running on http://localhost:${port}`)
     );
@@ -52,5 +53,18 @@ const startDB = async () => {
     console.log(error);
   }
 };
+
+//#############################################################
+
+//SOCKET.IO CONFIG
+const io = socket(server);
+io.on("connection", (client) => {
+  client.on("event", (data) => {
+    /* … */
+  });
+  client.on("disconnect", () => {
+    /* … */
+  });
+});
 
 startDB();
