@@ -36,6 +36,7 @@ import Transactions from "./components/extras/Transactions";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import DeleteCategory from "./components/categories/DeleteCategory";
+import CustomerCare from "./components/CustomerCare/CustomerCare";
 
 function App() {
   return (
@@ -77,6 +78,7 @@ function App() {
           <Route path="/Reports" element={<Reports />} />
           <Route path="/Sales" element={<Sales />} />
           <Route path="/Transactions" element={<Transactions />} />
+          <Route path="/customer-care" element={<CustomerCare />} />
         </Routes>
 
         <Footer />

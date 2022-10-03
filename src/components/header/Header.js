@@ -63,6 +63,15 @@ function Header(params) {
                   <strong>STORE</strong>
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link
+                  className="nav-link text-dark"
+                  to="customer-care"
+                  id={styles.header}
+                >
+                  <strong>CUSTOMER CARE</strong>
+                </Link>
+              </li>
 
               <li className="nav-item">
                 <Link
