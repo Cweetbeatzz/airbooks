@@ -1,11 +1,21 @@
-import React, { useState, createContext, useEffect } from "react";
+import React, { useState, createContext, useEffect, useReducer } from "react";
 import Axios from "axios";
-import ProductData from "../Data/Products";
+import { ProductData } from "../Data/Products";
+import { useDispatch, useSelector } from "react-redux";
+import { ProductListReducer } from "../redux/reducers/productsReducers";
 
 export const CartContext = createContext();
 
 export const CartContextProvider = ({ children }) => {
   //###################################################################
+  // const dispatch = useDispatch();
+
+  const productList = useSelector((state) => state.productList);
+  const { loading, error, product } = productList;
+
+  const [products, dispatch] = useReducer(ProductListReducer, []);
+
+  const result = loading ? error : product;
 
   const [Products, setProducts] = useState(ProductData);
   const [Cart, setCart] = useState([]);
@@ -51,6 +61,8 @@ export const CartContextProvider = ({ children }) => {
         decrementCart,
         deleteAllCartItems,
         getAllProducts,
+        products,
+        dispatch,
       }}
     >
       {children}

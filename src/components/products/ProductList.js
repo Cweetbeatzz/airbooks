@@ -8,17 +8,14 @@ import { Link } from "react-router-dom";
 function ProductList(props) {
   //##########################################################
   const [quantity, setQuantity] = useState(1);
-  // const productId = props.match.params.id;
+
+  const productId = props.match.params.id;
 
   const dispatch = useDispatch();
 
   const productList = useSelector((state) => state.productList);
   const { loading, error, product } = productList;
 
-  //##########################################################
-  // const addToCart = async () => {
-  //   props.history.push(`/cart/${productId}?quantity=${quantity}`);
-  // };
   //##########################################################
 
   useEffect(() => {

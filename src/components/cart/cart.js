@@ -13,6 +13,8 @@ function Cart(props) {
     incrementCart,
     decrementCart,
     deleteAllCartItems,
+    products,
+    dispatch,
   } = useContext(CartContext);
 
   console.log("products", Products);
