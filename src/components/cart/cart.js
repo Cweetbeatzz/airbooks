@@ -1,44 +1,22 @@
 import React, { useEffect, useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
+import { useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-// import {
-//   addToCartAction,
-//   RemoveFromCartAction,
-// } from "../../redux/actions/cartActions";
+import { CartContext } from "../../context/CartContext";
 
 function Cart(props) {
-  // const [getItemCount, setItemCount] = useState(1);
-  //
-  //get cart from store
-  // const cart = useSelector((state) => state.cart);
-  //
-  // const { cartItems } = cart;
-  // const dispatch = useDispatch();
-  // const { id } = useParams();
+  const {
+    Products,
+    Cart,
+    setCart,
+    checkOut,
+    incrementCart,
+    decrementCart,
+    deleteAllCartItems,
+  } = useContext(CartContext);
 
-  // const qty = props.location.search
-  //   ? Number(props.location.search.split("=")[1])
-  //   : 1;
+  console.log("products", Products);
 
-  // useEffect(() => {
-  //   if (id) {
-  //     dispatch(addToCartAction(id, qty));
-  //   }
-  // }, [dispatch, id, qty]);
-
-  //#####################################################
-
-  // const deleteFromCart = (id) => {
-  //   dispatch(RemoveFromCartAction(id));
-  // };
-
-  //#####################################################
-
-  // const checkOut = (id) => {};
-
-  // const incrementCart = () => {};
-  // const decrementCart = () => {};
-  // const deleteAllCartItems = () => {};
   //#####################################################
   return (
     <div>
