@@ -58,7 +58,7 @@ function App() {
           <Route path="/UpdateCategory/:id" element={<UpdateCategory />} />
           <Route path="/DeleteCategory/:id" element={<DeleteCategory />} />
           <Route path="/Cart" element={<Cart />} />
-          <Route path="/ProdCategories" element={<ProdCategories />} />
+          <Route path="/ProdCategories/:id" element={<ProdCategories />} />
           <Route path="/Register" element={<Register />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/Dashboard" element={<Dashboard />} />

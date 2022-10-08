@@ -16,7 +16,10 @@ export const CartContextProvider = ({ children }) => {
   const [products, dispatch] = useReducer(ProductListReducer, []);
 
   const [Products, setProducts] = useState(ProductData);
+  const [grandTotal, setGrandTotal] = useState(0);
+  const [Tax, setTax] = useState(0);
   const [Cart, setCart] = useState([]);
+  const [PrintReciptToMail, setPrintReciptToMail] = useState(false);
 
   //###################################################################
 
@@ -35,12 +38,14 @@ export const CartContextProvider = ({ children }) => {
       return;
     }
     //add
-    const increase = getproductById;
+    const add = getproductById;
 
-    setCart(increase);
+    setCart(add);
 
     // set the cart items in local storage;
     localStorage.setItem("Cart-Item(s)", JSON.stringify(Cart));
+
+    
   };
 
   //###################################################################

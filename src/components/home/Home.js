@@ -6,6 +6,7 @@ import styles from "./home.styles.css";
 import Message from "../products/Message";
 import Loading from "../products/Loading";
 import NoCategories from "../categories/NoCategories";
+import Search from "../products/Search";
 // #####################################################################
 
 function Home() {
@@ -54,28 +55,7 @@ function Home() {
       </div>
       {/* <!-- @*#############################################################################*@ --> */}
       <hr className="my-4" />
-      <div className="container">
-        <form className="mx-auto">
-          <div
-            className="d-flex justify-content-center"
-            style={{ height: "45px" }}
-          >
-            <input
-              className="pl-4 h-100 bg-light border-0 searchinput box-shadow"
-              style={{ width: "700px" }}
-              id=""
-              name="search"
-              placeholder="  What are you looking for... "
-            />
-            <a
-              className="searchbtn p-3 box-shadow"
-              href="{% url 'products:product_search'%}"
-            >
-              <strong>SEARCH</strong>
-            </a>
-          </div>
-        </form>
-      </div>
+      <Search />
       <br />
       <div className="container beets padding" style={{ width: "400px" }}>
         <div className="row text-center m-3">
@@ -330,7 +310,7 @@ function Home() {
       </div>
 
       <hr className="btn-info" />
-      
+
       <div className="container-fluid p-5 bg-light">
         <div className="productcontent justify-content-center justify-content-evenly">
           <div className="card" style={{ width: "200px" }}>
