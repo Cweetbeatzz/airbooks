@@ -14,7 +14,7 @@ export const StreamProvider = ({ children }) => {
   //getters & setters
   const chatClient = StreamChat.getInstance("dz5f4d5kzrue");
   // chatConfig.js
-  const chatApiKey = "dz5f4d5kzrue";
+  const chatApiKey = "etctgevmgc2n";
   const [clientIsReady, setClientIsReady] = useState(false);
   //return
   //####################################################################

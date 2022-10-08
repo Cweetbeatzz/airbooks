@@ -15,6 +15,8 @@ function ProductStore(props) {
   const productList = useSelector((state) => state.productList);
   const { loading, error, product } = productList;
 
+  console.log(`prod`, product);
+
   //##########################################################
   // const addToCart = async () => {
   //   props.history.push(`/cart/${productId}?quantity=${quantity}`);

@@ -13,11 +13,16 @@ function Cart(props) {
     incrementCart,
     decrementCart,
     deleteAllCartItems,
+    clearAllCartItems,
     products,
     dispatch,
+    productList,
   } = useContext(CartContext);
 
-  console.log("products", Products);
+  const { loading, error, product } = productList;
+
+  // console.log("products", product);
+  // console.log("cart", Products);
 
   //#####################################################
   return (
@@ -49,7 +54,7 @@ function Cart(props) {
                   id="AddToCart"
                   className="btn btn-primary btn-sm mx-1"
                   to="#"
-                  // onClick={incrementCart}
+                  onClick={incrementCart}
                 >
                   +
                 </Link>
@@ -57,7 +62,7 @@ function Cart(props) {
                   id="DecreaseFromCart"
                   className="btn btn-warning btn-sm mx-1"
                   to="#"
-                  // onClick={decrementCart}
+                  onClick={decrementCart}
                 >
                   -
                 </Link>
@@ -65,7 +70,7 @@ function Cart(props) {
                   id="DeleteFromCart"
                   className="btn btn-danger btn-sm mx-1"
                   to="#"
-                  // onClick={deleteAllCartItems}
+                  onClick={deleteAllCartItems}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -91,26 +96,34 @@ function Cart(props) {
               <td>price</td>
               <td>$0</td>
             </tr>
-          </tbody>
 
-          <tr className="">
-            <td className="text-center mx-auto" colspan="5">
-              <h6 className="text-danger span">
-                <strong>GRAND TOTAL:</strong>
-              </h6>
-              $0
-            </td>
-          </tr>
-          <tr className="mt-2">
-            <td className="text-right mt-2" colspan="5">
-              <a className="btn bg-warning mt-4 mx-2" href="link">
-                CLEAR CART
-              </a>
-              <a className="btn bg-primary mt-4 text-white" href="link">
-                CHECKOUT
-              </a>
-            </td>
-          </tr>
+            <tr className="">
+              <td className="text-center mx-auto" colSpan="5">
+                <h6 className="text-danger span">
+                  <strong>GRAND TOTAL:</strong>
+                </h6>
+                $0
+              </td>
+            </tr>
+            <tr className="mt-2">
+              <td className="text-right mt-2" colSpan="5">
+                <a
+                  className="btn bg-warning mt-4 mx-2"
+                  href="link"
+                  onClick={clearAllCartItems}
+                >
+                  CLEAR CART
+                </a>
+                <a
+                  className="btn bg-primary mt-4 text-white"
+                  href="link"
+                  onClick={checkOut}
+                >
+                  CHECKOUT
+                </a>
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
       <br />

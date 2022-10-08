@@ -9,11 +9,11 @@ import {
   Thread,
   Window,
 } from "stream-chat-react";
-// import styles from "./CustomerCare.styles.css";
-// import "stream-chat-react/dist/css/v2/index.css";
+import cookies from "universal-cookie";
 
 export default function CustomerCare() {
-  const chatClient = new StreamChat("dz5f4d5kzrue");
+  const chatApiKey = "etctgevmgc2n";
+  const chatClient = new StreamChat(chatApiKey);
   const userToken =
     "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoid2ludGVyLWxpbWl0LTgiLCJleHAiOjE2NjQ4MzM3NjV9.CIkJR6d9ucWqfgz16ZjaqCAd-J4dTkhh0ljrOnYRpi8";
 
@@ -35,14 +35,16 @@ export default function CustomerCare() {
   return (
     <div>
       <Chat client={chatClient} theme="str-chat__theme-light">
-        <Channel channel={channel}>
+        {/* <ChannelListContainer />
+        <ChannelContainer /> */}
+        {/* <Channel channel={channel}>
           <Window>
             <ChannelHeader />
             <MessageList />
             <MessageInput />
           </Window>
           <Thread />
-        </Channel>
+        </Channel> */}
       </Chat>
     </div>
   );

@@ -15,35 +15,38 @@ export const CartContextProvider = ({ children }) => {
 
   const [products, dispatch] = useReducer(ProductListReducer, []);
 
-  const result = loading ? error : product;
-
   const [Products, setProducts] = useState(ProductData);
   const [Cart, setCart] = useState([]);
 
   //###################################################################
 
-  const getAllProducts = async () => {
-    try {
-      const { data } = await Axios.get(
-        "/fashion5/api/v1/products/getAllProducts"
-      );
-      console.log(data);
-      setProducts(data);
-    } catch (error) {
-      console.log(error);
-    }
+  const getAllProducts = async () => {};
+
+  const checkOut = () => {
+    console.log("Checking out cart...");
+  };
+  //###################################################################
+
+  const incrementCart = () => {
+    console.log("increasing the number of item cart...");
+  };
+  //###################################################################
+
+  const decrementCart = () => {
+    console.log("decreasing the number of item cart...");
+  };
+  //###################################################################
+
+  const deleteAllCartItems = () => {
+    console.log("deleting all number of cart items with a specfic id...");
   };
 
-  const checkOut = (id) => {};
   //###################################################################
 
-  const incrementCart = () => {};
-  //###################################################################
+  const clearAllCartItems = () => {
+    console.log("Clearing all cart...");
+  };
 
-  const decrementCart = () => {};
-  //###################################################################
-
-  const deleteAllCartItems = () => {};
   //###################################################################
 
   useEffect(() => {}, []);
@@ -63,6 +66,8 @@ export const CartContextProvider = ({ children }) => {
         getAllProducts,
         products,
         dispatch,
+        productList,
+        clearAllCartItems,
       }}
     >
       {children}
