@@ -328,7 +328,9 @@ function Home() {
           <i>Instant access to the most popular products...</i>
         </h6>
       </div>
+
       <hr className="btn-info" />
+      
       <div className="container-fluid p-5 bg-light">
         <div className="productcontent justify-content-center justify-content-evenly">
           <div className="card" style={{ width: "200px" }}>
