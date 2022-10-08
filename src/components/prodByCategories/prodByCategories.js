@@ -1,6 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router";
+import { productListByategoryAction } from "../../redux/actions/productsActions";
 
-function prodByCategories() {
+function ProdByCategories() {
+  //#######################################################################################
+  const dispatch = useDispatch();
+  const { categoryId } = useParams([]);
+
+  const [productsByCategory, setproductsByCategory] = useState([]);
+
+  const getProd = useSelector((state) => state.ProductListByCategoryReducer);
+  const { loading, error, products } = getProd;
+  //#######################################################################################
+
+  const getProdByCat = () => {
+    setproductsByCategory(products);
+  };
+
+  //#######################################################################################
+
+  useEffect(() => {
+    dispatch(productListByategoryAction(categoryId));
+  }, [dispatch]);
+
+  //#######################################################################################
+
+  if (loading) {
+    return "Loading...";
+  }
+
+  if (error) {
+    return "An Error occured Fetching Products...";
+  }
+
+  //#######################################################################################
   return (
     <div>
       <br />
@@ -57,4 +91,4 @@ function prodByCategories() {
   );
 }
 
-export default prodByCategories;
+export default ProdByCategories;

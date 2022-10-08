@@ -27,25 +27,28 @@ productsRouter.get("/getAllProductsByCategory/:category", async (req, res) => {
 //#######################################################
 
 //search by company, product name
-productsRouter.get("/getAllProductsBySearch/:search", async (req, res) => {
-  const { productName, company } = req.query;
-  const queryRequest = {};
+productsRouter.get(
+  "/getAllProductsBySearch/:productName_or_company",
+  async (req, res) => {
+    const { productName, company } = req.query;
+    const queryRequest = {};
 
-  if (productName) {
-    queryRequest.productName = { $regex: productName };
+    if (productName) {
+      queryRequest.productName = { $regex: productName };
+    }
+    if (company) {
+      queryRequest.company = { $regex: company };
+    }
+
+    let products;
+
+    products = await ProductsModel.find(queryRequest)
+      .sort({ createdAt: -1 })
+      .limit(30);
+
+    res.status(200).send({ products });
   }
-  if (company) {
-    queryRequest.company = { $regex: company };
-  }
-
-  let products;
-
-  products = await ProductsModel.find(queryRequest)
-    .sort({ createdAt: -1 })
-    .limit(30);
-
-  res.status(200).send({ products });
-});
+);
 
 //#######################################################
 

@@ -39,14 +39,15 @@ export const productListAction = () => async (dispatch) => {
 
 //###################################################
 
-export const productListByategoryAction = () => async (dispatch) => {
+export const productListByategoryAction = (categoryId) => async (dispatch) => {
   dispatch({
     type: PRODUCT_CATEGORY_LIST_REQUEST,
+    payload: categoryId,
   });
 
   try {
     const { data } = await Axios.get(
-      "/fashion5/api/v1/products/getAllProductsByCategory"
+      `/fashion5/api/v1/products/getAllProductsByCategory/${categoryId}`
     );
     dispatch({ type: PRODUCT_CATEGORY_LIST_SUCCESS, payload: data });
   } catch (error) {

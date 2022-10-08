@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { productDetailsAction } from "../../redux/actions/productsActions";
 import Loading from "./Loading";
 import Message from "./Message";
 
-function ProductDetails() {
+function ProductDetails(props) {
   const dispatch = useDispatch();
   const { id } = useParams([]);
   const productDetails = useSelector((state) => state.productDetails);
@@ -16,6 +16,7 @@ function ProductDetails() {
     dispatch(productDetailsAction(id));
   }, [dispatch, id]);
 
+  // const display = loading ? "wfwfw" : error ? "ijioj" : "yiu";
   return (
     <div>
       <br />

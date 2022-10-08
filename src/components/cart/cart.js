@@ -5,6 +5,10 @@ import { Link, useParams } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 
 function Cart(props) {
+  //get product id
+  const getProdId = props.match.params.id;
+
+  //using cart context
   const {
     Products,
     Cart,
