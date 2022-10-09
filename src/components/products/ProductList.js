@@ -9,14 +9,12 @@ function ProductList(props) {
   //##########################################################
   const [quantity, setQuantity] = useState(1);
 
-  const productId = props.match.params.id;
+  // const productId = props.match.params.id;
 
   const dispatch = useDispatch();
 
   const productList = useSelector((state) => state.productList);
   const { loading, error, product } = productList;
-
-  
 
   //##########################################################
 
@@ -35,8 +33,8 @@ function ProductList(props) {
         </h1>
       </div>
       <br />
-      <div class="text-center">
-        <Link class="btn btn-primary" to="/createproducts">
+      <div className="text-center">
+        <Link className="btn btn-primary" to="/createproducts">
           <strong>CREATE PRODUCT</strong>
         </Link>
       </div>
@@ -45,7 +43,7 @@ function ProductList(props) {
       <div>
         <div className="container-fluid p-5 bg-light">
           <div className=" text-center">
-            <table class="table table-striped w-100">
+            <table className="table table-striped w-100">
               <thead>
                 <tr>
                   <th>PRODUCT IMAGE</th>
@@ -67,34 +65,36 @@ function ProductList(props) {
                         <Link to={`/ProductsDetails/${product._id}`}>
                           <img
                             src={product.productImage}
-                            class="artwork"
+                            className="artwork"
                             height="70"
                             width="70"
                             alt=""
                           />
                         </Link>
                       </td>
-                      <td class="text-center py-5">{product.productName}</td>
-                      <td class="text-center py-5">{product.company}</td>
-                      <td class="text-center py-5">{product.price}</td>
-                      <td class="text-center py-5">
+                      <td className="text-center py-5">
+                        {product.productName}
+                      </td>
+                      <td className="text-center py-5">{product.company}</td>
+                      <td className="text-center py-5">{product.price}</td>
+                      <td className="text-center py-5">
                         <Link
                           to={`/UpdateProducts/${product._id}`}
-                          class="btn btn-warning btn-sm"
+                          className="btn btn-warning btn-sm"
                         >
                           Edit
                         </Link>
                         {"  "}|{"  "}
                         <Link
                           to={`/ProductsDetails/${product._id}`}
-                          class="btn btn-primary btn-sm"
+                          className="btn btn-primary btn-sm"
                         >
                           Details
                         </Link>{" "}
                         |{"  "}
                         <Link
                           to={`/DeleteProduct/${product._id}`}
-                          class="btn btn-danger btn-sm"
+                          className="btn btn-danger btn-sm"
                         >
                           Delete
                         </Link>
@@ -115,8 +115,3 @@ function ProductList(props) {
 
 export default ProductList;
 
-{
-  /* <div class="container-fluid">
-  <div class="text-center container"></div>
-</div>; */
-}

@@ -34,7 +34,7 @@ function Register(props) {
   const dispatch = useDispatch();
   //#################################################################
 
-  const handleSubmitForm = (e, history) => {
+  const handleSubmitForm = (e) => {
     //#######
     e.preventDefault();
     //#######
