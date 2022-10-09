@@ -44,8 +44,6 @@ export const CartContextProvider = ({ children }) => {
 
     // set the cart items in local storage;
     localStorage.setItem("Cart-Item(s)", JSON.stringify(Cart));
-
-    
   };
 
   //###################################################################
@@ -54,7 +52,12 @@ export const CartContextProvider = ({ children }) => {
     console.log("Checking out cart...");
 
     // get all the cart items in local storage;
-    localStorage.getItem("Cart-Item(s)", JSON.parse(Cart));
+    const checkOutItems = localStorage.getItem(
+      "Cart-Item(s)",
+      JSON.parse(Cart)
+    );
+
+    console.log(`Cart Items ${checkOutItems}`);
   };
   //###################################################################
 
