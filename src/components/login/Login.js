@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUserAction } from "../../redux/actions/userActions";
 import Message from "../products/Message";
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import {
   Grid,
