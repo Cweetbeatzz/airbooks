@@ -58,21 +58,21 @@ function Categories() {
                         asp-action="Edit"
                         to={`/UpdateCategory/${category._id}`}
                       >
-                        <strong>EDIT</strong>
+                        <strong> EDIT</strong>
                       </Link>{" "}
                       |
                       <Link
                         asp-action="Details"
                         to={`/CategoryDetails/${category._id}`}
                       >
-                        <strong>DETAILS</strong>
+                        <strong> DETAILS</strong>
                       </Link>{" "}
                       |
                       <Link
                         asp-action="Delete"
                         to={`/deletecategory/${category._id}`}
                       >
-                        <strong>DELETE</strong>
+                        <strong> DELETE</strong>
                       </Link>
                     </td>
                   </tr>

@@ -45,6 +45,7 @@ export default function CategoryDetails(props) {
                 </h6>
                 <h6>{category.categoryName}</h6>
                 <br />
+                <hr className="btn-dark w-50 text-center mx-auto" />
               </div>
             </div>
           )}
