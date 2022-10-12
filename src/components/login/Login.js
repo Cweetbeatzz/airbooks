@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUserAction } from "../../redux/actions/userActions";
 import Message from "../products/Message";
-import { useLocation, useHistory } from "react-router-dom";
-import { createBrowserHistory } from "history";
+import { useNavigate } from "react-router-dom";
 import {
   Grid,
   Typography,
@@ -26,8 +25,10 @@ function Login(props) {
     reValidateMode: "onBlur",
     criteriaMode: "firstError",
   });
-  let location = useLocation();
-  let history = createBrowserHistory();
+  //########################################################
+
+  let navigate = useNavigate();
+
   //########################################################
 
   const [getEmail, setEmail] = useState("");
@@ -39,14 +40,14 @@ function Login(props) {
   //
   //########################################################
 
-  const handleLoginSubmit = (event, history) => {
+  const handleLoginSubmit = (event) => {
     event.preventDefault();
     //calling the user login action
     dispatch(loginUserAction(getEmail, getPassword));
     //
     setEmail("");
-    history.push("/home");
-    // return <Redirect to="/home" />;
+    //redirecting to home
+    navigate("/home");
   };
   //
   //########################################################
@@ -54,15 +55,18 @@ function Login(props) {
   const signedIn = useSelector((state) => state.userLogin);
   const { error, userInfo } = signedIn;
   console.log(userInfo);
-  const redirect = "/home";
-  // const redirect = location.search ? location.search.split("=")[1] : "home";
+  const redirect = navigate("/home");
+
+  const navigateToRegister = () => {
+    console.log("Navigate to Register clicked");
+    navigate("/Register");
+  };
 
   //########################################################
   useEffect(() => {
     if (userInfo) {
-      history.push(redirect);
     }
-  }, [history, redirect, userInfo]);
+  }, [redirect, userInfo]);
   //########################################################
   return (
     <div>
@@ -73,6 +77,15 @@ function Login(props) {
             <Typography className="text-primary" variant="h3">
               <strong>LOGIN</strong>
             </Typography>
+          </div>
+          <div className="bg-light m-1">
+            <h4
+              className="p-2 text-primary"
+              onClick={() => navigateToRegister()}
+              style={{ cursor: "pointer" }}
+            >
+              <strong>Don't have an account? Register</strong>
+            </h4>
           </div>
 
           <hr />

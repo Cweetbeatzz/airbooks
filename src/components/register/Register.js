@@ -83,10 +83,10 @@ function Register(props) {
               <strong>REGISTER</strong>
             </h1>
           </div>
-          <div className="bg-black">
+          <div className="bg-light">
             <h4
               id={style.loginNavigate}
-              className="p-2 text-white"
+              className="p-2 text-primary"
               onClick={() => navigateToLogin()}
               style={{ cursor: "pointer" }}
             >
