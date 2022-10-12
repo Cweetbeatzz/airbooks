@@ -62,6 +62,13 @@ function Categories() {
                       </Link>{" "}
                       |
                       <Link
+                        asp-action="Details"
+                        to={`/categoryDetails/${category._id}`}
+                      >
+                        <strong>DETAILS</strong>
+                      </Link>{" "}
+                      |
+                      <Link
                         asp-action="Delete"
                         to={`/deletecategory/${category._id}`}
                       >
