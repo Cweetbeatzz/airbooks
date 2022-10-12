@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useLocation } from "react-router";
+import { useParams } from "react-router";
 import { getCategoryByIdAction } from "../../redux/actions/categoryActions";
 import Loading from "../products/Loading";
 import Message from "../products/Message";
 
-function categoryDetails(props) {
+export default function CategoryDetails(props) {
   //##################################################################
   const { id } = useParams([]);
+
   const dispatch = useDispatch();
   const categoryDet = useSelector((state) => state.categoryById);
   const { loading, error, category } = categoryDet;
@@ -52,5 +53,3 @@ function categoryDetails(props) {
     </div>
   );
 }
-
-export default categoryDetails;

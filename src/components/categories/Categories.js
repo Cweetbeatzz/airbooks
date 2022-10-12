@@ -63,7 +63,7 @@ function Categories() {
                       |
                       <Link
                         asp-action="Details"
-                        to={`/categoryDetails/${category._id}`}
+                        to={`/CategoryDetails/${category._id}`}
                       >
                         <strong>DETAILS</strong>
                       </Link>{" "}

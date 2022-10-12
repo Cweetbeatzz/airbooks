@@ -11,7 +11,7 @@ import DeleteProduct from "./components/products/DeleteProduct";
 import Categories from "./components/categories/Categories";
 import CreateCategory from "./components/categories/CreateCategory";
 import UpdateCategory from "./components/categories/UpdateCategory";
-import categoryDetails from "./components/categories/categoryDetails";
+import CategoryDetails from "./components/categories/CategoryDetails";
 import Cart from "./components/cart/Cart";
 import ProdCategories from "./components/prodByCategories/ProdByCategories";
 import Register from "./components/register/Register";
@@ -57,7 +57,7 @@ function App() {
           <Route path="/Categories" element={<Categories />} />
           <Route path="/CreateCategory" element={<CreateCategory />} />
           <Route path="/UpdateCategory/:id" element={<UpdateCategory />} />
-          <Route path="/categoryDetails/:id" element={<categoryDetails />} />
+          <Route path="/CategoryDetails/:id" element={<CategoryDetails />} />
           <Route path="/DeleteCategory/:id" element={<DeleteCategory />} />
           <Route path="/Cart" element={<Cart />} />
           <Route path="/ProdCategories/:id" element={<ProdCategories />} />

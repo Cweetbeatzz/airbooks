@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams, useHref } from "react-router-dom";
+import { Link, useParams, useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { createUserAccountAction } from "../../redux/actions/userActions";
 import { useForm } from "react-hook-form";
 import style from "./register.styles.css";
 
 function Register(props) {
-  let redirect = useHref("/login");
+  let navigate = useNavigate();
 
   //#################################################################
   const {
@@ -64,7 +64,7 @@ function Register(props) {
 
   const navigateToLogin = () => {
     console.log("Navigate to login clicked");
-    // redirect.push("/login");
+    navigate("/login");
   };
 
   //#################################################################
@@ -87,7 +87,7 @@ function Register(props) {
             <h4
               id={style.loginNavigate}
               className="p-2 text-white"
-              onClick={() => redirect}
+              onClick={() => navigateToLogin()}
               style={{ cursor: "pointer" }}
             >
               <strong>Already have an account? Login</strong>
