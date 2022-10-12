@@ -55,7 +55,6 @@ function Login(props) {
   const signedIn = useSelector((state) => state.userLogin);
   const { error, userInfo } = signedIn;
   console.log(userInfo);
-  const redirect = navigate("/home");
 
   const navigateToRegister = () => {
     console.log("Navigate to Register clicked");
@@ -63,10 +62,7 @@ function Login(props) {
   };
 
   //########################################################
-  useEffect(() => {
-    if (userInfo) {
-    }
-  }, [redirect, userInfo]);
+  useEffect(() => {}, [userInfo]);
   //########################################################
   return (
     <div>
@@ -109,13 +105,6 @@ function Login(props) {
                       name="Email"
                       placeholder="Email"
                       className="form-control text-dark small"
-                      // {...register("Email", {
-                      //   required: "Email is required",
-                      // pattern: {
-                      //   value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
-                      //   message: "Invalid Email Format",
-                      // },
-                      // })}
                       onChange={(event) => setEmail(event.target.value)}
                     />
                     {errors.Email && (
@@ -134,10 +123,6 @@ function Login(props) {
                       name="Password"
                       placeholder="Password"
                       className="form-control text-dark"
-                      // {...register("Password", {
-                      //   required: "Password is required",
-                      //   minLength: { value: 2 },
-                      // })}
                       onChange={(event) => setPassword(event.target.value)}
                     />
                     {errors.Password && (

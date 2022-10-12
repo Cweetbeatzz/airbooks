@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./Header.styles.css";
 import { loginOutUserAction } from "../../redux/actions/userActions";
+import { useNavigate } from "react-router-dom";
 
 function Header(params) {
+  let navigate = useNavigate();
   //
   // const cart = useSelector((state) => state.cart);
   // const { cartItems } = cart;
@@ -21,7 +23,10 @@ function Header(params) {
 
   const handleLogOut = () => {
     dispatch(loginOutUserAction);
-    const redirect = "";
+    // if (userInfo == null) {
+    // }
+    //redirecting to home
+    navigate("/home");
   };
 
   //#######################################################################
