@@ -88,7 +88,9 @@ function Home() {
                       to="#"
                       key={category._id}
                     >
-                      <strong>{category.categoryName}</strong>
+                      <strong>
+                        {category.categoryName.toString().toUpperCase()}
+                      </strong>
                     </Link>
                   );
                 })
