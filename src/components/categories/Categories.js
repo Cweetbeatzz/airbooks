@@ -4,6 +4,13 @@ import { Link } from "react-router-dom";
 import { getAllCategoriesAction } from "../../redux/actions/categoryActions";
 import Loading from "../products/Loading";
 import Message from "../products/Message";
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override = {
+  display: "block",
+  margin: "0 auto",
+  borderColor: "#52b1ff",
+};
 
 function Categories() {
   const dispatch = useDispatch();
@@ -46,7 +53,15 @@ function Categories() {
             </thead>
             <tbody>
               {loading ? (
-                <Loading></Loading>
+                // <Loading></Loading>
+                <ClipLoader
+                  color="#52b1ff"
+                  loading={loading}
+                  cssOverride={override}
+                  size={150}
+                  aria-label="Loading Spinner"
+                  data-testid="loader"
+                />
               ) : error ? (
                 <Message variant="danger">{error}</Message>
               ) : (
