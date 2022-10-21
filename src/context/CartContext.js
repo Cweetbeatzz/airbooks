@@ -1,5 +1,5 @@
 import React, { useState, createContext, useEffect, useReducer } from "react";
-import Axios from "axios";
+import axios from "axios";
 import { ProductData } from "../Data/Products";
 import { useDispatch, useSelector } from "react-redux";
 import { ProductListReducer } from "../redux/reducers/productsReducers";
@@ -16,7 +16,7 @@ export const CartContextProvider = ({ children }) => {
   const [products, dispatch] = useReducer(ProductListReducer, []);
 
   const [Products, setProducts] = useState(ProductData);
-  const [grandTotal, setGrandTotal] = useState(0);
+  const [grandTotal, setGrandTotal] = useState(0.0);
   const [Tax, setTax] = useState(0);
   const [Cart, setCart] = useState([]);
   const [PrintReciptToMail, setPrintReciptToMail] = useState(false);

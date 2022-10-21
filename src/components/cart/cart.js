@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 
-function Cart(props) {
+function Cart() {
   //get product id
-  const getProdId = props.match.params.id;
+  const { _id } = useParams();
 
   //using cart context
   const {
