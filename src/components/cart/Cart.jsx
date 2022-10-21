@@ -37,7 +37,7 @@ function Cart() {
   // console.log("cart", Products);
 
   //#####################################################
-
+  // using redux toolkit
   const { load, cart, total, amount, err } = useSelector((state) => state.cart);
   //#####################################################
 
@@ -48,6 +48,9 @@ function Cart() {
     dispatch(clearCart());
   };
 
+  //#####################################################
+  //check anytime theres a change in the cart items list
+  useEffect(() => {}, [cart]);
   //#####################################################
 
   if (amount < 1) {
@@ -131,7 +134,7 @@ function Cart() {
                 </Link>
               </td>
               <td>$ {Price}</td>
-              <td>$ {Total}</td>
+              <td>$ {Total.toFixed(2)}</td>
             </tr>
 
             <tr className="">
@@ -147,7 +150,7 @@ function Cart() {
                 <h6 className="text-danger span">
                   <strong>GRAND TOTAL: </strong>
                 </h6>
-                $ {grandTotal}
+                $ {grandTotal.toFixed(3)}
               </td>
             </tr>
             <tr className="mt-2">
