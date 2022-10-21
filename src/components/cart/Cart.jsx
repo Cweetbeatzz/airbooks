@@ -21,6 +21,12 @@ function Cart() {
     products,
     dispatch,
     productList,
+    grandTotal,
+    Price,
+    Total,
+    ProductName,
+    ProductQuantity,
+    Tax,
   } = useContext(CartContext);
 
   const { loading, error, product } = productList;
@@ -51,8 +57,8 @@ function Cart() {
           </thead>
           <tbody>
             <tr>
-              <td>name</td>
-              <td>Quantity</td>
+              <td>{ProductName}</td>
+              <td>{ProductQuantity}</td>
               <td>
                 <Link
                   id="AddToCart"
@@ -97,16 +103,24 @@ function Cart() {
                   </svg>
                 </Link>
               </td>
-              <td>price</td>
-              <td>$0</td>
+              <td>$ {Price}</td>
+              <td>$ {Total}</td>
             </tr>
 
             <tr className="">
               <td className="text-center mx-auto" colSpan="5">
                 <h6 className="text-danger span">
-                  <strong>GRAND TOTAL:</strong>
+                  <strong>TAX: </strong>
                 </h6>
-                $0
+                $ {Tax}
+              </td>
+            </tr>
+            <tr className="">
+              <td className="text-center mx-auto" colSpan="5">
+                <h6 className="text-danger span">
+                  <strong>GRAND TOTAL: </strong>
+                </h6>
+                $ {grandTotal}
               </td>
             </tr>
             <tr className="mt-2">

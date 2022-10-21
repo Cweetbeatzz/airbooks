@@ -17,6 +17,10 @@ export const CartContextProvider = ({ children }) => {
 
   const [Products, setProducts] = useState(ProductData);
   const [grandTotal, setGrandTotal] = useState(0.0);
+  const [Total, setTotal] = useState(0.0);
+  const [Price, setPrice] = useState(0.0);
+  const [ProductName, setProductName] = useState("");
+  const [ProductQuantity, setProductQuantity] = useState(0);
   const [Tax, setTax] = useState(0);
   const [Cart, setCart] = useState([]);
   const [PrintReciptToMail, setPrintReciptToMail] = useState(false);
@@ -145,6 +149,12 @@ export const CartContextProvider = ({ children }) => {
         productList,
         clearAllCartItems,
         addToCart,
+        grandTotal,
+        Price,
+        Total,
+        ProductName,
+        ProductQuantity,
+        Tax,
       }}
     >
       {children}
