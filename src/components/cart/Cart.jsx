@@ -3,10 +3,12 @@ import { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
+import { clearCart } from "../../reduxToolKit/Reducers/Cart";
 
 function Cart() {
   //get product id
   const { _id } = useParams();
+  const dispatch = useDispatch();
 
   //using cart context
   const {
@@ -19,7 +21,7 @@ function Cart() {
     deleteAllCartItems,
     clearAllCartItems,
     products,
-    dispatch,
+    // dispatch,
     productList,
     grandTotal,
     Price,
@@ -34,6 +36,31 @@ function Cart() {
   // console.log("products", product);
   // console.log("cart", Products);
 
+  //#####################################################
+
+  const { load, cart, total, amount, err } = useSelector((state) => state.cart);
+  //#####################################################
+
+  const onCheckout = () => {};
+  //#####################################################
+
+  const onClearCart = () => {
+    dispatch(clearCart());
+  };
+
+  //#####################################################
+
+  if (amount < 1) {
+    return (
+      <div>
+        <div className="text-center">
+          <h1 className="text-info">
+            <strong>EMPTY CART</strong>
+          </h1>
+        </div>
+      </div>
+    );
+  }
   //#####################################################
   return (
     <div>
@@ -145,12 +172,6 @@ function Cart() {
         </table>
       </div>
       <br />
-
-      <div className="text-center">
-        <h1 className="text-info">
-          <strong>EMPTY CART</strong>
-        </h1>
-      </div>
     </div>
   );
 }

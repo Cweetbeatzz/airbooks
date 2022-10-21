@@ -1,4 +1,6 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import cartReducer from "./Reducers/Cart";
+import categoryReducer from "./Reducers/Categories";
 //####################################################################
 
 const preloadedState = {
@@ -12,7 +14,8 @@ const preloadedState = {
 //####################################################################
 
 const reducer = {
-  // categ: categoryReducer,
+  categ: categoryReducer,
+  cart: cartReducer,
 };
 
 //####################################################################
