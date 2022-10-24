@@ -10,11 +10,11 @@ const modalSlice = createSlice({
   reducers: {
     // standard reducer logic, with auto-generated action types per reducer
     //###################################
-    openModal: (state) => {
+    openModal: (state, action) => {
       state.isOpen = true;
     },
     //###################################
-    closeModal: (state) => {
+    closeModal: (state, action) => {
       state.isOpen = false;
     },
 
