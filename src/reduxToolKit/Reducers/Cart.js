@@ -8,6 +8,8 @@ const initialState = {
   total: 0,
   amount: 0,
   err: "",
+  tax: 0,
+  grandTotal: 0,
 };
 
 const cartSlice = createSlice({
