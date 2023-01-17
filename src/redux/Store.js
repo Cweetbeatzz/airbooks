@@ -28,6 +28,13 @@ import {
   userByIdReducer,
   userListReducer,
 } from "../redux/reducers/userReducers";
+import {
+  RoleDetailsReducer,
+  RoleListReducer,
+  createRoleReducer,
+  deleteRoleReducer,
+  updateRoleReducer,
+} from "./reducers/rolesReducers";
 
 //
 const intialState = {
@@ -62,6 +69,12 @@ const reducer = combineReducers({
   userDelete: deleteUserReducer,
   regUser: createUserReducer,
   userLogin: loginUserReducer,
+  //roles
+  roleList: RoleListReducer,
+  roleById: RoleDetailsReducer,
+  roleUpdate: updateRoleReducer,
+  roleDelete: deleteRoleReducer,
+  createRole: createRoleReducer,
   //categories
   categoryList: CategoryListReducer,
   categoryById: CategoryByIdReducer,
