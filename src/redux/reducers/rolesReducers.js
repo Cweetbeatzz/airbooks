@@ -1,7 +1,4 @@
 import {
-  ROLE_CATEGORY_LIST_FAIL,
-  ROLE_CATEGORY_LIST_REQUEST,
-  ROLE_CATEGORY_LIST_SUCCESS,
   ROLE_CREATE_FAIL,
   ROLE_CREATE_REQUEST,
   ROLE_CREATE_SUCCESS,
@@ -17,22 +14,22 @@ import {
   ROLE_UPDATE_FAIL,
   ROLE_UPDATE_REQUEST,
   ROLE_UPDATE_SUCCESS,
-} from "../constants/productsConstants";
+} from "../constants/rolesConstants";
 
 //##################################################################
 
 const initialState = {
   loading: true,
-  products: [],
+  roles: [],
 };
 //##################################################################
 
-export const ProductListReducer = (state = initialState, action) => {
+export const RoleListReducer = (state = initialState, action) => {
   switch (action.type) {
     case ROLE_LIST_REQUEST:
       return { loading: true };
     case ROLE_LIST_SUCCESS:
-      return { loading: false, product: action.payload };
+      return { loading: false, roles: action.payload };
     case ROLE_LIST_FAIL:
       return { loading: false, error: action.payload };
     default:
@@ -42,32 +39,15 @@ export const ProductListReducer = (state = initialState, action) => {
 
 //##################################################################
 
-export const ProductListByCategoryReducer = (
-  state = { loading: true, products: [] },
-  action
-) => {
-  switch (action.type) {
-    case ROLE_CATEGORY_LIST_REQUEST:
-      return { loading: true };
-    case ROLE_CATEGORY_LIST_SUCCESS:
-      return { loading: false, products: action.payload };
-    case ROLE_CATEGORY_LIST_FAIL:
-      return { loading: false, error: action.payload };
-    default:
-      return state;
-  }
-};
-//##################################################################
-
-export const ProductDetailsReducer = (
-  state = { products: {}, loading: true },
+export const RoleDetailsReducer = (
+  state = { roles: {}, loading: true },
   action
 ) => {
   switch (action.type) {
     case ROLE_DETAILS_REQUEST:
       return { loading: true };
     case ROLE_DETAILS_SUCCESS:
-      return { loading: false, products: action.payload };
+      return { loading: false, roles: action.payload };
     case ROLE_DETAILS_FAIL:
       return { loading: false, error: action.payload };
     default:
@@ -77,12 +57,12 @@ export const ProductDetailsReducer = (
 
 //##################################################################
 
-export const createProductReducer = (state = {}, action) => {
+export const createRoleReducer = (state = {}, action) => {
   switch (action.type) {
     case ROLE_CREATE_REQUEST:
       return { loading: true };
     case ROLE_CREATE_SUCCESS:
-      return { loading: false, product: action.payload };
+      return { loading: false, roles: action.payload };
     case ROLE_CREATE_FAIL:
       return { loading: false, error: action.payload };
     default:
@@ -92,7 +72,7 @@ export const createProductReducer = (state = {}, action) => {
 
 //##################################################################
 
-export const updateProductReducer = (state = {}, action) => {
+export const updateRoleReducer = (state = {}, action) => {
   switch (action.type) {
     case ROLE_UPDATE_REQUEST:
       return { loading: true };
@@ -107,12 +87,12 @@ export const updateProductReducer = (state = {}, action) => {
 
 //##################################################################
 
-export const deleteProductReducer = (state = { deleteProduct: {} }, action) => {
+export const deleteRoleReducer = (state = { deleteRole: {} }, action) => {
   switch (action.type) {
     case ROLE_DELETE_REQUEST:
       return { loading: true };
     case ROLE_DELETE_SUCCESS:
-      return { loading: false, deleteProduct: action.payload };
+      return { loading: false, roles: action.payload };
     case ROLE_DELETE_FAIL:
       return { loading: false, error: action.payload };
     default:
