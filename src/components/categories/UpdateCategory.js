@@ -28,6 +28,8 @@ function UpdateCategory(props) {
     dispatch(getCategoryByIdAction(id));
     setCategoryName(category.categoryName);
   }, [dispatch, id, category.categoryName]);
+  //#########################################################
+
   return (
     <div>
       <br />
