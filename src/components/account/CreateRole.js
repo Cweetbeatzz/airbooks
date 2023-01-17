@@ -3,6 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
 import FileBase64 from "react-file-base64";
 import { useForm } from "react-hook-form";
+import {
+  createRoleAction,
+  roleListAction,
+} from "../../redux/actions/rolesActions";
 
 function CreateRole() {
   //#################################################################
@@ -24,7 +28,7 @@ function CreateRole() {
 
   //#################################################################
   useEffect(() => {
-    dispatch(getAllRolesAction());
+    dispatch(roleListAction());
   }, [dispatch]);
 
   return (

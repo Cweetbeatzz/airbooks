@@ -1,19 +1,23 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+import {
+  deleteRoleAction,
+  roleListAction,
+} from "../../redux/actions/rolesActions";
 
-function DeleteRole() {
+function RoleDelete() {
   //###################################################
 
-  const roleDetail = useSelector((state) => state.delRole);
-  const { DeleteRole } = roleDetail;
+  const roleDetail = useSelector((state) => state.roleDelete);
+  const { roles } = roleDetail;
   const { id } = useParams();
   const dispatch = useDispatch();
 
   console.log(roleDetail);
 
   const handleDelete = () => {
-    dispatch(DeleteRoleAction(id));
+    dispatch(deleteRoleAction(id));
   };
   //###################################################
 
@@ -44,7 +48,7 @@ function DeleteRole() {
         >
           <dl class="container row  mx-auto">
             <dt class="col-sm-2">Role Name</dt>
-            <dd class="col-sm-10">{DeleteRole.RoleName}</dd>
+            <dd class="col-sm-10">{roles.RoleName}</dd>
           </dl>
           <hr />
           <div className="text-center">
@@ -63,4 +67,4 @@ function DeleteRole() {
   );
 }
 
-export default DeleteRole;
+export default RoleDelete;

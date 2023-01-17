@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { updateProductAction } from "../../redux/actions/productsActions";
-import Loading from "./Loading";
-import Message from "./Message";
+import Message from "../products/Message";
+import Loading from "../products/Loading";
+import {
+  roleListAction,
+  updateRoleAction,
+} from "../../redux/actions/rolesActions";
 
 function RoleUpdate() {
   //#################################################################
@@ -22,7 +25,7 @@ function RoleUpdate() {
 
   //#################################################################
   useEffect(() => {
-    dispatch(getAllRolesAction());
+    dispatch(roleListAction());
   }, [dispatch]);
 
   //#################################################################

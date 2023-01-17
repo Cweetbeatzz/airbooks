@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import Loading from "./Loading";
-import Message from "./Message";
+import Message from "../products/Message";
+import Loading from "../products/Loading";
+import { roleDetailsAction } from "../../redux/actions/rolesActions";
 
 function RoleDetail(props) {
   const dispatch = useDispatch();
   const { id } = useParams([]);
-  const RoleDetail = useSelector((state) => state.RoleDetail);
+  const RoleDetail = useSelector((state) => state.roleById);
   const { loading, error, roles } = RoleDetail;
 
   console.log(roles);
 
   useEffect(() => {
-    dispatch(RoleDetailAction(id));
+    dispatch(roleDetailsAction(id));
   }, [dispatch, id]);
 
   return (
