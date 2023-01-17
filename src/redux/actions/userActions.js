@@ -233,6 +233,6 @@ export const loginOutUserAction = () => async (dispatch) => {
     type: USER_LOGOUT,
   });
   //
-  localStorage.clear();
-  // localStorage.removeItem("userInfo");
+  // localStorage.clear();
+  localStorage.removeItem("userInfo");
 };

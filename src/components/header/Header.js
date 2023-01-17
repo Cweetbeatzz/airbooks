@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./Header.styles.css";
@@ -17,17 +17,19 @@ function Header(params) {
   const signedIn = useSelector((state) => state.userLogin);
   const { userInfo } = signedIn;
 
+  const [getSignedIn, setSignedIn] = useState(userInfo);
+
   //#######################################################################
   //logout
   const dispatch = useDispatch();
 
   const handleLogOut = () => {
-    dispatch(loginOutUserAction);
-    // if (userInfo == null) {
-    // }
-    //redirecting to home
+    setSignedIn(dispatch(loginOutUserAction));
+
     navigate("/home");
   };
+
+  useEffect(() => {}, [getSignedIn]);
 
   //#######################################################################
   return (

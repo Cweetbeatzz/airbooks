@@ -69,6 +69,7 @@ const reducer = combineReducers({
   userDelete: deleteUserReducer,
   regUser: createUserReducer,
   userLogin: loginUserReducer,
+  // userLogOut: logOutUserReducer,
   //roles
   roleList: RoleListReducer,
   roleById: RoleDetailsReducer,
