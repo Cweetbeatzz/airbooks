@@ -27,7 +27,7 @@ function Roles() {
       </div>
       <br />
       <div className="text-center">
-        <Link className="btn btn-primary" to="/createRole">
+        <Link className="btn btn-primary" to="/CreateRole">
           <strong>CREATE ROLE</strong>
         </Link>
       </div>

@@ -38,6 +38,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import DeleteCategory from "./components/categories/DeleteCategory";
 import CustomerCare from "./components/CustomerCare/CustomerCare";
+import CreateRole from "./components/account/CreateRole";
+import RoleDelete from "./components/account/RoleDelete";
+import RoleDetail from "./components/account/RoleDetail";
+import RoleUpdate from "./components/account/RoleUpdate";
 
 function App() {
   return (
@@ -73,6 +77,10 @@ function App() {
           <Route path="/AccountDetails/:id" element={<AccountDetails />} />
           <Route path="/AccountDelete/:id" element={<AccountDelete />} />
           <Route path="/Roles" element={<Roles />} />
+          <Route path="/CreateRole" element={<CreateRole />} />
+          <Route path="/RoleDelete/:id" element={<RoleDelete />} />
+          <Route path="/RoleDetail/:id" element={<RoleDetail />} />
+          <Route path="/RoleUpdate/:id" element={<RoleUpdate />} />
           <Route path="/Analytics" element={<Analytics />} />
           <Route path="/Mail" element={<Mail />} />
           <Route path="/Manage" element={<Manage />} />
