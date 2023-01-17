@@ -1,5 +1,7 @@
 const express = require("express");
 require("dotenv").config();
+const helmet = require("helmet");
+const bodyParser = require("body-parser");
 const usersRouter = require("./Controllers/UsersController");
 const categoryRouter = require("./Controllers/CategoryController");
 const productsRouter = require("./Controllers/ProductsController");
@@ -16,7 +18,9 @@ const app = express();
 //use static files
 app.use("/uploads", express.static("./uploads"));
 app.use(express.json());
+app.use(bodyParser.json());
 app.use(cors());
+app.use(helmet());
 app.use(express.urlencoded({ extended: true }));
 
 //

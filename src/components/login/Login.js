@@ -43,11 +43,13 @@ function Login(props) {
   const handleLoginSubmit = (event) => {
     event.preventDefault();
     //calling the user login action
-    dispatch(loginUserAction(getEmail, getPassword));
-    //
-    setEmail("");
-    //redirecting to home
-    navigate("/home");
+    const result = dispatch(loginUserAction(getEmail, getPassword));
+
+    if (result) {
+      setEmail("");
+      //redirecting to home
+      navigate("/home");
+    }
   };
   //
   //########################################################
