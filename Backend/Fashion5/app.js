@@ -3,6 +3,7 @@ require("dotenv").config();
 const helmet = require("helmet");
 const bodyParser = require("body-parser");
 const usersRouter = require("./Controllers/UsersController");
+const rolesRouter = require("./Controllers/RolesController");
 const categoryRouter = require("./Controllers/CategoryController");
 const productsRouter = require("./Controllers/ProductsController");
 const authRouter = require("./Controllers/Auth");
@@ -35,6 +36,7 @@ server = http.createServer(app);
 //<----------- routes ---------------->
 app.use("/fashion5/api/v1/products", productsRouter);
 app.use("/fashion5/api/v1/users", usersRouter);
+app.use("/fashion5/api/v1/roles", rolesRouter);
 app.use("/fashion5/api/v1/category", categoryRouter);
 app.use("/fashion5/api/v1/auth", authRouter);
 app.use("/fashion5/api/v1/stripe", stripeRouter);

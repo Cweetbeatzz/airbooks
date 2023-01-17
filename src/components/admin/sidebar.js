@@ -75,7 +75,7 @@ function sidebar() {
           </div>
           <div className="py-1">
             <Link to="/roles">
-              <strong>Staffs</strong>
+              <strong>Roles</strong>
             </Link>
           </div>
         </div>
