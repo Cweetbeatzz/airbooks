@@ -56,6 +56,7 @@ function Login(props) {
 
   const signedIn = useSelector((state) => state.userLogin);
   const { error, userInfo } = signedIn;
+  
   console.log(userInfo);
 
   const navigateToRegister = () => {
