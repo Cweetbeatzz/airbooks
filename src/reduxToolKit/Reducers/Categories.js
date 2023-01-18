@@ -96,12 +96,12 @@ const categoriesSlice = createSlice({
   },
 });
 
-export const {
-  getAllCategoriesAction,
-  getCategoryByIdAction,
-  createCategoryAction,
-  updateCategoryAction,
-  deleteCategoryAction,
-} = categoriesSlice.actions;
+// export const {
+//   getAllCategoriesAction
+//   getCategoryByIdAction,
+//   createCategoryAction,
+//   updateCategoryAction,
+//   deleteCategoryAction,
+// } = categoriesSlice.actions;
 
 export default categoriesSlice.reducer;
