@@ -234,5 +234,6 @@ export const loginOutUserAction = () => async (dispatch) => {
   });
   //
   // localStorage.clear();
-  localStorage.removeItem("userInfo");
+  // localStorage.removeItem("userInfo");
+  localStorage.setItem("userInfo", "");
 };
