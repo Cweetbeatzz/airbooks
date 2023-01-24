@@ -16,7 +16,7 @@ const { ensureAdmin } = require("../Middlewares/AdminAuthorization");
 userRouter.get(
   "/getAllUsers",
   // ensureLogginIn,
-  ensureLoginWithPermissions([roles.manager,roles.admin]),
+  ensureLoginWithPermissions([roles.manager, roles.admin]),
   // ensureAdmin,
   async (req, res) => {
     const users = await Users.find();
@@ -31,7 +31,8 @@ userRouter.get(
 
 userRouter.get(
   "/getUsersById/:id",
-  ensureLogginIn,
+  // ensureLogginIn,
+  ensureLoginWithPermissions([roles.manager, roles.admin]),
   // ensureAdmin,
   async (req, res) => {
     //
@@ -129,8 +130,9 @@ userRouter.post("/createUsers", async (req, res) => {
 
 userRouter.put(
   "/updateUsersById/:id",
-  ensureLogginIn,
-  ensureAdmin,
+  // ensureLogginIn,
+  ensureLoginWithPermissions([roles.manager, roles.admin]),
+  // ensureAdmin,
   async (req, res) => {
     const hashedpass = hashPassword(req.body.password);
     let oldUserDetails = {
@@ -175,8 +177,9 @@ userRouter.put(
 
 userRouter.delete(
   "/deleteUsersById/:id",
-  ensureLogginIn,
-  ensureAdmin,
+  // ensureLogginIn,
+  ensureLoginWithPermissions([roles.manager, roles.admin]),
+  // ensureAdmin,
   async (req, res) => {
     //
     const userById = await Users.findByIdAndDelete(req.params.id);
@@ -192,8 +195,9 @@ userRouter.delete(
 
 userRouter.get(
   `/search/:email`,
-  ensureLogginIn,
-  ensureAdmin,
+  // ensureLogginIn,
+  ensureLoginWithPermissions([roles.manager, roles.admin]),
+  // ensureAdmin,
   async (req, res) => {
     //########
     const _email = req.body.email;
@@ -210,8 +214,9 @@ userRouter.get(
 
 userRouter.put(
   `/add-user-to-role/:id`,
-  ensureLogginIn,
-  ensureAdmin,
+  // ensureLogginIn,
+  ensureLoginWithPermissions([roles.manager, roles.admin]),
+  // ensureAdmin,
   async (req, res) => {
     //########
     const { id } = req.params;
