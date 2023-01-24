@@ -107,7 +107,7 @@ function Header(params) {
                   <strong>PRIVACY</strong>
                 </Link>
               </li>
-              {userInfo && userInfo.isAdmin ? (
+              {userInfo && userInfo.roles2 === "Admin" ? (
                 <li className="nav-item">
                   <Link
                     className="nav-link text-dark"

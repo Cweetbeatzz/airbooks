@@ -5,14 +5,18 @@ const userRouter = express.Router();
 const { hashPassword } = require("../Services/passwordHash");
 const { generateToken } = require("../Services/Jwt");
 const { roles } = require("../utils/constants");
-const { ensureLogginIn } = require("../Middlewares/LoggedInAuthorization");
+const {
+  ensureLogginIn,
+  ensureLoginWithPermissions,
+} = require("../Middlewares/LoggedInAuthorization");
 const { ensureAdmin } = require("../Middlewares/AdminAuthorization");
 
 //#######################################################
 
 userRouter.get(
   "/getAllUsers",
-  ensureLogginIn,
+  // ensureLogginIn,
+  ensureLoginWithPermissions([roles.manager,roles.admin]),
   // ensureAdmin,
   async (req, res) => {
     const users = await Users.find();
@@ -28,7 +32,7 @@ userRouter.get(
 userRouter.get(
   "/getUsersById/:id",
   ensureLogginIn,
-  ensureAdmin,
+  // ensureAdmin,
   async (req, res) => {
     //
     const users = await Users.findById(req.params.id);
