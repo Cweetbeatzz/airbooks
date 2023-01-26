@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 
 function Header(params) {
   let navigate = useNavigate();
+  const dispatch = useDispatch();
+
   //
   // const cart = useSelector((state) => state.cart);
   // const { cartItems } = cart;
@@ -18,18 +20,23 @@ function Header(params) {
   const { userInfo } = signedIn;
 
   const [getSignedIn, setSignedIn] = useState(userInfo);
+  const [getSignedOut, setSignedOut] = useState(false);
 
   //#######################################################################
   //logout
-  const dispatch = useDispatch();
 
   const handleLogOut = () => {
-    setSignedIn(dispatch(loginOutUserAction));
+    localStorage.removeItem("userInfo");
+    console.log("Is logged out");
+    // dispatch(loginOutUserAction);
+    setSignedOut(true);
 
     navigate("/home");
+    window.location.reload(true);
   };
+  //#######################################################################
 
-  useEffect(() => {}, [getSignedIn]);
+  useEffect(() => {}, [getSignedIn, getSignedOut]);
 
   //#######################################################################
   return (
@@ -107,7 +114,11 @@ function Header(params) {
                   <strong>PRIVACY</strong>
                 </Link>
               </li>
-              {userInfo && userInfo.roles2 === "Admin" ? (
+              {(userInfo &&
+                userInfo.user.roles2.toLowerCase() === "Admin".toLowerCase()) ||
+              (userInfo &&
+                userInfo.user.roles2.toLowerCase() ===
+                  "Manager".toLowerCase()) ? (
                 <li className="nav-item">
                   <Link
                     className="nav-link text-dark"

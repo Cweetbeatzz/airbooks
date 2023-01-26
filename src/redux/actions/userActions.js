@@ -83,9 +83,9 @@ export const createUserAccountAction =
     email,
     address,
     phone,
-    state,
     country,
-    postcode,
+    state,
+    postalcode,
     password
   ) =>
   async (dispatch) => {
@@ -101,7 +101,7 @@ export const createUserAccountAction =
         phone,
         state,
         country,
-        postcode,
+        postalcode,
         password,
       },
     });
@@ -116,7 +116,7 @@ export const createUserAccountAction =
         phone,
         state,
         country,
-        postcode,
+        postalcode,
         password,
       });
       dispatch({
@@ -213,7 +213,7 @@ export const loginUserAction = (email, password) => async (dispatch) => {
       type: USER_LOGIN_SUCCESS,
       payload: data,
     });
-    console.log(data)
+    console.log("login data", data);
     //save user info in web browser storage
     localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
@@ -233,8 +233,7 @@ export const loginOutUserAction = () => async (dispatch) => {
   dispatch({
     type: USER_LOGOUT,
   });
-  //
   // localStorage.clear();
-  // localStorage.removeItem("userInfo");
-  localStorage.setItem("userInfo", "");
+  localStorage.removeItem("userInfo");
+  console.log("Is logged out");
 };
