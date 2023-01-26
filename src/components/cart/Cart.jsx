@@ -41,7 +41,7 @@ function Cart() {
   //cart
   const { load, cart, total, amount, err } = useSelector((store) => store.cart);
   //modal
-  const { isOpen } = useSelector((store) => store.modal);
+  // const { isOpen } = useSelector((store) => store.modal);
   //#####################################################
 
   const onCheckout = () => {};
