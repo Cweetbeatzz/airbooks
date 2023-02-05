@@ -37,7 +37,7 @@ import Transactions from "./components/extras/Transactions";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import DeleteCategory from "./components/categories/DeleteCategory";
-import CustomerCare from "./components/CustomerCare/CustomerCare";
+import CustomerCare from "./components/webRTC/CustomerCare/CustomerCare";
 import CreateRole from "./components/account/CreateRole";
 import RoleDelete from "./components/account/RoleDelete";
 import RoleDetail from "./components/account/RoleDetail";
