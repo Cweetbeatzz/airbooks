@@ -16,9 +16,13 @@ const socket = io("http://localhost:3000");
 export const SocketProvider = ({ children }) => {
   //##########################################################
   const [getStream, setStream] = useState(null);
+  const [getCall, setCall] = useState({});
+  const [getEvent, setEvent] = useState("");
+  const [acceptCall, setAcceptCall] = useState(false);
 
   const myVideo = useRef();
   //##########################################################
+  //set call details
 
   useEffect(() => {
     navigator.mediaDevices
@@ -29,8 +33,15 @@ export const SocketProvider = ({ children }) => {
         myVideo.current.srcObject = currentStream;
       });
 
-      socket.on()
-  });
+    socket.on("event", (id) => {
+      setEvent(id);
+    });
+
+    socket.on("CallUser", ({ from, name: callerName, signal }) => {
+      setCall({ isRecievedCall: true, from, name: callerName, signal });
+    });
+  }, []);
+
   //##########################################################
 
   const CallUser = () => {};
