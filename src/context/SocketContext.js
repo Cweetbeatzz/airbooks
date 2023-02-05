@@ -19,6 +19,7 @@ export const SocketProvider = ({ children }) => {
   const [getCall, setCall] = useState({});
   const [getEvent, setEvent] = useState("");
   const [acceptCall, setAcceptCall] = useState(false);
+  const [CallEnded, setCallEnded] = useState(false);
 
   const myVideo = useRef();
   //##########################################################
@@ -47,11 +48,25 @@ export const SocketProvider = ({ children }) => {
   const CallUser = () => {};
   //##########################################################
 
-  const AnswerCall = () => {};
+  const AnswerCall = () => {
+    setAcceptCall(true);
+
+    const peer = new Peer({ initatior: false, trickle: false, getStream });
+
+    peer.on("signal", (data) => {
+      socket.emit("answerCall", { signal: data, to: getCall.from });
+    });
+  };
   //##########################################################
 
-  const EndCall = () => {};
+  const EndCall = () => {
+    setCallEnded(true);
+  };
   //##########################################################
 
-  return <SocketContext.Provider value={{}}>{children}</SocketContext.Provider>;
+  return (
+    <SocketContext.Provider value={{ CallUser, AnswerCall, EndCall }}>
+      {children}
+    </SocketContext.Provider>
+  );
 };
