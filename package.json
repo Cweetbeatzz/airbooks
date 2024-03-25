@@ -52,6 +52,7 @@
     "yup": "^0.32.11"
   },
   "scripts": {
+    "docker:build-image": "docker run --name fashion-web -v C:/Users/ojoem/Documents/PROJECTS/REACT PROJECTS/AirBooks/build:/usr/share/nginx/html:ro -p 3000:80 -d nginx",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
